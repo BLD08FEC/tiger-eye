@@ -57,10 +57,10 @@ function App() {
         </span>
       </header>
       <div className="components-area" >
-        <div className="row" > <ProductOverview /> </div>
-        <div className="row" > <QuestionsAndAnswers /> </div>
-        <div className="row" > <RelatedProducts /> </div>
-        <div className="row" > <Reviews /> </div>
+        <div className="row" ><ProductOverview /></div>
+        <div className="row" ><QuestionsAndAnswers /></div>
+        <div className="row" ><RelatedProducts /></div>
+        <div className="row" ><Reviews /></div>
       </div>
     </div>
   );
