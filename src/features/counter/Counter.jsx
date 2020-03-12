@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,7 +11,7 @@ import {
 } from './counterSlice';
 import styles from './Counter.module.css';
 
-function Counter() {
+export function Counter() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
@@ -57,5 +58,3 @@ function Counter() {
     </div>
   );
 }
-
-export default Counter;
