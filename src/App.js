@@ -3,10 +3,10 @@ import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 
-import { ProductOverview } from "./Components/ProductOverview/ProductOverview";
-import { QuestionsAndAnswers } from "./Components/QuestionsAndAnswers/QuestionsAndAnswers";
-import { RelatedProducts } from "./Components/RelatedProducts/RelatedProducts";
-import { Reviews } from "./Components/Reviews/Reviews";
+import ProductOverview from './Components/ProductOverview/ProductOverview';
+import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAnswers';
+import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
+import Reviews from './Components/Reviews/Reviews';
 
 function App() {
   return (
@@ -15,7 +15,11 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit
+          {' '}
+          <code>src/App.js</code>
+          {' '}
+          and save to reload.
         </p>
         <span>
           <span>Learn </span>
@@ -45,7 +49,8 @@ function App() {
           >
             Redux Toolkit
           </a>
-          ,<span> and </span>
+          ,
+          <span> and </span>
           <a
             className="App-link"
             href="https://react-redux.js.org/"
@@ -56,11 +61,11 @@ function App() {
           </a>
         </span>
       </header>
-      <div className="components-area" >
-        <div className="row" ><ProductOverview /></div>
-        <div className="row" ><QuestionsAndAnswers /></div>
-        <div className="row" ><RelatedProducts /></div>
-        <div className="row" ><Reviews /></div>
+      <div className="components-area">
+        <div className="row"><ProductOverview /></div>
+        <div className="row"><QuestionsAndAnswers /></div>
+        <div className="row"><RelatedProducts /></div>
+        <div className="row"><Reviews /></div>
       </div>
     </div>
   );

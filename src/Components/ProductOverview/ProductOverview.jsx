@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
-export const ProductOverview = () => {
-    return ( <div className="product-overview" >ProductOverview PLACEHOLDER</div> );
-};
+const ProductOverview = () => (<div className="product-overview">ProductOverview PLACEHOLDER</div>);
+
+export default ProductOverview;

@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
-export const RelatedProducts = () => {
-    return ( <div className="related-products" >RelatedProducts PLACEHOLDER</div> );
-};
+const RelatedProducts = () => (<div className="related-products">RelatedProducts PLACEHOLDER</div>);
+
+export default RelatedProducts;
