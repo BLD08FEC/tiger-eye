@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
+import { withRouter } from 'react-router-dom';
 import ProductOverview from './Components/ProductOverview/ProductOverview';
 import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAnswers';
 import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
 
-function App() {
+function App(props) {
+  // console.log('props: ', props.location.pathname);
   return (
     <div className="App">
-      <header className="App-header">App</header>
       <div className="container">
         <div className="row"><ProductOverview /></div>
         <div className="row"><QuestionsAndAnswers /></div>
@@ -19,4 +20,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
