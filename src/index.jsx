@@ -7,9 +7,11 @@ import './index.css';
 import { Provider } from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import counterReducer from './data/reducers/counterReducer';
 
 const reducer = combineReducers({
   // reducers placed in here
+  counterReducer,
 });
 
 const middleware = [thunk];
