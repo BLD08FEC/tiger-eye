@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">App</header>
-      <div className="components-area">
+      <div className="container">
         <div className="row"><ProductOverview /></div>
         <div className="row"><QuestionsAndAnswers /></div>
         <div className="row"><RelatedProducts /></div>
