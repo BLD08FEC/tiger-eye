@@ -10,11 +10,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import counterReducer from './data/reducers/counterReducer';
 import productIdReducer from './data/reducers/productIdReducer';
+import reviewMetaReducer from './data/reducers/reviewMetaReducer';
 
 const reducer = combineReducers({
   // reducers placed in here
-  counterReducer,
-  productIdReducer,
+  // counterReducer,
+  // productIdReducer,
+  reviewMetaReducer,
 });
 
 const middleware = [thunk];

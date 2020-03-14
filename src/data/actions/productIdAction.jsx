@@ -5,4 +5,3 @@ export const changeProductId = (productId) => ({
   type: CHANGE_PRODUCT_ID,
   productId,
 });
-
