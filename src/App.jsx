@@ -10,8 +10,8 @@ import Reviews from './Components/Reviews/Reviews';
 
 // Reduxs
 import { check } from './data/actions/circleCICheck';
-import { getReviewMetaData } from './data/actions/reviewMetaAction';
 import { getProductData } from './data/actions/productDataAction';
+import { getReviewMetaData } from './data/actions/reviewMetaAction';
 import { getProductsList } from './data/actions/productsListAction';
 
 class App extends Component {

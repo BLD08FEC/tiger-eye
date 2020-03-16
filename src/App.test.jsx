@@ -3,9 +3,6 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import App from './App';
-import { getReviewMetaData } from './data/actions/reviewMetaAction';
-import { getProductData } from './data/actions/productDataAction';
-import { getProductsList } from './data/actions/productsListAction';
 
 // test('renders text to DOM', () => {
 //   const { getByText } = render(
