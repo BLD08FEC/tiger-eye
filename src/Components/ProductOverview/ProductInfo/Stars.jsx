@@ -1,9 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Stars = (props) => (
-  <div>
-    <p>*****</p>
-  </div>
-);
+const Stars = ({ reviewMetaData }) => {
 
-export default Stars;
+  // const calAvgRating = (reviewMetaData) => {
+  // };
+  return (
+    <div>
+      <p>*****</p>
+      {console.log(reviewMetaData.ratings)}
+    </div>
+  )
+};
+
+const mapStateToProps = (state) => ({
+  reviewMetaData: state.reviewMetaReducer.reviewMetaData,
+});
+
+export default connect(mapStateToProps)(Stars);
