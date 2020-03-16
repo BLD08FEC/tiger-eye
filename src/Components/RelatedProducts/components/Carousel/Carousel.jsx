@@ -38,10 +38,10 @@ class Carousel extends React.Component {
         <div className="col-xs-1 col-sm-1 carousel-arrow" direction="left" pointer="&#9654;" onClick={() => this.next('left')}><div>&#9664;</div></div>
         <div className="col-sm-4 card-group">
           <div className="row">
-            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard]} />
-            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 1]} />
-            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 2]} />
-            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 3]} />
+            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard]} isRelated={this.props.isRelated} />
+            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 1]} isRelated={this.props.isRelated} />
+            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 2]} isRelated={this.props.isRelated} />
+            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 3]} isRelated={this.props.isRelated} />
           </div>
         </div>
         <div className="col-xs-1 col-sm-1 carousel-arrow" direction="right" pointer="&#9664;" onClick={() => this.next('right')}>&#9654;</div>
