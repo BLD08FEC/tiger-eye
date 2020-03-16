@@ -11,11 +11,13 @@ import * as serviceWorker from './serviceWorker';
 import productIdReducer from './data/reducers/productIdReducer';
 import reviewMetaReducer from './data/reducers/reviewMetaReducer';
 import productDataReducer from './data/reducers/productDataReducer';
+import productsListReducer from './data/reducers/productsListReducer';
 
 const reducer = combineReducers({
   // productIdReducer,
   reviewMetaReducer,
   productDataReducer,
+  productsListReducer,
 });
 
 const middleware = [thunk];
