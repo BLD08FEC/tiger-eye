@@ -14,7 +14,7 @@ const getProducts = (productId, cb) => {
     // .then(res.data => cb(res.data))
 }
 
-const getOneProduct = (productId, cb) => {
+const getProduct = (productId, cb) => {
     axios.get(`http://3.134.102.30/products/${productId}`)
     .then(console.log(res.data))
     // .then(res.data => cb(res.data))
@@ -56,8 +56,8 @@ const getAnswers = (questionId, cb) => {
     // .then(res.data => cb(res.data))
 }
 
-const getQuestions = (productId, cb) => {
-    axios.get(`http://3.134.102.30/qa/${productId}`)
+const giveAnswer = (productId, cb) => {
+    axios.post(`http://3.134.102.30/qa/${productId}`)
         .then(console.log(res.data))
     // .then(res.data => cb(res.data))
 }
