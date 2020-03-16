@@ -8,7 +8,23 @@
     // Questions & Answers
     // Reviews
 
-    
+// potential refactor to clean up code and enable single module export
+// let helpers = {
+//     getQuestions: (productId, cb) => {
+//         axios.get(`http://3.134.102.30/qa/${productId}`)
+//             .then(res => console.log(res.data))
+//         // .then(res.data => cb(res.data))
+//         // .catch(err => cb(error))
+//     },
+
+//     getAnswers:  (questionId, cb) => {
+//         axios.get(`http://3.134.102.30/qa/${questionId}/answers`)
+//             .then(res => console.log(res.data))
+//         // .then(res.data => cb(res.data))
+//         // .catch(err => cb(error))
+//     }
+// };
+
 // ======== Cart API =====================
 
 // get   = /cart/:user_token
@@ -181,6 +197,7 @@ const reportReview = (reviewId, cb) => {
 // generally add is more intuitive but post is the type of request...
 
 module.exports(
+    helpers,
     logInteraction,
     getCart,
     addToCart,
