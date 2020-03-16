@@ -7,11 +7,13 @@ import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAn
 import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
 import { getReviewMetaData } from './data/actions/reviewMetaAction';
+import { getProductData } from './data/actions/productDataAction';
 
 class App extends Component {
 
   componentDidMount() {
     this.props.getReviewMetaData();
+    this.props.getProductData();
   };
 
 
@@ -32,10 +34,12 @@ class App extends Component {
 const mapStateToProps = (state) => ({
   reviewMetaData: state.reviewMetaReducer.reviewMetaData,
   error: state.reviewMetaReducer.error,
+  productData: state.productDataReducer.productData,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getReviewMetaData: () => dispatch(getReviewMetaData()),
+  getProductData: () => dispatch(getProductData()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));
