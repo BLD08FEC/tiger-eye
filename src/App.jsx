@@ -8,10 +8,10 @@ import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAn
 import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
 
-// Reduxs
+// Redux
 import { getProductData } from './data/actions/productDataAction';
 import { getProductsList } from './data/actions/productsListAction';
-import { getReviewMetaData } from './data/actions/reviewMetaAction';
+import { getReviewMetaData } from './data/actions/reviewMetaAction.jsx';
 
 class App extends Component {
   componentDidMount() {
