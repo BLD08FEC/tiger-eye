@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Stars from './Stars';
 
-const ProductInfo = (props) => (
+const ProductInfo = ({ reviewMetaData }) => (
   <div>
     Product Info
-    {props.reviewMetaData.product_id}
+    {reviewMetaData.product_id}
     <Stars />
   </div>
 );
