@@ -17,7 +17,7 @@ const reviewMetaReducer = (state = initialState, action) => {
     case GET_REVIEW_META_DATA_SUCCESS:
       return {
         ...state,
-        reviewMetaData: action.payload
+        reviewMetaData: action.payload,
       };
 
     case GET_REVIEW_META_DATA_FAILURE:
