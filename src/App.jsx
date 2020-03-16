@@ -7,7 +7,7 @@ import ProductOverview from './Components/ProductOverview/ProductOverview';
 import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAnswers';
 import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
-import { getReviewMetaData } from './data/actions/reviewMetaAction';
+import { getReviewMetaData } from './data/actions/reviewMetaAction.jsx';
 import { getProductData } from './data/actions/productDataAction';
 import { getProductsList } from './data/actions/productsListAction';
 
