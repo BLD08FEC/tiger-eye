@@ -9,7 +9,6 @@ import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
 
 // Reduxs
-import { check } from './data/actions/circleCICheck';
 import { getProductData } from './data/actions/productDataAction';
 import { getProductsList } from './data/actions/productsListAction';
 import { getReviewMetaData } from './data/actions/reviewMetaAction';
