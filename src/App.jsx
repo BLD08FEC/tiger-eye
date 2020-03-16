@@ -38,7 +38,6 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   reviewMetaData: state.reviewMetaReducer.reviewMetaData,
-  error: state.reviewMetaReducer.error,
   productData: state.productDataReducer.productData,
   productsList: state.productsListReducer.productsList,
 });
