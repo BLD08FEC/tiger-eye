@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Stars = () => (
+const Stars = (props) => (
   <div>
     <p>*****</p>
   </div>
