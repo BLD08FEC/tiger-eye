@@ -38,36 +38,48 @@ const getRelatedProduct = (productId, cb) => {
     axios.get(`http://3.134.102.30/products/${productId}/related`)
     .then(console.log(res.data))
     // .then(res.data => cb(res.data))
+    // .catch(err => cb(error))
 }
 
 
 // ======== Question and Answers ==========
-// get Q's from Product_id
+
+// Get 
 const getQuestions = (productId, cb) => {
     axios.get(`http://3.134.102.30/qa/${productId}`)
     .then(console.log(res.data))
     // .then(res.data => cb(res.data))
 }
 
-// get answers from Question_id
 const getAnswers = (questionId, cb) => {
     axios.get(`http://3.134.102.30/qa/${questionId}/answers`)
     .then(console.log(res.data))
     // .then(res.data => cb(res.data))
 }
 
-const giveAnswer = (productId, cb) => {
+// Post
+const postQuestion = (productId, cb) => {
     axios.post(`http://3.134.102.30/qa/${productId}`)
         .then(console.log(res.data))
     // .then(res.data => cb(res.data))
 }
 
-// /qa/: question_id / answers
+const postAnswer = (questionId, cb) => {
+    axios.post(`http://3.134.102.30/qa/${questionId}/answers`)
+        .then(console.log(res.data))
+    // .then(res.data => cb(res.data))
+}
 
-// const getOneProduct = (productId, cb) => {
-//     axios(`http://3.134.102.30/products/{productId}`)
-//         .then(console.log(res.data))
-//     // .then(res.data => cb(res.data))
-// }
-// // add a question
-// / qa /: product_id
+module.exports(
+    getProducts,
+    getProduct,
+    getProductStyle,
+    getRelatedProduct,
+    getQuestions,
+    getAnswers,
+    postQuestion,
+    postAnswer,
+    
+
+
+)
