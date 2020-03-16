@@ -15,7 +15,7 @@ class Carousel extends React.Component {
 
   next(direction) {
     let changeTo = this.state.currentCard;
-    let maxx = this.state.data.length;
+    const maxx = this.state.data.length;
 
     if (direction === 'left') {
       changeTo -= 1;
@@ -35,16 +35,16 @@ class Carousel extends React.Component {
   render() {
     return (
       <div className="row carousel-main">
-        <div className="col-sm-2 carousel-arrow" direction="left" pointer="&#9654;" onClick={() => this.next('left')} ><div>&#9664;</div></div>
-        <div className="col-sm-8 card-group">
+        <div className="col-xs-1 col-sm-1 carousel-arrow" direction="left" pointer="&#9654;" onClick={() => this.next('left')}><div>&#9664;</div></div>
+        <div className="col-sm-4 card-group">
           <div className="row">
-            <ProductCard className="col-xs-3 carousel-card" data={data[this.state.currentCard]} />
-            <ProductCard className="col-xs-3 carousel-card" data={data[this.state.currentCard + 1]} />
-            <ProductCard className="col-xs-3 carousel-card" data={data[this.state.currentCard + 2]} />
-            <ProductCard className="col-xs-3 carousel-card" data={data[this.state.currentCard + 3]} />
+            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard]} />
+            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 1]} />
+            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 2]} />
+            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 3]} />
           </div>
-          <div className="col-sm-2 carousel-arrow" direction="right" pointer="&#9664;" onClick={() => this.next('right')} >&#9654;</div>
         </div>
+        <div className="col-xs-1 col-sm-1 carousel-arrow" direction="right" pointer="&#9664;" onClick={() => this.next('right')}>&#9654;</div>
       </div>
     );
   }
