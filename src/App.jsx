@@ -11,7 +11,7 @@ import Reviews from './Components/Reviews/Reviews';
 // Redux
 import { getProductData } from './data/actions/productDataAction';
 import { getProductsList } from './data/actions/productsListAction';
-import { getReviewMetaData } from './data/actions/reviewMetaAction.jsx';
+import { getReviewMetaData } from './data/actions/reviewMetaDataAction';
 
 class App extends Component {
   componentDidMount() {
