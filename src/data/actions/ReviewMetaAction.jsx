@@ -9,7 +9,7 @@ export const getReviewMetaData = () => (dispatch) => axios.get('http://3.134.102
     console.log(error);
   });
 
-export const getReviewMetaDataSuccess = (revivewMetaData) => ({
+export const getReviewMetaDataSuccess = (reviewMetaData) => ({
   type: GET_REVIEW_META_DATA_SUCCESS,
-  payload: revivewMetaData,
+  payload: reviewMetaData,
 });
