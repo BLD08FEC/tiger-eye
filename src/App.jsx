@@ -11,8 +11,8 @@ import Reviews from './Components/Reviews/Reviews';
 // Reduxs
 import { check } from './data/actions/circleCICheck';
 import { getProductData } from './data/actions/productDataAction';
-import { getReviewMetaData } from './data/actions/reviewMetaAction';
 import { getProductsList } from './data/actions/productsListAction';
+import { getReviewMetaData } from './data/actions/reviewMetaAction';
 
 class App extends Component {
   componentDidMount() {
