@@ -1,13 +1,15 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import './App.css';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ProductOverview from './Components/ProductOverview/ProductOverview';
 import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAnswers';
 import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
-import { getReviewMetaData } from './data/actions/reviewMetaAction.jsx';
+
+// Reduxs
+import { getReviewMetaData } from './data/actions/reviewMetaAction';
 import { getProductData } from './data/actions/productDataAction';
 import { getProductsList } from './data/actions/productsListAction';
 
