@@ -7,15 +7,19 @@ const ProductCard = ({ data }) => {
 //   console.log(props.data.default_price);
 //   console.log(props.data.styles[0].photos[0].thumbnail_url);
   return (
-    <div className="card">
-      <img className="card-img-top" src={data.styles[0].photos[0].thumbnail_url} alt="CARD_IMG_CAP_HERE" />
+    <div className="card" style={{ width: 95, height: 275 }}>
+      <img className="card-img-top" src={data.styles[0].photos[0].url} alt="CARD_IMG_CAP_HERE" style={{ height: 95 }} />
       <div className="card-body">
         <div className="row">
-          <h6 className="card-title">{data.name}</h6>
+          <div className="card-title">{data.name}</div>
+        </div>
+        <div className="row">
           <div className="card-text">{data.category}</div>
         </div>
         <div className="row">
           <div className="card-star">card star</div>
+        </div>
+        <div className="row">
           <div className="card-price">{data.default_price}</div>
         </div>
       </div>
