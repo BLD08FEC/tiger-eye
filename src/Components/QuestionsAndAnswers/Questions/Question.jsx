@@ -6,7 +6,7 @@ const Question = ({ displayedQuestion }) => (
       <div className="question">{displayedQuestion}</div>
     </div>
     <div className="row">
-      <button type="button">Show More</button>
+      <button type="button">Show More Questions</button>
     </div>
   </div>
 );

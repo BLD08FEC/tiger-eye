@@ -7,20 +7,25 @@ class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentQuestion: data.results[0].question_id,
-      displayedQuestions: [data.results[0].question_id, data.results[1].question_id],
+      initialQuestion: 0,
+      productQuestions: data.results,
+      currentQuestion: 0,
+      displayedQuestions: [],
     };
-    this.default = this.default.bind(this);
-    this.next = this.next.bind(this);
+    this.productQuestions = this.productQuestions.bind(this);
+    this.productQuestions = this.productQuestions.bind(this);
+    this.displayedQuestions = this.displayedQuestions.bind(this);
   }
 
+
   default() {
-    let increment = this.state.currentQuestion;
-    this.state.displayedQuestions.push(data.currentQuestion);
-    this.state.displayedQuestions.push(data.currentQuestion + 1);
+    let increment = this.state.result;
+    this.setState(this.state.displayedQuestions.push(productQuestions[this.state.initialQuestion]));
+    this.setState(this.state.displayedQuestions.push(productQuestions[this.state.initialQuestion +1]));
     increment += 2;
     this.setState({ currentQuestion: increment });
   }
+
 
   next() {
     let increment = this.state.currentQuestion;
@@ -42,8 +47,8 @@ class QuestionList extends React.Component {
   render() {
     return (
       <div className="row question-list">
-        <Question displayedQuestion={this.state.displayedQuestions[this.state.currentQuestion].question_body} />
-        <Question displayedQuestion={this.state.displayedQuestions[this.state.currentQuestion + 1].question_body} />
+        <Question displayedQuestion={this.state.displayedQuestions[0].question_body} />
+        <Question displayedQuestion={this.state.displayedQuestions[1].question_body} />
       </div>
     );
   }
