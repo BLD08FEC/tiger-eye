@@ -1,10 +1,7 @@
 import React from 'react';
 import './OutfitCard.scss';
 
-const OutfitCard = () => {
-  return (
-    <div />
-  );
-};
+const OutfitCard = () => (<div />);
+
 
 export default OutfitCard;
