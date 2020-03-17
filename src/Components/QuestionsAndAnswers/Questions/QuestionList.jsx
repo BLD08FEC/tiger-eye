@@ -16,7 +16,6 @@ class QuestionList extends React.Component {
     // const productQuestions = data.results,
   }
 
-
   default(state) {
     this.setState(state.displayedQuestions.push(data.results[this.currentQuestion]));
     this.incrementCurrentQuestion();
