@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductInfo from './ProductInfo/ProductInfo';
+import DescriptionFeaturesShare from './DescriptionFeaturesShare/DescriptionFeaturesShare';
 
 const ProductOverview = () => (
   <div className="product-overview">
@@ -16,7 +17,7 @@ const ProductOverview = () => (
       </div>
       <div className="row">
         <span className="border border-secondary">
-          <div className="col-12">Description, Features, and Share</div>
+          <DescriptionFeaturesShare />
         </span>
       </div>
     </div>
