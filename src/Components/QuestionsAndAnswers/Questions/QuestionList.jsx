@@ -47,7 +47,7 @@ class QuestionList extends React.Component {
     return (
       <div className="row question-list">
         <Question displayedQuestion={this.state.displayedQuestions[this.currentQuestion].question_body} />
-        <Question displayedQuestion={this.state.displayedQuestions[this.currentQuestion].question_body} />
+        <Question displayedQuestion={this.state.displayedQuestions[this.currentQuestion + 1].question_body} />
       </div>
     );
   }
