@@ -6,7 +6,7 @@ const Stars = ({ avgRating }) => (
   <div>
     <StarRatings
       rating={avgRating}
-      starDimension="15px"
+      starDimension="1em"
       starSpacing="1px"
     />
   </div>

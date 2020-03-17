@@ -3,7 +3,7 @@ import ProductInfo from './ProductInfo/ProductInfo';
 
 const ProductOverview = () => (
   <div className="product-overview">
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <span className="border border-secondary">
           <div className="col-12 col-md-8 image-gallery">ImageGallery</div>
