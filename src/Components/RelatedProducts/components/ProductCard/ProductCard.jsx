@@ -1,4 +1,5 @@
 import React from 'react';
+import './ProductCard.scss';
 
 // eslint-disable-next-line arrow-body-style
 const ProductCard = ({ data, isRelated }) => {
