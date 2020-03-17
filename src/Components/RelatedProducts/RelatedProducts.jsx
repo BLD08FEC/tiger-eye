@@ -1,6 +1,7 @@
 import React from 'react';
-
+import './RelatedProducts.scss';
 import Carousel from './components/Carousel/Carousel';
+import ModalDashboard from './components/modal/ModalDashboard/ModalDashboard';
 
 const RelatedProducts = () => (
   <div className="container related-products">
@@ -8,6 +9,7 @@ const RelatedProducts = () => (
     <Carousel className="row related-products-carousel" isRelated="true" />
     <div className="row related-products-title"><em>Build your own outfit.</em></div>
     <Carousel className="row my-outfit-carousel" />
+    <ModalDashboard className="row" />
   </div>
 );
 

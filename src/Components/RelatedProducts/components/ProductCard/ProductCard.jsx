@@ -1,11 +1,8 @@
 import React from 'react';
+import './ProductCard.scss';
 
 // eslint-disable-next-line arrow-body-style
 const ProductCard = ({ data, isRelated }) => {
-//   console.log(props.data.name);
-//   console.log(props.data.category);
-//   console.log(props.data.default_price);
-//   console.log(props.data.styles[0].photos[0].thumbnail_url);
   let photo = 0;
   if (isRelated === 'true') {
     photo = 1;
