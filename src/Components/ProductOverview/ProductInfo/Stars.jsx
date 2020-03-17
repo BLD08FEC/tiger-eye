@@ -6,24 +6,24 @@ const Stars = ({ reviewMetaData }) => {
   const calcAvgRating = (ratings) => {
     let sum = 0;
     let total = 0;
-    const average = null;
+    let avgRating = 0;
     if (ratings !== undefined) {
       const keys = Object.keys(ratings);
       for (let i = 0; i < keys.length; i++) {
         sum += (Number(keys[i]) * ratings[keys[i]]);
         total += ratings[keys[i]];
       }
-      console.log(total);
+      avgRating = sum / total;
     }
-
-    return average;
+    console.log(avgRating);
+    return avgRating;
   };
-  calcAvgRating(reviewMetaData.ratings);
+  const avgRating = calcAvgRating(reviewMetaData.ratings);
 
   return (
     <div>
       <StarRatings
-        rating={4.25}
+        rating={avgRating}
         starDimension="15px"
         starSpacing="1px"
       />
