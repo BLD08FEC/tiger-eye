@@ -1,23 +1,50 @@
-import React from 'react';
+/* eslint-disable react/destructuring-assignment */
+import React, { Component } from 'react';
 import './App.css';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ProductOverview from './Components/ProductOverview/ProductOverview';
 import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAnswers';
 import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
 
-function App(props) {
-  // console.log('props: ', props.location.pathname);
-  return (
-    <div className="App">
-      <div className="container">
-        <div className="row"><ProductOverview /></div>
-        <div className="row"><QuestionsAndAnswers /></div>
-        <div className="row"><RelatedProducts /></div>
-        <div className="row"><Reviews /></div>
+// Redux
+import { getProductData } from './data/actions/productDataAction';
+import { getProductsList } from './data/actions/productsListAction';
+import { getReviewMetaData } from './data/actions/reviewMetaDataAction';
+
+class App extends Component {
+  componentDidMount() {
+    this.props.getReviewMetaData();
+    this.props.getProductData();
+    this.props.getProductsList();
+  }
+
+
+  render() {
+    return (
+      <div className="App">
+        <div className="container">
+          <div className="row"><ProductOverview /></div>
+          <div className="row"><QuestionsAndAnswers /></div>
+          <div className="row"><RelatedProducts /></div>
+          <div className="row"><Reviews /></div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default withRouter(App);
+const mapStateToProps = (state) => ({
+  reviewMetaData: state.reviewMetaReducer.reviewMetaData,
+  productData: state.productDataReducer.productData,
+  productsList: state.productsListReducer.productsList,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getReviewMetaData: () => dispatch(getReviewMetaData()),
+  getProductData: () => dispatch(getProductData()),
+  getProductsList: () => dispatch(getProductsList()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));
