@@ -11,9 +11,10 @@ function App(props) {
   return (
     <div className="App">
       <div className="container">
+        <div className="header">Header</div>
         <div className="row"><ProductOverview /></div>
-        <div className="row"><QuestionsAndAnswers /></div>
         <div className="row"><RelatedProducts /></div>
+        <div className="row"><QuestionsAndAnswers /></div>
         <div className="row"><Reviews /></div>
       </div>
     </div>
