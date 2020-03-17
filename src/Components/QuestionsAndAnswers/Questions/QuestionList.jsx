@@ -11,8 +11,8 @@ class QuestionList extends React.Component {
       currentQuestion: 0,
       displayedQuestions: [],
     };
-    this.currentQuestion = this.currentQuestion.bind(this);
-    this.displayedQuestions = this.displayedQuestions.bind(this);
+    // this.currentQuestion = this.currentQuestion.bind(this);
+    // this.displayedQuestions = this.displayedQuestions.bind(this);
     // const productQuestions = data.results,
   }
 
