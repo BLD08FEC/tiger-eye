@@ -8,20 +8,20 @@ class QuestionList extends React.Component {
     super(props);
     this.state = {
       initialQuestion: 0,
-      productQuestions: data.results,
       currentQuestion: 0,
       displayedQuestions: [],
     };
-    this.productQuestions = this.productQuestions.bind(this);
-    this.productQuestions = this.productQuestions.bind(this);
+    this.initialQuestion = this.initialQuestion.bind(this);
+    this.currentQuestion = this.currentQuestion.bind(this);
     this.displayedQuestions = this.displayedQuestions.bind(this);
+    // const productQuestions = data.results,
   }
 
 
   default() {
-    let increment = this.state.result;
-    this.setState(this.state.displayedQuestions.push(productQuestions[this.state.initialQuestion]));
-    this.setState(this.state.displayedQuestions.push(productQuestions[this.state.initialQuestion +1]));
+    let increment = this.state.currentQuestion;
+    this.setState(this.state.displayedQuestions.push(data.results[this.state.initialQuestion]));
+    this.setState(this.state.displayedQuestions.push(data.results[this.state.initialQuestion +1]));
     increment += 2;
     this.setState({ currentQuestion: increment });
   }
