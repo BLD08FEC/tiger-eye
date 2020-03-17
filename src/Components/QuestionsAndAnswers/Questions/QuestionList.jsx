@@ -18,28 +18,33 @@ class QuestionList extends React.Component {
 
   componentDidMount() {
     const results = [];
-    results.push(data.results[this.currentQuestion]);
+    results.push(data.results[this.state.currentQuestion]);
     this.setState({ displayedQuestions: results });
     this.incrementCurrentQuestion();
-    results.push(data.results[this.currentQuestion]);
+    results.push(data.results[this.state.currentQuestion]);
     this.setState({ displayedQuestions: results });
     this.incrementCurrentQuestion();
   }
 
   incrementCurrentQuestion() {
-    this.setState((state) => ({ currentQuestion: state.currentQuestion + 1 }));
+    const currentNum = this.state.currentQuestion;
+    this.setState((state) => ({ currentQuestion: currentNum + 1 }));
   }
 
   next() {
+    const results = [];
     const max = this.state.data.results.length;
     if (max > this.state.currentQuestion + 2) {
-      this.state.displayedQuestions.push(data.results.currentQuestion);
+      results.push(data.results[this.state.currentQuestion]);
+      this.setState({ displayedQuestions: results });
       this.incrementCurrentQuestion();
-      this.state.displayedQuestions.push(data.results.currentQuestion);
+      results.push(data.results[this.state.currentQuestion]);
+      this.setState({ displayedQuestions: results });
       this.incrementCurrentQuestion();
     }
     if (max === this.state.currentQuestion + 1) {
-      this.state.displayedQuestions.push(Question);
+      results.push(data.results[this.state.currentQuestion]);
+      this.setState({ displayedQuestions: results });
       this.incrementCurrentQuestion();
     } else {
       this.state.displayedQuestions.push('No more questions');
@@ -49,8 +54,8 @@ class QuestionList extends React.Component {
   render() {
     return (
       <div className="row question-list">
-        <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} />
-        <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion + 1].question_body} />
+        {/* <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} />
+        <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} /> */}
       </div>
     );
   }
