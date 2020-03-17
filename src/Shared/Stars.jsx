@@ -13,7 +13,6 @@ const Stars = ({ avgRating }) => (
 );
 
 const mapStateToProps = (state) => ({
-  reviewMetaData: state.reviewMetaReducer.reviewMetaData,
   avgRating: state.reviewMetaReducer.avgRating,
 });
 
