@@ -1,3 +1,4 @@
+// eslint(react/no-unused-state)
 import React from 'react';
 import Question from './Question';
 import data from '../dumData';
@@ -6,9 +7,8 @@ class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: data.results,
       currentQuestion: data.results[0].question_id,
-      displayedQuestions: [],
+      displayedQuestions: [data.results[0].question_id, data.results[1].question_id],
     };
     this.default = this.default.bind(this);
     this.next = this.next.bind(this);
@@ -16,25 +16,25 @@ class QuestionList extends React.Component {
 
   default() {
     let increment = this.state.currentQuestion;
-    displayedQuestions.push(data.currentQuestion);
-    displayedQuestions.push(data.currentQuestion + 1);
+    this.state.displayedQuestions.push(data.currentQuestion);
+    this.state.displayedQuestions.push(data.currentQuestion + 1);
     increment += 2;
     this.setState({ currentQuestion: increment });
   }
 
   next() {
     let increment = this.state.currentQuestion;
-    const max = this.state.data.length;
-    if (max > currentQuestion + 2) {
-      displayedQuestions.push(data.currentQuestion + 1);
-      displayedQuestions.push(data.currentQuestion + 2);
+    const max = this.state.data.results.length;
+    if (max > this.state.currentQuestion + 2) {
+      this.state.displayedQuestions.push(data.currentQuestion + 1);
+      this.state.displayedQuestions.push(data.currentQuestion + 2);
       increment += 2;
     }
-    if (max = currentQuestion + 1) {
-      displayedQuestions.push(Question);
+    if (max === this.state.currentQuestion + 1) {
+      this.state.displayedQuestions.push(Question);
       increment += 1;
     } else {
-      displayedQuestions.push('No more questions');
+      this.state.displayedQuestions.push('No more questions');
     }
     this.setState({ currentQuestion: increment });
   }
@@ -42,8 +42,8 @@ class QuestionList extends React.Component {
   render() {
     return (
       <div className="row question-list">
-        <Question displayedQuestion={displayedQuestions[this.state.currentQuestion].question_body} />
-        <Question displayedQuestion={displayedQuestions[this.state.currentQuestion + 1].question_body} />
+        <Question displayedQuestion={this.state.displayedQuestions[this.state.currentQuestion].question_body} />
+        <Question displayedQuestion={this.state.displayedQuestions[this.state.currentQuestion + 1].question_body} />
       </div>
     );
   }
