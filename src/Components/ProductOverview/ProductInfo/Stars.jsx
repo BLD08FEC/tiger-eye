@@ -1,25 +1,9 @@
+/* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
 import StarRatings from 'react-star-ratings';
 
-const Stars = ({ reviewMetaData }) => {
-  const calcAvgRating = (ratings) => {
-    let sum = 0;
-    let total = 0;
-    let avgRating = 0;
-    if (ratings) {
-      const keys = Object.keys(ratings);
-      for (let i = 0; i < keys.length; i++) {
-        sum += (Number(keys[i]) * ratings[keys[i]]);
-        total += ratings[keys[i]];
-      }
-      avgRating = sum / total;
-    }
-    console.log(avgRating);
-    return avgRating;
-  };
-  const avgRating = calcAvgRating(reviewMetaData.ratings);
-
+const Stars = ({ avgRating }) => {
   return (
     <div>
       <StarRatings
@@ -33,6 +17,7 @@ const Stars = ({ reviewMetaData }) => {
 
 const mapStateToProps = (state) => ({
   reviewMetaData: state.reviewMetaReducer.reviewMetaData,
+  avgRating: state.reviewMetaReducer.avgRating,
 });
 
 export default connect(mapStateToProps)(Stars);

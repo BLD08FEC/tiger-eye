@@ -1,7 +1,8 @@
-import { GET_REVIEW_META_DATA, GET_REVIEW_META_DATA_SUCCESS } from '../types/types';
+import { GET_REVIEW_META_DATA, GET_REVIEW_META_DATA_SUCCESS, UPDATE_AVG_RATING } from '../types/types';
 
 const initialState = {
   reviewMetaData: {},
+  avgRating: 0,
 };
 
 const reviewMetaReducer = (state = initialState, action) => {
@@ -15,6 +16,13 @@ const reviewMetaReducer = (state = initialState, action) => {
       return {
         ...state,
         reviewMetaData: action.payload,
+      };
+
+    case UPDATE_AVG_RATING:
+      console.log('reducer', action.payload);
+      return {
+        ...state,
+        avgRating: action.payload,
       };
     default:
       return state;
