@@ -9,6 +9,7 @@ const ProductInfo = ({ reviewMetaData }) => (
     {reviewMetaData.product_id}
     <br />
     <Stars />
+    <a href="#reviews">Read all reviews</a>
   </div>
 );
 
