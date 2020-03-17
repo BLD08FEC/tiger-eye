@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Stars from './Stars';
+import Stars from '../../../Shared/Stars';
 
 const ProductInfo = ({ reviewMetaData }) => (
   <div>
