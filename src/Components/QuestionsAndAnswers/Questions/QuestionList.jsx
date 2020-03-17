@@ -16,10 +16,13 @@ class QuestionList extends React.Component {
     // const productQuestions = data.results,
   }
 
-  default(state) {
-    this.setState(state.displayedQuestions.push(data.results[this.currentQuestion]));
+  componentDidMount() {
+    const results = [];
+    results.push(data.results[this.currentQuestion]);
+    this.setState({ displayedQuestions: results });
     this.incrementCurrentQuestion();
-    this.setState(state.displayedQuestions.push(data.results[this.currentQuestion]));
+    results.push(data.results[this.currentQuestion]);
+    this.setState({ displayedQuestions: results });
     this.incrementCurrentQuestion();
   }
 
@@ -46,8 +49,8 @@ class QuestionList extends React.Component {
   render() {
     return (
       <div className="row question-list">
-        <Question displayedQuestion={this.state.displayedQuestions[this.currentQuestion].question_body} />
-        <Question displayedQuestion={this.state.displayedQuestions[this.currentQuestion + 1].question_body} />
+        <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} />
+        <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion + 1].question_body} />
       </div>
     );
   }

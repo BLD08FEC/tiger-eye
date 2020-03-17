@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="container">
+        <div className="container-fluid">
           <div className="header">Header</div>
           <div className="row"><ProductOverview /></div>
           <div className="row"><RelatedProducts /></div>

@@ -3,15 +3,21 @@ import ProductInfo from './ProductInfo/ProductInfo';
 
 const ProductOverview = () => (
   <div className="product-overview">
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-12 col-md-8">ImageGallery</div>
-        <div className="col-12 col-md-4">
-          <ProductInfo />
-        </div>
+        <span className="border border-secondary">
+          <div className="col-12 col-md-8 image-gallery">ImageGallery</div>
+        </span>
+        <span className="border border-secondary">
+          <div className="col-12 col-md-4 product-info">
+            <ProductInfo />
+          </div>
+        </span>
       </div>
       <div className="row">
-        <div className="col-12">Description, Features, and Share</div>
+        <span className="border border-secondary">
+          <div className="col-12">Description, Features, and Share</div>
+        </span>
       </div>
     </div>
   </div>
