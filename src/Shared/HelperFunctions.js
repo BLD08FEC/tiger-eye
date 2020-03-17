@@ -1,5 +1,5 @@
 /* eslint-disable */
-export const calcAvgRating = (ratings) => {
+const calcAvgRating = (ratings) => {
   let sum = 0;
   let total = 0;
   let avgRating = 0;
