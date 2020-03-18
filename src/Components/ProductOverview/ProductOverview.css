@@ -1,3 +1,58 @@
-.image-gallery {
-    background-color: blue;
+.category {
+    font-size: 0.8em;
+    color: #323639;
 }
+
+.description {
+    font-size: 0.8em;
+    color: #323639;
+}
+
+.description-features-share {
+    background-color: #f5f5f5;
+}
+
+.image-gallery {
+    background-color: #f5f5f5;
+}
+
+.list-checkmarks {
+    padding-left:1.5rem;
+}
+.list-checkmarks li {
+    list-style-type:none;
+    padding-left:1rem;
+}
+.list-checkmarks li:before {    
+    font-family: 'FontAwesome';
+    content: "\f00c";
+    margin:0 10px 0 -28px;
+    color: #cb7119;
+}
+
+.price {
+    font-size: 0.8em;
+    color: #323639;
+}
+
+.product-info {
+    background-color: #f5f5f5;
+}
+
+.product-name {
+    font-size: 1.5em;
+    color: #323639;
+    font-weight: bold;
+}
+
+.rating {
+    font-size: 0.8em;
+    color: #323639;
+}
+
+.slogan {
+    font-size: 1.1em;
+    color: #323639;
+    font-weight: bold;
+}
+

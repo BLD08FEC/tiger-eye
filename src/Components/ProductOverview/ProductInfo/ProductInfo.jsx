@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Stars from '../../../Shared/Stars';
@@ -7,7 +6,7 @@ const ProductInfo = ({ productData }) => (
   <div className="container-fluid">
     <div className="row rating">
       <Stars />
-      <a href="#reviews">Read all reviews</a>
+      <a href="#reviews"><u>Read all reviews</u></a>
     </div>
     <div className="row category">
       {productData.category}
@@ -16,10 +15,11 @@ const ProductInfo = ({ productData }) => (
       {productData.name}
     </div>
     <div className="row price">
+      $
       {productData.default_price}
     </div>
-    <div className="row styles">
-      styles will go here
+    <div className="row product-styles">
+      Select stlye
     </div>
     <div className="row">
       <div className="col-12 col-sm-8">
