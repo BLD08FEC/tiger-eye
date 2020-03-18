@@ -26,7 +26,7 @@ export const getProductStylesSuccess = (productStyles) => ({
   payload: productStyles,
 });
 
-export const updateSelectedStyle = (style_id) => ({
+export const updateSelectedStyle = (selectedStyleData) => ({
   type: UPDATE_SELECTED_STYLE,
-  payload: style_id,
+  payload: selectedStyleData,
 });

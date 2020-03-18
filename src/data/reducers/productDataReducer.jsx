@@ -3,7 +3,8 @@ import { GET_PRODUCT_DATA_SUCCESS, GET_PRODUCT_STYLES_SUCCESS, UPDATE_SELECTED_S
 const initialState = {
   productData: {},
   productStyles: {},
-  stylePrice: null,
+  selectedPrice: null,
+  salePrice: null,
   selectedStyle: 1,
 };
 
@@ -20,10 +21,11 @@ const productDataReducer = (state = initialState, action) => {
         productStyles: action.payload,
       };
     case UPDATE_SELECTED_STYLE:
-      console.log(action.payload);
       return {
         ...state,
-        selectedStyle: action.payload,
+        selectedStyle: action.payload.style_id,
+        selectedPrice: action.payload.original_price,
+        salePrice: action.payload.sale_price,
       };
     default:
       return state;
