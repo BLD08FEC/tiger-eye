@@ -17,7 +17,9 @@ export const calcAvgRating = (ratings) => {
 export const defaultStyleFinder = (stylesArr) => {
   for (let i = 0; i < stylesArr.length; i++) {
     if (stylesArr[i]['default?'] === 1) {
-      return stylesArr[i].style_id;
+      return stylesArr[i];
+    } else {
+      return stylesArr[0];
     }
   }
 };
