@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Stars from '../../../Shared/Stars';
+import Styles from './Styles';
 
 const ProductInfo = ({ productData }) => (
   <div className="container-fluid">
@@ -19,7 +20,7 @@ const ProductInfo = ({ productData }) => (
       {productData.default_price}
     </div>
     <div className="row product-styles">
-      Select stlye
+      <Styles />
     </div>
     <div className="row">
       <div className="col-12 col-sm-8">
