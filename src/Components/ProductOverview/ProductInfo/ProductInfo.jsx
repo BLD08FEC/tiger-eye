@@ -8,7 +8,7 @@ const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
   <div className="container-fluid">
     <div className="row rating">
       <Stars />
-      <a href="#reviews"><u>Read all reviews</u></a>
+      <a className="review-link" href="#reviews"><u>Read all reviews</u></a>
     </div>
     <div className="row category">
       {productData.category}
