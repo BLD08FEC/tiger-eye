@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { connect } from 'react-redux';
 import Stars from '../../../Shared/Stars';
 import Styles from './Styles';
 
-const ProductInfo = ({ productData }) => (
+const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
   <div className="container-fluid">
     <div className="row rating">
       <Stars />
@@ -16,8 +17,7 @@ const ProductInfo = ({ productData }) => (
       {productData.name}
     </div>
     <div className="row price">
-      $
-      {productData.default_price}
+      ${salePrice > 0 ? salePrice : selectedPrice}
     </div>
     <div className="row product-styles">
       <Styles />
@@ -30,11 +30,11 @@ const ProductInfo = ({ productData }) => (
         quantity
       </div>
     </div>
-    <div className="row styles">
-      <div className="col-12 col-sm-8">
+    <div className="row">
+      <div className="col-12 col-sm-8 cart">
         ADD TO BAG
       </div>
-      <div className="col-12 col-sm-4">
+      <div className="col-12 col-sm-4 favorite">
         FAVORITE
       </div>
     </div>
@@ -44,6 +44,10 @@ const ProductInfo = ({ productData }) => (
 const mapStateToProps = (state) => ({
   reviewMetaData: state.reviewMetaReducer.reviewMetaData,
   productData: state.productDataReducer.productData,
+  productStyles: state.productDataReducer.productStyles,
+  selectedStyle: state.productDataReducer.selectedStyle,
+  selectedPrice: state.productDataReducer.selectedPrice,
+  salePrice: state.productDataReducer.salePrice,
 });
 
 export default connect(mapStateToProps)(ProductInfo);
