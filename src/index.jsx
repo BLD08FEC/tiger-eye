@@ -1,7 +1,5 @@
 /* eslint-disable no-undef */
-import {
-  createStore, combineReducers, applyMiddleware, compose,
-} from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -22,10 +20,7 @@ const reducer = combineReducers({
 
 const middleware = [thunk];
 /* eslint-disable no-underscore-dangle */
-const store = createStore(reducer, compose(
-  applyMiddleware(...middleware),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-));
+const store = createStore(reducer, applyMiddleware(...middleware));
 
 ReactDOM.render(
   <Router>

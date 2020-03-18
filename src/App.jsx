@@ -25,9 +25,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container-fluid">
+          <div className="header">Header</div>
           <div className="row"><ProductOverview /></div>
-          <div className="row"><QuestionsAndAnswers /></div>
           <div className="row"><RelatedProducts /></div>
+          <div className="row"><QuestionsAndAnswers /></div>
           <div className="row"><Reviews /></div>
         </div>
       </div>
