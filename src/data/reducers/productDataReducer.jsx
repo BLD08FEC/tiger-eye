@@ -1,4 +1,4 @@
-import { GET_PRODUCT_DATA, GET_PRODUCT_DATA_SUCCESS } from '../types/types';
+import { GET_PRODUCT_DATA_SUCCESS } from '../types/types';
 
 const initialState = {
   productData: {},
@@ -6,11 +6,6 @@ const initialState = {
 
 const productDataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_PRODUCT_DATA:
-      return {
-        ...state,
-      };
-
     case GET_PRODUCT_DATA_SUCCESS:
       return {
         ...state,
