@@ -1,9 +1,10 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
 import axios from 'axios';
 import { GET_PRODUCT_DATA_SUCCESS } from '../types/types';
 
-export const getProductData = () => (dispatch) => axios.get('http://3.134.102.30/products/1')
+export const getProductData = (product_id = 1) => (dispatch) => axios.get(`http://3.134.102.30/products/${product_id}`)
   .then((res) => {
     console.log(res.data);
     return dispatch(getProductDataSuccess(res.data));

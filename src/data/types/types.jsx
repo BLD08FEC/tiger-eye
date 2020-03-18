@@ -1,5 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-export const CHANGE_PRODUCT_ID = 'CHANGE_PRODUCT_ID';
 export const GET_REVIEW_META_DATA = 'GET_REVIEW_META_DATA';
 export const GET_REVIEW_META_DATA_SUCCESS = 'GET_REVIEW_META_DATA_SUCCESS';
 export const UPDATE_AVG_RATING = 'UPDATE_AVG_RATING';
