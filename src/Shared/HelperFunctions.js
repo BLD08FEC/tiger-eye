@@ -21,8 +21,3 @@ export const defaultStyleFinder = (stylesArr) => {
     }
   }
 };
-
-export default {
-  defaultStyleFinder,
-  defaultStyleFinder,
-};
