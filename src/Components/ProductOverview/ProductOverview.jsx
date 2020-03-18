@@ -16,9 +16,8 @@ class ProductOverview extends Component {
 
   componentDidUpdate() {
     if (this.props.productStyles.results) {
-      const defaultStyle = defaultStyleFinder(this.props.productStyles.results);
-      console.log(defaultStyle);
-      this.props.updateSelectedStyle(defaultStyle);
+      const defaultStyleData = defaultStyleFinder(this.props.productStyles.results);
+      this.props.updateSelectedStyle(defaultStyleData);
     }
   }
 
@@ -48,6 +47,8 @@ const mapStateToProps = (state) => ({
   productData: state.productDataReducer.productData,
   productStyles: state.productDataReducer.productStyles,
   selectedStyle: state.productDataReducer.selectedStyle,
+  selectedPrice: state.productDataReducer.selectedPrice,
+  salePrice: state.productDataReducer.salePrice,
 });
 
 const mapDispatchToProps = (dispatch) => ({
