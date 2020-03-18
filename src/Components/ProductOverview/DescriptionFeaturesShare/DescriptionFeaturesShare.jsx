@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable consistent-return */
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 function renderProductFeatures(features) {
