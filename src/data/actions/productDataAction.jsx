@@ -2,7 +2,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
 import axios from 'axios';
-import { GET_PRODUCT_DATA_SUCCESS, GET_PRODUCT_STYLES_SUCCESS } from '../types/types';
+import { GET_PRODUCT_DATA_SUCCESS, GET_PRODUCT_STYLES_SUCCESS, UPDATE_SELECTED_STYLE } from '../types/types';
 
 export const getProductData = (product_id = 1) => (dispatch) => axios.get(`http://3.134.102.30/products/${product_id}`)
   .then((res) => dispatch(getProductDataSuccess(res.data)))
@@ -24,4 +24,9 @@ export const getProductStyles = (product_id = 1) => (dispatch) => axios.get(`htt
 export const getProductStylesSuccess = (productStyles) => ({
   type: GET_PRODUCT_STYLES_SUCCESS,
   payload: productStyles,
+});
+
+export const updateSelectedStyle = (style_id) => ({
+  type: UPDATE_SELECTED_STYLE,
+  payload: style_id,
 });

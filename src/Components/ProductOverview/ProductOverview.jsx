@@ -3,13 +3,23 @@ import { connect } from 'react-redux';
 import ProductInfo from './ProductInfo/ProductInfo';
 import DescriptionFeaturesShare from './DescriptionFeaturesShare/DescriptionFeaturesShare';
 import './ProductOverview.css';
+import { updateSelectedStyle } from '../../data/actions/productDataAction';
+import { defaultStyleFinder } from '../../Shared/HelperFunctions';
 
 class ProductOverview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      style_id: 1,
+      // style_id: 1,
     };
+  }
+
+  componentDidUpdate() {
+    if (this.props.productStyles.results) {
+      let defaultStyle = defaultStyleFinder(this.props.productStyles.results);
+      console.log(defaultStyle);
+      this.props.updateSelectedStyle(defaultStyle);
+    }
   }
 
   render() {
@@ -36,9 +46,13 @@ class ProductOverview extends Component {
 const mapStateToProps = (state) => ({
   reviewMetaData: state.reviewMetaReducer.reviewMetaData,
   productData: state.productDataReducer.productData,
-  productsList: state.productsListReducer.productsList,
   productStyles: state.productDataReducer.productStyles,
+  selectedStyle: state.productDataReducer.selectedStyle,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  updateSelectedStyle: (defaultStyle) => dispatch(updateSelectedStyle(defaultStyle)),
 });
 
 
-export default connect(mapStateToProps)(ProductOverview);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductOverview);
