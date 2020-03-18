@@ -2,6 +2,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+function renderProductFeatures(features){
+    if(features){
+      console.log(features);
+      return features.map((feature, index ) => {
+          return (
+            <div key={index}>
+                <div>
+                  {feature.feature}
+                </div>
+                {feature.value && <div> - {feature.value} </div>}
+            </div>
+          )
+      })
+    }
+}
+
 const DescriptionFeatShare = ({ productData }) => (
   <div className="container-fluid">
     <div className="row">
@@ -12,11 +28,7 @@ const DescriptionFeatShare = ({ productData }) => (
       </div>
       <div className="col-12 col-sm-4">
           Features
-        {console.log(productData.features)}
-        {/* {productData.features[0].feature} */}
-        {/* {productData.features.map((feature) => {
-            feature.value ? <div>{feature.value} : {feature.feature}</div> : null
-        })} */}
+        {renderProductFeatures(productData.features)}
       </div>
     </div>
   </div>

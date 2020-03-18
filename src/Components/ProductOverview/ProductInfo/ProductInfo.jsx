@@ -22,10 +22,10 @@ const ProductInfo = ({ productData }) => (
       styles will go here
     </div>
     <div className="row">
-      <div className="col-12 col-sm-6">
+      <div className="col-12 col-sm-8">
         select size
       </div>
-      <div className="col-12 col-sm-6">
+      <div className="col-12 col-sm-4">
         quantity
       </div>
     </div>
@@ -44,9 +44,5 @@ const mapStateToProps = (state) => ({
   reviewMetaData: state.reviewMetaReducer.reviewMetaData,
   productData: state.productDataReducer.productData,
 });
-
-// const mapDispatchToProps = (dispatch) => ({
-//   getReviewMetaData: () => dispatch(getReviewMetaData()),
-// });
 
 export default connect(mapStateToProps)(ProductInfo);

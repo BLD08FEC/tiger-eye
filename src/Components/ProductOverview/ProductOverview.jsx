@@ -1,24 +1,21 @@
 import React from 'react';
 import ProductInfo from './ProductInfo/ProductInfo';
 import DescriptionFeaturesShare from './DescriptionFeaturesShare/DescriptionFeaturesShare';
+import './ProductOverview.css';
 
 const ProductOverview = () => (
   <div className="product-overview">
     <div className="container-fluid">
       <div className="row">
-        <span className="border border-secondary">
-          <div className="col-12 col-md-8 image-gallery">ImageGallery</div>
-        </span>
-        <span className="border border-secondary">
-          <div className="col-12 col-md-4 product-info">
-            <ProductInfo />
-          </div>
-        </span>
+        <div className="border col-12 col-md-8 col-lg-8 col-xl-8 image-gallery">
+          ImageGallery
+        </div>
+        <div className="border col-12 col-md-4 col-lg-4 col-xl-4 product-info">
+          <ProductInfo />
+        </div>
       </div>
-      <div className="row">
-        <span className="border border-secondary">
-          <DescriptionFeaturesShare />
-        </span>
+      <div className="row border">
+        <DescriptionFeaturesShare />
       </div>
     </div>
   </div>
