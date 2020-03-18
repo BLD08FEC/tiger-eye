@@ -1,5 +1,6 @@
 import React from 'react';
 import './ProductCard.scss';
+import { connect } from 'react-redux';
 
 // eslint-disable-next-line arrow-body-style
 const ProductCard = ({ data, isRelated }) => {
@@ -9,20 +10,20 @@ const ProductCard = ({ data, isRelated }) => {
   }
 
   return (
-    <div className="card" style={{ width: 95, height: 275 }}>
-      <img className="card-img-top" src={data.styles[0].photos[photo].url} alt="CARD_IMG_CAP_HERE" style={{ height: 95 }} />
+    <div className="container-fluid card-main">
+      <img className="row card-img-top" src={data.styles[0].photos[photo].url} alt="CARD_IMG_CAP_HERE" />
       <div className="card-body">
-        <div className="row">
-          <div className="card-title">{data.name}</div>
+        <div className="row card-title">
+          {data.name}
         </div>
-        <div className="row">
-          <div className="card-text">{data.category}</div>
+        <div className="row card-text">
+          {data.category}
         </div>
-        <div className="row">
-          <div className="card-star">card star</div>
+        <div className="row card-star">
+          card star
         </div>
-        <div className="row">
-          <div className="card-price">{data.default_price}</div>
+        <div className="row card-price">
+          ${ data.default_price - 1 }.99
         </div>
       </div>
     </div>

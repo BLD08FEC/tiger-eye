@@ -38,17 +38,21 @@ class Carousel extends React.Component {
 
   render() {
     return (
-      <div className="row carousel-main">
-        <div className="col-xs-1 col-sm-1 carousel-arrow" direction="left" pointer="&#9654;" onClick={() => this.next('left')}><div>&#9664;</div></div>
-        <div className="col-sm-4 card-group">
-          <div className="row">
-            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard]} isRelated={this.props.isRelated} />
-            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 1]} isRelated={this.props.isRelated} />
-            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 2]} isRelated={this.props.isRelated} />
-            <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 3]} isRelated={this.props.isRelated} />
+      <div className="container-fluid carousel-main">
+        <div className="row">
+          <div className="col-xs-1 col-sm-1 carousel-arrow" direction="left" pointer="&#9654;" onClick={() => this.next('left')}><div>&#9664;</div></div>
+          <div className="col-xs-10 col-sm-10 card-group">
+            <div className="container-fluid">
+              <div className="row">
+                <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard]} isRelated={this.props.isRelated} />
+                <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 1]} isRelated={this.props.isRelated} />
+                <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 2]} isRelated={this.props.isRelated} />
+                <ProductCard className="col-sm-3 carousel-card" data={data[this.state.currentCard + 3]} isRelated={this.props.isRelated} />
+              </div>
+            </div>
           </div>
+          <div className="col-xs-1 col-sm-1 carousel-arrow" direction="right" pointer="&#9664;" onClick={() => this.next('right')}>&#9654;</div>
         </div>
-        <div className="col-xs-1 col-sm-1 carousel-arrow" direction="right" pointer="&#9664;" onClick={() => this.next('right')}>&#9654;</div>
       </div>
     );
   }
