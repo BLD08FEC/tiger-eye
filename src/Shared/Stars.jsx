@@ -8,6 +8,7 @@ const Stars = ({ avgRating }) => (
       rating={avgRating}
       starDimension="1em"
       starSpacing="1px"
+      starRatedColor="rgb(50, 54, 57)"
     />
   </div>
 );
