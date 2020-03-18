@@ -16,7 +16,7 @@ class ProductOverview extends Component {
 
   componentDidUpdate() {
     if (this.props.productStyles.results) {
-      let defaultStyle = defaultStyleFinder(this.props.productStyles.results);
+      const defaultStyle = defaultStyleFinder(this.props.productStyles.results);
       console.log(defaultStyle);
       this.props.updateSelectedStyle(defaultStyle);
     }
