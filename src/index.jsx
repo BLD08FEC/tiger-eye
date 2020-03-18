@@ -10,13 +10,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import productIdReducer from './data/reducers/productIdReducer';
 import reviewMetaReducer from './data/reducers/reviewMetaDataReducer';
 import productDataReducer from './data/reducers/productDataReducer';
 import productsListReducer from './data/reducers/productsListReducer';
 
 const reducer = combineReducers({
-  // productIdReducer,
   reviewMetaReducer,
   productDataReducer,
   productsListReducer,
