@@ -5,7 +5,8 @@ const initialState = {
   productStyles: {},
   selectedPrice: null,
   salePrice: null,
-  selectedStyle: null,
+  selectedStyle_id: null,
+  selectedStyleName: null,
 };
 
 const productDataReducer = (state = initialState, action) => {
@@ -23,9 +24,10 @@ const productDataReducer = (state = initialState, action) => {
     case UPDATE_SELECTED_STYLE:
       return {
         ...state,
-        selectedStyle: action.payload.style_id,
+        selectedStyle_id: action.payload.style_id,
         selectedPrice: action.payload.original_price,
         salePrice: action.payload.sale_price,
+        selectedStyleName: action.payload.name,
       };
     default:
       return state;
