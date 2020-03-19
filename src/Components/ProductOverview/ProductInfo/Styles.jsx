@@ -8,12 +8,13 @@ import { updateSelectedStyle } from '../../../data/actions/productDataAction';
 const Styles = (props) => (
   props.productStyles.product_id ? (
     <div className="style-pics">
+      <div>Style: </div>
       {props.productStyles.results.map((style, index) => (
         <img
           src={style.photos[0].thumbnail_url}
           alt={style.name}
           id={index}
-          className="rounded-circle w-25"
+          className="rounded-circle w-25 h-50 style-pics"
           key={style.style_id}
           onClick={() => props.updateSelectedStyle(props.productStyles.results[index])}
         />

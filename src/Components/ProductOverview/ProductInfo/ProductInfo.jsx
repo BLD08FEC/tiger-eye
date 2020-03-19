@@ -45,7 +45,7 @@ const mapStateToProps = (state) => ({
   reviewMetaData: state.reviewMetaReducer.reviewMetaData,
   productData: state.productDataReducer.productData,
   productStyles: state.productDataReducer.productStyles,
-  selectedStyle: state.productDataReducer.selectedStyle,
+  selectedStyle_id: state.productDataReducer.selectedStyle_id,
   selectedPrice: state.productDataReducer.selectedPrice,
   salePrice: state.productDataReducer.salePrice,
 });
