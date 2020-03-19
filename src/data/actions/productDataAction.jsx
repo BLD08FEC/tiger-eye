@@ -2,6 +2,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
 import axios from 'axios';
+import { defaultStyleFinder } from '../../Shared/HelperFunctions';
 import { GET_PRODUCT_DATA_SUCCESS, GET_PRODUCT_STYLES_SUCCESS, UPDATE_SELECTED_STYLE } from '../types/types';
 
 export const getProductData = (product_id = 1) => (dispatch) => axios.get(`http://3.134.102.30/products/${product_id}`)
@@ -16,7 +17,11 @@ export const getProductDataSuccess = (productData) => ({
 });
 
 export const getProductStyles = (product_id = 1) => (dispatch) => axios.get(`http://3.134.102.30/products/${product_id}/styles`)
-  .then((res) => dispatch(getProductStylesSuccess(res.data)))
+  .then((res) => {
+    dispatch(getProductStylesSuccess(res.data));
+    const defaultStyle = defaultStyleFinder(res.data.results);
+    dispatch(updateSelectedStyle(defaultStyle));
+  })
   .catch((error) => {
     console.log(error);
   });

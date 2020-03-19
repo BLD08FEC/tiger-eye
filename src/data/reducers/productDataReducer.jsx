@@ -5,7 +5,7 @@ const initialState = {
   productStyles: {},
   selectedPrice: null,
   salePrice: null,
-  selectedStyle: 1,
+  selectedStyle: null,
 };
 
 const productDataReducer = (state = initialState, action) => {
