@@ -17,7 +17,13 @@ const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
       {productData.name}
     </div>
     <div className="row price">
-      ${salePrice > 0 ? salePrice : selectedPrice}
+      {salePrice > 0
+        ? (
+          <div>
+            <strike className="strike-price">${selectedPrice}</strike>
+            <div className="sale-price">${salePrice}</div>
+          </div>
+        ) : <div>${selectedPrice}</div>}
     </div>
     <div className="row product-styles">
       <Styles />
