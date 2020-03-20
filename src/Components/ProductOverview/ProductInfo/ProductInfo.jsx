@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Stars from '../../../Shared/Stars';
 import Styles from './Styles';
 import SelectSize from './SelectSize';
+import SelectQuantity from './SelectQuantity';
 
 const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
   <div className="container-fluid">
@@ -34,7 +35,7 @@ const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
         <SelectSize />
       </div>
       <div className="col-12 col-sm-4">
-        quantity
+        <SelectQuantity />
       </div>
     </div>
     <div className="row">
