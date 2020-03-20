@@ -9,7 +9,7 @@ import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
 
 // Redux
-import { getProductData } from './data/actions/productDataAction';
+import { getProductData, getProductStyles } from './data/actions/productDataAction';
 import { getProductsList } from './data/actions/productsListAction';
 import { getReviewMetaData } from './data/actions/reviewMetaDataAction';
 import { getRelatedProducts } from './data/actions/relatedProductsAction';
@@ -20,6 +20,7 @@ class App extends Component {
     this.props.getProductData();
     this.props.getProductsList();
     this.props.getRelatedProducts();
+    this.props.getProductStyles();
   }
 
 
@@ -50,6 +51,7 @@ const mapDispatchToProps = (dispatch) => ({
   getProductData: () => dispatch(getProductData()),
   getProductsList: () => dispatch(getProductsList()),
   getRelatedProducts: () => dispatch(getRelatedProducts()),
+  getProductStyles: () => dispatch(getProductStyles()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

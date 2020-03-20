@@ -1,5 +1,5 @@
 /* eslint-disable */
-const calcAvgRating = (ratings) => {
+export const calcAvgRating = (ratings) => {
   let sum = 0;
   let total = 0;
   let avgRating = 0;
@@ -14,4 +14,12 @@ const calcAvgRating = (ratings) => {
   return avgRating;
 };
 
-export default calcAvgRating;
+export const defaultStyleFinder = (stylesArr) => {
+  for (let i = 0; i < stylesArr.length; i++) {
+    if (stylesArr[i]['default?'] === 1) {
+      return stylesArr[i];
+    } else {
+      return stylesArr[0];
+    }
+  }
+};
