@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable consistent-return */
+/* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -15,7 +16,7 @@ function renderProductFeatures(features) {
   }
 }
 
-const DescriptionFeatShare = ({ productData }) => (
+const DescriptionFeatShare = ({ productData, handleClick }) => (
   <div className="container-fluid">
     <div className="row description-features">
       <div className="col-12 col-sm-8">
@@ -33,11 +34,28 @@ const DescriptionFeatShare = ({ productData }) => (
     <div className="row share">
       <div className="col-12 col-sm-12">
         <div className="share-text">Like it? Share it!</div>
-        <div>
-          <a href="#" className="fa fa-facebook" type="button" role="button"></a>
-          <a href="#" className="fa fa-twitter" type="button" role="button"></a>
-          <a href="#" className="fa fa-pinterest" type="button" role="button"></a>
-          {/* <a className="btn-floating btn-lg btn-fb" type="button" role="button"><i className="fab fa-facebook-f"></i></a> */}
+        <div className="social-share">
+          <a
+            target="_blank"
+            className="fa fa-facebook"
+            type="button"
+            role="button"
+            href={`http://www.facebook.com/sharer.php?u=${window.location.href}`}
+          />
+          <a
+            target="_blank"
+            className="fa fa-twitter"
+            type="button"
+            role="button"
+            href={`https://twitter.com/intent/tweet?text=Check+out+this+${productData.name};url=${window.location.href}`}
+          />
+          <a
+            target="_blank"
+            className="fa fa-pinterest"
+            type="button"
+            role="button"
+            href={`http://pinterest.com/pin/create/button/?url=${window.location.href}&description=${productData.name}`}
+          />
         </div>
       </div>
     </div>
