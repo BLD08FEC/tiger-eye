@@ -3,9 +3,11 @@ import { GET_PRODUCT_DATA_SUCCESS, GET_PRODUCT_STYLES_SUCCESS, UPDATE_SELECTED_S
 const initialState = {
   productData: {},
   productStyles: {},
+  selectedStyle_id: null,
+  selectedStylePhotos: [],
+  selectedStyleSKUS: {},
   selectedPrice: null,
   salePrice: null,
-  selectedStyle_id: null,
   selectedStyleName: null,
 };
 
@@ -25,6 +27,8 @@ const productDataReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedStyle_id: action.payload.style_id,
+        selectedStylePhotos: action.payload.photos,
+        selectedStyleSKUS: action.payload.skus,
         selectedPrice: action.payload.original_price,
         salePrice: action.payload.sale_price,
         selectedStyleName: action.payload.name,
