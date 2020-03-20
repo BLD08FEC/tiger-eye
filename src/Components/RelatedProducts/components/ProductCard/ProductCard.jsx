@@ -1,33 +1,32 @@
 import React from 'react';
 import './ProductCard.scss';
 import { connect } from 'react-redux';
+import Stars from '../../../../Shared/Stars';
 
 // eslint-disable-next-line arrow-body-style
-const ProductCard = ({ data, isRelated }) => {
-  let photo = 0;
-  if (isRelated === 'true') {
-    photo = 1;
-  }
-
-  return (
-    <div className="container-fluid card-main">
-      <img className="row card-img-top" src={data.styles[0].photos[photo].url} alt="CARD_IMG_CAP_HERE" />
-      <div className="card-body">
-        <div className="row card-title">
-          {data.name}
-        </div>
-        <div className="row card-text">
-          {data.category}
-        </div>
-        <div className="row card-star">
-          card star
-        </div>
-        <div className="row card-price">
-          ${ data.default_price - 1 }.99
-        </div>
+const ProductCard = ({ productData, productId }) => (
+  <div className="container-fluid product-card-main">
+    <img className="row product-card-img-top" src="#THIS WILL REQUIRE AN DIFFERENT API CALL" alt="CARD_IMG_CAP_HERE" />
+    <div className="container-fluid product-card-body">
+      <div className="row product-card-category">
+        {productData.category}
+      </div>
+      <div className="row product-card-title">
+        {productData.name}
+      </div>
+      <div className="row product-card-price">
+        { productData.default_price }
+      </div>
+      <div className="row product-card-star">
+        <Stars />
       </div>
     </div>
-  );
-};
+  </div>
+);
 
-export default ProductCard;
+
+const mapStateToProps = (state) => ({
+  productData: state.productDataReducer.productData,
+});
+
+export default connect(mapStateToProps)(ProductCard);
