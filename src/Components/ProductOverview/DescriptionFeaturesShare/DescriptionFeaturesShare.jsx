@@ -16,7 +16,7 @@ function renderProductFeatures(features) {
   }
 }
 
-const DescriptionFeatShare = ({ productData, handleClick }) => (
+const DescriptionFeatShare = ({ productData }) => (
   <div className="container-fluid">
     <div className="row description-features">
       <div className="col-12 col-sm-8">
