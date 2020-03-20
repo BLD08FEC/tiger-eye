@@ -30,9 +30,9 @@ const DescriptionFeatShare = ({ productData }) => (
         {renderProductFeatures(productData.features)}
       </ul>
     </div>
-    <div className="row center">
+    <div className="row share">
       <div className="col-12 col-sm-12">
-        <div>Like it? Share it!</div>
+        <div className="share-text">Like it? Share it!</div>
         <div>
           <a href="#" className="fa fa-facebook" type="button" role="button"></a>
           <a href="#" className="fa fa-twitter" type="button" role="button"></a>
