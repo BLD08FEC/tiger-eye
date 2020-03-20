@@ -6,7 +6,7 @@ import ModalDashboard from './components/modal/ModalDashboard/ModalDashboard';
 const RelatedProducts = () => (
   <div className="container-fluid related-products-main">
     <div className="row carousel-title"><em>You might also like...</em></div>
-    <Carousel className="row related-products-carousel-parent" isRelated="true" />
+    <Carousel className="row related-products-carousel-parent" />
     <div className="row carousel-title"><em>Build your own outfit.</em></div>
     <Carousel className="row my-outfit-carousel-parent" />
     <ModalDashboard className="row modal-dashboard-parent" />
