@@ -1,4 +1,6 @@
-import { GET_PRODUCT_DATA_SUCCESS, GET_PRODUCT_STYLES_SUCCESS, UPDATE_SELECTED_STYLE } from '../types/types';
+import {
+  GET_PRODUCT_DATA_SUCCESS, GET_PRODUCT_STYLES_SUCCESS, UPDATE_SELECTED_STYLE, UPDATE_SELECTED_SIZE,
+} from '../types/types';
 
 const initialState = {
   productData: {},
@@ -9,6 +11,7 @@ const initialState = {
   selectedPrice: null,
   salePrice: null,
   selectedStyleName: null,
+  selectedSize: null,
 };
 
 const productDataReducer = (state = initialState, action) => {
@@ -32,6 +35,11 @@ const productDataReducer = (state = initialState, action) => {
         selectedPrice: action.payload.original_price,
         salePrice: action.payload.sale_price,
         selectedStyleName: action.payload.name,
+      };
+    case UPDATE_SELECTED_SIZE:
+      return {
+        ...state,
+        selectedSize: action.payload,
       };
     default:
       return state;

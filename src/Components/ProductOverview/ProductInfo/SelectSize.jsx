@@ -1,16 +1,18 @@
 /* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
+import { updateSelectedSize } from '../../../data/actions/productDataAction';
 
-const SelectSize = ({ selectedStyleSKUS }) => {
+const SelectSize = ({ selectedStyleSKUS, updateSelectedSize }) => {
   const availableSizes = Object.keys(selectedStyleSKUS);
-  console.log(availableSizes);
 
   return (
     availableSizes[0] !== 'null' ?
-    <select id="available-sizes">
+    <select id="available-sizes" onChange={(e) => updateSelectedSize(e.target.value)}>
       <option value="" selected="selected" disabled hidden>Select Size</option>
-      {availableSizes.map((size) => <option value={size} key={size}>{size}</option>)} 
+      {availableSizes.map((size) => (
+        <option value={size} key={size}>{size}</option>)
+      )}
     </select>
       : 
     <select disabled value="OUT OF STOCK">
@@ -24,7 +26,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-//     updateSelectedStyle: (defaultStyle) => dispatch(updateSelectedStyle(defaultStyle)),
+    updateSelectedSize: (size) => dispatch(updateSelectedSize(size)),
 });
 
 

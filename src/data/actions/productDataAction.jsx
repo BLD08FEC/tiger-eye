@@ -3,7 +3,9 @@
 /* eslint-disable no-undef */
 import axios from 'axios';
 import { defaultStyleFinder } from '../../Shared/HelperFunctions';
-import { GET_PRODUCT_DATA_SUCCESS, GET_PRODUCT_STYLES_SUCCESS, UPDATE_SELECTED_STYLE } from '../types/types';
+import {
+  GET_PRODUCT_DATA_SUCCESS, GET_PRODUCT_STYLES_SUCCESS, UPDATE_SELECTED_STYLE, UPDATE_SELECTED_SIZE,
+} from '../types/types';
 
 export const getProductData = (product_id = 1) => (dispatch) => axios.get(`http://3.134.102.30/products/${product_id}`)
   .then((res) => dispatch(getProductDataSuccess(res.data)))
@@ -34,4 +36,9 @@ export const getProductStylesSuccess = (productStyles) => ({
 export const updateSelectedStyle = (selectedStyleData) => ({
   type: UPDATE_SELECTED_STYLE,
   payload: selectedStyleData,
+});
+
+export const updateSelectedSize = (selectedSize) => ({
+  type: UPDATE_SELECTED_SIZE,
+  payload: selectedSize,
 });
