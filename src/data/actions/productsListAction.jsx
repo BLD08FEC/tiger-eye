@@ -4,10 +4,7 @@ import axios from 'axios';
 import { GET_PRODUCTS_LIST_SUCCESS } from '../types/types';
 
 export const getProductsList = () => (dispatch) => axios.get('http://3.134.102.30/products/list')
-  .then((res) => {
-    console.log(res.data);
-    return dispatch(getProductsListSuccess(res.data));
-  })
+  .then((res) => dispatch(getProductsListSuccess(res.data)))
   .catch((error) => {
     console.log(error);
   });

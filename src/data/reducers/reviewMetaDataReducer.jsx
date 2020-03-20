@@ -19,7 +19,6 @@ const reviewMetaReducer = (state = initialState, action) => {
       };
 
     case UPDATE_AVG_RATING:
-      console.log('reducer', action.payload);
       return {
         ...state,
         avgRating: action.payload,
