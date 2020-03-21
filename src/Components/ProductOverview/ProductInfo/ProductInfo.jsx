@@ -6,6 +6,7 @@ import Styles from './Styles';
 import SelectSize from './SelectSize';
 import SelectQuantity from './SelectQuantity';
 import AddToCart from './AddToCart';
+import './OrderSelection.css';
 
 const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
   <div className="container-fluid">
@@ -32,19 +33,16 @@ const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
       <Styles />
     </div>
     <div className="row">
-      <div className="col-12 col-sm-8">
+      <div className="col-6 col-sm-6">
         <SelectSize />
       </div>
-      <div className="col-12 col-sm-4">
+      <div className="col-6 col-sm-6">
         <SelectQuantity />
       </div>
     </div>
     <div className="row">
-      <div className="col-12 col-sm-8 cart">
+      <div className="col-12 cart">
         <AddToCart />
-      </div>
-      <div className="col-12 col-sm-4 favorite">
-        FAVORITE
       </div>
     </div>
   </div>

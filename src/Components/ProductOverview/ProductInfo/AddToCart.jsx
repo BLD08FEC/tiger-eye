@@ -33,10 +33,11 @@ const AddToCart = ({ selectedStyleSKUS, selectedSize, selectedQuantity, productD
   <div>
     {selectedStyleSKUS[null] === null ? <div /> : 
     <button 
-        className='add-to-cart'
+        className='add-to-cart btn'
+        type='button'
         onClick={() => buildOrder(productData.name, productData.id, selectedStyleName, selectedStyle_id, selectedSize, selectedQuantity, selectedPrice, salePrice, cart, updateCart)}
         >
-          Add to Cart yo
+          Add to Cart
     </button>
     }
   </div>

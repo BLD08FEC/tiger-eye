@@ -20,13 +20,13 @@ const SelectQuantity = ({ selectedStyleSKUS, selectedSize, updateSelectedQuantit
     <div>Qty:</div>
     {selectedSize !== null
       ? (
-        <select id="quantity" onChange={(e) => updateSelectedQuantity(e.target.value)}>
+        <select className="select-quantity" id="quantity" onChange={(e) => updateSelectedQuantity(e.target.value)}>
           <option value="1" selected="selected" disabled hidden> 1 </option>
           {availableStock(selectedStyleSKUS[selectedSize], updateSelectedQuantity)}
         </select>
       )
       : (
-        <select disabled value=" - ">
+        <select className="select-quantity" disabled value=" - ">
           <option> - </option>
         </select>
       )}

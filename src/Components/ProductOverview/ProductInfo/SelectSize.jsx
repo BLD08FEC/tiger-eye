@@ -11,7 +11,7 @@ const SelectSize = ({ selectedStyleSKUS, updateSelectedSize }) => {
       <div>Size:</div>
       {availableSizes[0] !== 'null'
         ? (
-          <select id="available-sizes" onChange={(e) => updateSelectedSize(e.target.value)}>
+          <select onChange={(e) => updateSelectedSize(e.target.value)} className="select-size" id="available-sizes" >
             <option value="" selected="selected" disabled hidden>Select Size</option>
             {availableSizes.map((size) => (
               <option value={size} key={size}>{size}</option>))}

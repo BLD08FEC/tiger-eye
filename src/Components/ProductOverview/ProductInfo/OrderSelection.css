@@ -1,0 +1,19 @@
+.add-to-cart {
+    margin: 0.4em;
+    background-color: #323639;;
+    color: #f5f5f5;
+}
+
+.select-quantity {
+    margin: 0.3em;
+    background-color: #323639;;
+    color: #f5f5f5;
+    width: 3.5em;
+}
+
+.select-size {
+    margin: 0.3em;
+    background-color: #323639;;
+    color: #f5f5f5;
+    width: 7em;
+}
