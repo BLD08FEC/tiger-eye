@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateSelectedQuantity } from '../../../data/actions/productDataAction';
 
-const availableStock = (availableStock, updateSelectedQuantity) => {
+const availableStock = (availableStock) => {
   const stock = [];
 
   for (let i = 1; i <= availableStock; i++) {
@@ -22,7 +22,7 @@ const SelectQuantity = ({ selectedStyleSKUS, selectedSize, updateSelectedQuantit
       ? (
         <select className="select-quantity" id="quantity" onChange={(e) => updateSelectedQuantity(e.target.value)}>
           <option value="1" selected="selected" disabled hidden> 1 </option>
-          {availableStock(selectedStyleSKUS[selectedSize], updateSelectedQuantity)}
+          {availableStock(selectedStyleSKUS[selectedSize])}
         </select>
       )
       : (
