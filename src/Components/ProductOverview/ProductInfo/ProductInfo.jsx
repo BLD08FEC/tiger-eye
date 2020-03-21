@@ -5,6 +5,7 @@ import Stars from '../../../Shared/Stars';
 import Styles from './Styles';
 import SelectSize from './SelectSize';
 import SelectQuantity from './SelectQuantity';
+import AddToCart from './AddToCart';
 
 const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
   <div className="container-fluid">
@@ -40,7 +41,7 @@ const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
     </div>
     <div className="row">
       <div className="col-12 col-sm-8 cart">
-        ADD TO BAG
+        <AddToCart />
       </div>
       <div className="col-12 col-sm-4 favorite">
         FAVORITE
