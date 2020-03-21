@@ -3,61 +3,8 @@
     color: #cb7119;
 }
 
-.description {
-    font-size: 0.8em;
-    color: #323639;
-}
-
-.description-features {
-    background-color: #f5f5f5;
-}
-
-.fa {
-    padding: 0.8em;
-    margin: 0.5em;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
-}
-
-.fa:hover {
-    opacity: 0.7;
-    color: white;
-}
-
-.fa-facebook {
-    background: #3B5998;
-    color: white;
-}
-
-.fa-twitter {
-    background: #55ACEE;
-    color: white;
-}
-
-.fa-pinterest {
-    background: #c8232c;
-    color: white;
-}
-
 .image-gallery {
     background-color: #f5f5f5;
-}
-
-.list-checkmarks {
-    padding-left:1.5rem;
-}
-.list-checkmarks li {
-    list-style-type:none;
-    padding-left:1rem;
-}
-.list-checkmarks li:before {    
-    font-family: 'FontAwesome';
-    content: "\f00c";
-    margin:0 10px 0 -28px;
-    color: #cb7119;
 }
 
 .price {
