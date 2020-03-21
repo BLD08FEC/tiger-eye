@@ -1,12 +1,14 @@
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { connect } from 'react-redux';
 import Stars from '../../../Shared/Stars';
 import Styles from './Styles';
-import SelectSize from './SelectSize';
-import SelectQuantity from './SelectQuantity';
-import AddToCart from './AddToCart';
+// import SelectSize from './SelectSize';
+// import SelectQuantity from './SelectQuantity';
+// import AddToCart from './AddToCart';
 import './OrderSelection.css';
+import OrderSelection from './OrderSelection';
 
 const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
   <div className="container-fluid">
@@ -32,7 +34,7 @@ const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
     <div className="row product-styles">
       <Styles />
     </div>
-    <div className="row">
+    {/* <div className="row">
       <div className="col-6 col-sm-6">
         <SelectSize />
       </div>
@@ -44,6 +46,9 @@ const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
       <div className="col-12 cart">
         <AddToCart />
       </div>
+    </div> */}
+    <div>
+      <OrderSelection />
     </div>
   </div>
 );
