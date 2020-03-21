@@ -13,22 +13,174 @@ import axios from 'axios';
 // Reviews
 
 // potential refactor to clean up code and enable single module export
-// const helpers = {
-//   getQuestions(productId, cb) {
-//     axios.get(`http://3.134.102.30/qa/${productId}`)
-//       .then((res) => console.log(res.data));
-//     // .then(res.data => cb(res.data))
-//     // .catch(err => cb(error))
-//   },
+const helpersAPI = {
+  getCart(userToken, cb) {
+    axios.get(`http://3.134.102.30/cart/${userToken}`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
 
-//   getAnswers(questionId, cb) {
-//     axios.get(`http://3.134.102.30/qa/${questionId}/answers`)
-//       .then((res) => console.log(res.data));
-//     // .then(res.data => cb(res.data))
-//     // .catch(err => cb(error))
-//   },
-// };
+  // post: /cart/
+  addToCart(userToken, cb) {
+    axios.post('http://3.134.102.30/cart/')
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
 
+  // ======= Interactions API ==============
+
+  logInteraction(userToken, cb) {
+    axios.post('http://3.134.102.30/interactions')
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  // ======= Products =====================
+  // GET / products / list
+  getProducts(productId, cb) {
+    axios.get('http://3.134.102.30/products/list')
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  getProduct(productId, cb) {
+    axios.get(`http://3.134.102.30/products/${productId}`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  getProductStyle(productId, cb) {
+    axios.get(`http://3.134.102.30/products/${productId}/styles`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+
+  // ======= Related Products ==============
+
+  getRelatedProduct(productId, cb) {
+    axios.get(`http://3.134.102.30/products/${productId}/related`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+
+  // ======= Question and Answers ==========
+  // Get
+
+  getQuestions(productId, cb) {
+    axios.get(`http://3.134.102.30/qa/${productId}`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  getAnswers(questionId, cb) {
+    axios.get(`http://3.134.102.30/qa/${questionId}/answers`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  // Post
+  postQuestion(productId, cb) {
+    axios.post(`http://3.134.102.30/qa/${productId}`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  postAnswer(questionId, cb) {
+    axios.post(`http://3.134.102.30/qa/${questionId}/answers`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  // review Question
+  // PUT / qa / question /: question_id / helpful
+
+  markQuestionHelpful(questionId, cb) {
+    axios.put(`http://3.134.102.30/qa/question/${questionId}/helpful`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  reportQuestion(questionId, cb) {
+    axios.put(`http://3.134.102.30/qa/question/${questionId}/report`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  // review Answer
+  // PUT / qa / answer /: question_id / helpful
+
+  markAnswerHelpful(answerId, cb) {
+    axios.put(`http://3.134.102.30/qa/answer/${answerId}/helpful`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  reportAnswer(answerId, cb) {
+    axios.put(`http://3.134.102.30/qa/answer/${answerId}/report`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+
+  // ========== Reviews ============
+
+  // GET /reviews/:product_id/list
+  getReviews(productId, cb) {
+    axios.get(`http://3.134.102.30/reviews/${productId}/list`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  getReviewMeta(productId, cb) {
+    axios.get(`http://3.134.102.30/reviews/${productId}/meta`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  postReview(productId, cb) {
+    axios.post(`http://3.134.102.30/reviews/${productId}`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  markReviewHelpful(reviewId, cb) {
+    axios.put(`http://3.134.102.30/reviews/helpful/${reviewId}`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+
+  reportReview(reviewId, cb) {
+    axios.put(`http://3.134.102.30/reviews/report/${reviewId}`)
+      // .then((res) => console.log(res.data));
+    .then(res.data => cb(res.data))
+    .catch(err => cb(error))
+  },
+};
+
+
+// ======= ORIGINAL CODE BELOW ===========
+// \\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
 // ======== Cart API =====================
 
 // get   = /cart/:user_token
@@ -158,6 +310,7 @@ const reportAnswer = (answerId, cb) => {
 
 
 // =========== Reviews ============
+
 // GET /reviews/:product_id/list
 const getReviews = (productId, cb) => {
   axios.get(`http://3.134.102.30/reviews/${productId}/list`)
@@ -201,7 +354,7 @@ const reportReview = (reviewId, cb) => {
 // generally add is more intuitive but post is the type of request...
 
 module.exports(
-//   helpers,
+  helpersAPI,
   logInteraction,
   getCart,
   addToCart,
