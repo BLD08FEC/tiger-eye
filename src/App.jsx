@@ -8,7 +8,7 @@ import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAn
 import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
 import logo from './Shared/Logo/tigerEye.png';
-// import Search from './Shared/Search/search.jsx';
+import Search from './Shared/Search/search';
 import './Shared/Logo/logo.scss';
 import './Shared/Header/header.scss';
 import './Shared/Search/search.scss';
@@ -35,7 +35,7 @@ class App extends Component {
         <div className="container-fluid">
           <div className="header">
             <img src={logo} alt="Tiger Eye Logo" class="logo"></img>
-            {/* < Search /> */}
+            <Search />
           </div>
           <div className="row"><ProductOverview /></div>
           <div className="row"><RelatedProducts /></div>
