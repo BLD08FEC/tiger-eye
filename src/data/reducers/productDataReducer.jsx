@@ -4,6 +4,7 @@ import {
   UPDATE_SELECTED_STYLE,
   UPDATE_SELECTED_SIZE,
   UPDATE_SELECTED_QUANTITY,
+  UPDATE_CART,
 } from '../types/types';
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
   selectedStyleName: null,
   selectedSize: null,
   selectedQuantity: null,
+  cart: [],
 };
 
 const productDataReducer = (state = initialState, action) => {
@@ -51,6 +53,12 @@ const productDataReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedQuantity: action.payload,
+      };
+    case UPDATE_CART:
+      console.log(action.payload);
+      return {
+        ...state,
+        cart: action.payload,
       };
     default:
       return state;

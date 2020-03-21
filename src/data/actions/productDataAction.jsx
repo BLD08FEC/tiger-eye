@@ -9,6 +9,7 @@ import {
   UPDATE_SELECTED_STYLE,
   UPDATE_SELECTED_SIZE,
   UPDATE_SELECTED_QUANTITY,
+  UPDATE_CART,
 } from '../types/types';
 
 export const getProductData = (product_id = 1) => (dispatch) => axios.get(`http://3.134.102.30/products/${product_id}`)
@@ -50,4 +51,9 @@ export const updateSelectedSize = (selectedSize) => ({
 export const updateSelectedQuantity = (selectedQuantity) => ({
   type: UPDATE_SELECTED_QUANTITY,
   payload: selectedQuantity,
+});
+
+export const updateCart = (cart) => ({
+  type: UPDATE_CART,
+  payload: cart,
 });
