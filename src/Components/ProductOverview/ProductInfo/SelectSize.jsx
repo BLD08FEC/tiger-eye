@@ -7,17 +7,22 @@ const SelectSize = ({ selectedStyleSKUS, updateSelectedSize }) => {
   const availableSizes = Object.keys(selectedStyleSKUS);
 
   return (
-    availableSizes[0] !== 'null' ?
-    <select id="available-sizes" onChange={(e) => updateSelectedSize(e.target.value)}>
-      <option value="" selected="selected" disabled hidden>Select Size</option>
-      {availableSizes.map((size) => (
-        <option value={size} key={size}>{size}</option>)
-      )}
-    </select>
-      : 
-    <select disabled value="OUT OF STOCK">
-        <option>OUT OF STOCK</option>
-    </select>
+    <div>
+      <div>Size:</div>
+      {availableSizes[0] !== 'null'
+        ? (
+          <select id="available-sizes" onChange={(e) => updateSelectedSize(e.target.value)}>
+            <option value="" selected="selected" disabled hidden>Select Size</option>
+            {availableSizes.map((size) => (
+              <option value={size} key={size}>{size}</option>))}
+          </select>
+        )
+        : (
+          <select disabled value="OUT OF STOCK">
+            <option>OUT OF STOCK</option>
+          </select>
+        )}
+    </div>
   );
 };
 
@@ -26,7 +31,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    updateSelectedSize: (size) => dispatch(updateSelectedSize(size)),
+  updateSelectedSize: (size) => dispatch(updateSelectedSize(size)),
 });
 
 
