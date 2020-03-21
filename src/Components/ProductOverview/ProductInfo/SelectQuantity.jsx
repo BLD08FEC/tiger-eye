@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { updateSelectedQuantity } from '../../../data/actions/productDataAction';
 
 const availableStock = (availableStock, updateSelectedQuantity) => {
-  updateSelectedQuantity(1);
-
   const stock = [];
 
   for (let i = 1; i <= availableStock; i++) {
