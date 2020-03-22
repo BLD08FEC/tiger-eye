@@ -7,6 +7,12 @@ import ProductOverview from './Components/ProductOverview/ProductOverview';
 import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAnswers';
 import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
+import logo from './Shared/Logo/tigerEye.png';
+import Search from './Shared/Search/search';
+import './Shared/Logo/logo.scss';
+import './Shared/Header/header.scss';
+// import './Shared/Search/search.scss';
+
 
 // Redux
 import { getProductData, getProductStyles } from './data/actions/productDataAction';
@@ -28,7 +34,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container-fluid">
-          <div className="header">Header</div>
+          <div className="header">
+            <img src={logo} alt="Tiger Eye Logo" className="logo" />
+            <Search />
+          </div>
           <div className="row"><ProductOverview /></div>
           <div className="row"><RelatedProducts /></div>
           <div className="row"><QuestionsAndAnswers /></div>
