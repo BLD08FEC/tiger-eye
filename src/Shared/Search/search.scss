@@ -1,20 +1,8 @@
-// .search {
-//   max-width: 25%;
-//   grid-column: 2;
-// }
-
-// .searchBtn {
-//   grid-column: 3;
-//   max-width: 25%;
-//   background-color: #cb7119;
-//   border-radius: 10px;
-// }
-
-// ============= Blink Code ===========
 .searchContainer {
   grid-column: 3;
   margin: auto;
   align-items: center;
+  padding: 3px;
 }
 
 .input {
@@ -46,35 +34,29 @@
   grid-column: 3;
   outline: 0;
   border-radius: 37px;
-  //   animation: blink 5s;
+  animation: blink 5s;
 }
 
-// @-webkit-keyframes blink {
-//   /* 50% {
-//     transform: scale(1, 0.01) rotateY(90deg);
-//   } */
-//   /* 20% {
-//     transform:  rotateX(90deg) rotateY(-3deg);
-//   } */
-//   10% {
-//     transform: rotateX(90deg);
-//   }
-//   80% {
-//     transform: rotateX(0deg) rotateY(0deg);
-//     background: url("tiger-eye.png") center;
-//     color: white;
-//     padding: 30px;
-//     border: 3px solid #000000;
-//     border-radius: 100%;
-//     transform: scale(1, 0.75);
-//   }
-//   10% {
-// grid-column: 3;
-//     padding: 3px;
-//     width: minmax(37px, 25%);
-//     height: minmax(15px, 3vh);
-//     background-color: #cb7119;
-//     border: 3px solid #cb7119;
-//     border-radius: 7px;
-//   }
-// }
+@keyframes blink {
+  10% {
+    transform: rotateX(90deg);
+  }
+  80% {
+    background: url("tiger-eye.png") center;
+    transform: rotateX(0deg) rotateY(0deg);
+    color: white;
+    padding: 30px;
+    border: 3px solid #000000;
+    border-radius: 100%;
+    transform: scale(1, 0.75);
+  }
+  10% {
+    grid-column: 3;
+    padding: 3px;
+    width: minmax(37px, 25%);
+    height: minmax(15px, 3vh);
+    background-color: #cb7119;
+    border: 3px solid #cb7119;
+    border-radius: 7px;
+  }
+}
