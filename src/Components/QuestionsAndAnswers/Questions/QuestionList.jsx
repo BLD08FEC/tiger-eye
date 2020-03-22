@@ -1,5 +1,5 @@
-/* eslint-disable react/destructuring-assignment */
-// eslint(react/no-unused-state)
+/* eslint-disable */
+
 import React from 'react';
 import Question from './Question';
 import data from '../dumData';
@@ -53,10 +53,12 @@ class QuestionList extends React.Component {
 
   render() {
     return (
-      <div className="row question-list">
-        {/* <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} />
-        <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} /> */}
-      </div>
+      this.state.displayedQuestions[this.state.currentQuestion] ? 
+      (<div className="row question-list">
+        <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} />
+        {/* <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} /> */}
+      </div>)
+      : (<div></div>)
     );
   }
 }
