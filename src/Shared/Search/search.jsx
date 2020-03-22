@@ -5,8 +5,8 @@ import './search.scss';
 
 const Search = () => (
   <div className="searchContainer">
-    <input className="input" type="text" placeholder="search for product" />
-    <button type="submit" className="searchBtn">Search Here</button>
+    <input className="input" type="text" placeholder="search here" />
+    <button type="submit" className="searchBtn">Search</button>
   </div>
 );
 
