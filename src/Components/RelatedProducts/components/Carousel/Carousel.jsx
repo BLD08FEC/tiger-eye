@@ -13,7 +13,7 @@ class Carousel extends React.Component {
     super({ currentCard, relatedProducts });
     this.state = {
       relatedProducts,
-      currentCard: 0,
+      currentCard,
     };
     this.next = this.next.bind(this);
   }
@@ -36,10 +36,11 @@ class Carousel extends React.Component {
         changeTo = 0;
       }
     }
-    this.setState({ currentCard: changeTo });
+    return ({ currentCard: changeTo });
   }
 
-  render() { //{ relatedProducts, currentCard }
+  render() { // { relatedProducts, currentCard }
+    console.log(this.state.relatedProducts, this.state.relatedProducts.length);
     return (
       <div className="container-fluid carousel-main">
         <div className="row">
@@ -48,10 +49,10 @@ class Carousel extends React.Component {
             <div className="container-fluid">
               <div className="row">
                 {/* {this.state.relatedProducts.map((i, id) => <ProductCard className="col-sm-3 carousel-card" productId={id} />)} */}
-                <ProductCard className="col-sm-3 carousel-card" productId={this.state.relatedProducts[this.state.currentCard + 1]} isRelated={this.props.isRelated} />
-                <ProductCard className="col-sm-3 carousel-card" productId={this.state.relatedProducts[this.state.currentCard + 1]} isRelated={this.props.isRelated} />
-                <ProductCard className="col-sm-3 carousel-card" productId={this.state.relatedProducts[this.state.currentCard + 2]} isRelated={this.props.isRelated} />
-                <ProductCard className="col-sm-3 carousel-card" productId={this.state.relatedProducts[this.state.currentCard + 3]} isRelated={this.props.isRelated} />
+                <ProductCard className="col-sm-3 carousel-card" productStyle={this.state.relatedProducts[this.state.currentCard + 1]} isRelated={this.props.isRelated} />
+                <ProductCard className="col-sm-3 carousel-card" productStyle={this.state.relatedProducts[this.state.currentCard + 1]} isRelated={this.props.isRelated} />
+                <ProductCard className="col-sm-3 carousel-card" productStyle={this.state.relatedProducts[this.state.currentCard + 2]} isRelated={this.props.isRelated} />
+                <ProductCard className="col-sm-3 carousel-card" productStyle={this.state.relatedProducts[this.state.currentCard + 3]} isRelated={this.props.isRelated} />
               </div>
             </div>
           </div>

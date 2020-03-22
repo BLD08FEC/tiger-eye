@@ -1,4 +1,4 @@
-import { GET_RELATED_PRODUCTS_SUCCESS, GET_CURRENT_CARD_SUCCESS } from '../types/types';
+import { GET_RELATED_PRODUCTS_SUCCESS, GET_CURRENT_CARD_SUCCESS, UPDATE_CURRENT_CARD } from '../types/types';
 
 const initialState = {
   relatedProducts: {},
@@ -15,7 +15,12 @@ const relatedProductsReducer = (state = initialState, action) => {
     case GET_CURRENT_CARD_SUCCESS:
       return {
         ...state,
-        currentCard: action.payload, //with no API call is this still '.payload'
+        currentCard: action.payload, // with no API call is this still '.payload'
+      };
+    case UPDATE_CURRENT_CARD:
+      return {
+        ...state,
+        currentCard: action.payload,
       };
     default:
       return state;
