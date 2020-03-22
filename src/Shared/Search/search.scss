@@ -12,33 +12,33 @@
 
 // ============= Blink Code ===========
 .searchContainer {
-    grid-column: 3
+  grid-column: 3;
+  margin: auto;
+  align-items: center;
 }
 
 .input {
-//   grid-column: 2;
+  font-size: 13px;
   padding: 3px;
-  width: minmax(10% 15%);
-  height: minmax(15px, 3vh);
-  border: 3px solid whitesmoke;
+  margin-right: 5px;
+  max-width: 50%;
+  border: 2px solid whitesmoke;
   outline: none;
   border-radius: 7px;
 }
 
 .input:focus {
-//   grid-column: 2;
-  border: 3px solid #cb7119;
+  border: 2px solid #cb7119;
   transition: 0.75s ease-in-out;
   border-radius: 11px;
 }
 
 .searchBtn {
-//   grid-column: 3;
+  font-size: 13px;
   padding: 3px;
-  width: minmax(17px, 15vw);
-  height: minmax(5px, 3vh);
+  max-width: 45%;
   background-color: #cb7119;
-  border: 3px solid #cb7119;
+  border: 2px solid #cb7119;
   border-radius: 7px;
 }
 
@@ -46,7 +46,7 @@
   grid-column: 3;
   outline: 0;
   border-radius: 37px;
-//   animation: blink 5s;
+  //   animation: blink 5s;
 }
 
 // @-webkit-keyframes blink {
@@ -69,7 +69,7 @@
 //     transform: scale(1, 0.75);
 //   }
 //   10% {
-    // grid-column: 3;
+// grid-column: 3;
 //     padding: 3px;
 //     width: minmax(37px, 25%);
 //     height: minmax(15px, 3vh);
