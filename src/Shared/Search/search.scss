@@ -1,0 +1,69 @@
+.searchContainer {
+  grid-column: 3;
+  margin: auto;
+  align-items: center;
+  padding: 3px;
+}
+
+.input {
+  font-size: 13px;
+  padding: 3px;
+  margin-right: 5px;
+  max-width: 50%;
+  border: 2px solid whitesmoke;
+  outline: none;
+  border-radius: 7px;
+}
+
+.input:focus {
+  border: 2px solid #cb7119;
+  transition: 0.75s ease-in-out;
+  border-radius: 11px;
+}
+
+.searchBtn {
+  font-size: 13px;
+  padding: 3px;
+  max-width: 45%;
+  background-color: #cb7119;
+  border: 2px solid #cb7119;
+  border-radius: 7px;
+}
+
+.searchBtn:focus {
+  grid-column: 3;
+  outline: 0;
+  animation: blink 3s;
+}
+
+@keyframes blink {
+  5% {
+    transform: rotateX(90deg);
+  }
+  80% {
+    background: center url("tiger-eye.png")  no-repeat;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: 0.75s ease-in-out;
+    color: white;
+    padding-right: 13px;
+    padding-left: 13px;
+    padding-left: 7px;
+    padding-bottom: 7px;
+    border: 1px solid #000000;
+    border-radius: 100%;
+    // transform: scale(1, 1);
+  }
+  85% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    // transform: rotateX(90deg);
+    transition: 1s ease-in-out;
+    padding: 3px;
+    width: minmax(37px, 25%);
+    height: minmax(15px, 3vh);
+    background-color: #cb7119;
+    border: 2px solid #cb7119;
+    border-radius: 7px;
+  }
+}

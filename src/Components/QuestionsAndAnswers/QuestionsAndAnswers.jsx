@@ -8,7 +8,6 @@ const QuestionsAndAnswers = () => (
   <div className="container questions-and-answers">
     <div className="row questions"><em>Common Questions Realated To This Product</em></div>
     <QuestionList className="row question-list" />
-    QuestionsAndAnswers PLACEHOLDER
   </div>
 );
 
