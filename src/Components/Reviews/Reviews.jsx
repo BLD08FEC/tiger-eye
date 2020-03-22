@@ -2,7 +2,9 @@
 import React from 'react';
 
 const Reviews = () => (
-  <a id="reviews"><div className="reviews">Reviews PLACEHOLDER</div></a>
+  <a id="reviews">
+    <div className="reviews">TEST</div>
+  </a>
 );
 
 export default Reviews;
