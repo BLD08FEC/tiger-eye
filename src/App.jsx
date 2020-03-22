@@ -14,7 +14,6 @@ import './Shared/Header/header.scss';
 // import './Shared/Search/search.scss';
 
 
-
 // Redux
 import { getProductData, getProductStyles } from './data/actions/productDataAction';
 import { getProductsList } from './data/actions/productsListAction';
@@ -34,7 +33,7 @@ class App extends Component {
       <div className="App">
         <div className="container-fluid">
           <div className="header">
-            <img src={logo} alt="Tiger Eye Logo" class="logo"></img>
+            <img src={logo} alt="Tiger Eye Logo" className="logo" />
             <Search />
           </div>
           <div className="row"><ProductOverview /></div>
