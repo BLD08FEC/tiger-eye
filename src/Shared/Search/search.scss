@@ -33,30 +33,37 @@
 .searchBtn:focus {
   grid-column: 3;
   outline: 0;
-  border-radius: 37px;
-  animation: blink 5s;
+  animation: blink 3s;
 }
 
 @keyframes blink {
-  10% {
+  5% {
     transform: rotateX(90deg);
   }
   80% {
-    background: url("tiger-eye.png") center;
+    background: center url("tiger-eye.png")  no-repeat;
     transform: rotateX(0deg) rotateY(0deg);
+    transition: 0.75s ease-in-out;
     color: white;
-    padding: 30px;
-    border: 3px solid #000000;
+    padding-right: 13px;
+    padding-left: 13px;
+    padding-left: 7px;
+    padding-bottom: 7px;
+    border: 1px solid #000000;
     border-radius: 100%;
-    transform: scale(1, 0.75);
+    // transform: scale(1, 1);
   }
-  10% {
-    grid-column: 3;
+  85% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    // transform: rotateX(90deg);
+    transition: 1s ease-in-out;
     padding: 3px;
     width: minmax(37px, 25%);
     height: minmax(15px, 3vh);
     background-color: #cb7119;
-    border: 3px solid #cb7119;
+    border: 2px solid #cb7119;
     border-radius: 7px;
   }
 }
