@@ -1,7 +1,7 @@
 import React from 'react';
 import './RelatedProducts.scss';
-import Carousel from './components/Carousel/Carousel';
-import ModalDashboard from './components/modal/ModalDashboard/ModalDashboard';
+import Carousel from './RPComponents/Carousel/Carousel';
+import ModalDashboard from './RPComponents/modal/ModalDashboard/ModalDashboard';
 
 const RelatedProducts = () => (
   <div className="container-fluid related-products-main">
