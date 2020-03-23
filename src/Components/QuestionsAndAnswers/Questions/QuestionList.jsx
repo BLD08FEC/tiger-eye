@@ -10,7 +10,7 @@ class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // currentProduct: 3,
+      currentProduct: 3,
       currentQuestion: 0,
       displayedQuestions: [],
       allQuestions: [],
@@ -19,35 +19,67 @@ class QuestionList extends React.Component {
     // this.displayedQuestions = this.displayedQuestions.bind(this);
     // const productQuestions = data.results,
   }
+ // set product number - need to dynamically render questions from particular product.
+    // this.setState({ currentProduct: data.product_id })
 
   componentDidMount() {
     const results = [];
-    helpersAPI.getQuestions(3, (data) => {
-      data.results.forEach(q => results.push(q));
-      this.setState({ allQuestions: results });
-      console.log('currentProduct ======', this.state.allQuestions, this.state.currentProduct)
-    });
+    const display = [];
 
-    // set product number - need to dynamically render questions from particular product.
-    // this.setState({ currentProduct: data.product_id })
+    helpersAPI.getQuestions(3, (data) => {
+
+      Promise.all(data.results.map(q => {
+        results.push(q);
+        
+        console.log("All Questions test ====== ", this.state.allQuestions)
+      }))
+        .then(() => {
+          this.setState({ allQuestions: results });
+          if (this.state.allQuestions >= 2) {
+            for (let i = 0; i < 2; i++) {
+              display.push(this.state.allQuestions[i]);
+              this.incrementCurrentQuestion();
+            }
+            this.setState({ displayedQuestions: results });
+            console.log('displayed Questions ========', this.state.displayedQuestions);
+          } else if (this.state.allQuestions === 1) {
+            display.push(this.state.allQuestions[1]);
+            this.incrementCurrentQuestion();
+            this.setState({ displayedQuestions: results });
+          } else {
+            display.push("No Questions to Display");
+          }
+        })
+      })
+      console.log('All Questions test2 ======', this.state.allQuestions, this.state.currentProduct)
+
+
+    // helpersAPI.getQuestions(3, (data) => {
+    //   data.results.forEach(q => results.push(q));
+    //   this.setState({ allQuestions: results })
+    //   Promise.all(this.state.allQuestions)
+    //   .then( () => {
+    //     console.log("All Questions test2 ====== ", this.state.allQuestions.length)
+    //     if (this.state.allQuestions >= 2) {
+    //       for (let i = 0; i < 2; i++) {
+    //         display.push(this.state.allQuestions[i]);
+    //         this.incrementCurrentQuestion();
+    //       }
+    //       this.setState({ displayedQuestions: results });
+    //       console.log('displayed Questions ========', this.state.displayedQuestions);
+    //     } else if (this.state.allQuestions === 1) {
+    //       display.push(this.state.allQuestions[1]);
+    //       this.incrementCurrentQuestion();
+    //       this.setState({ displayedQuestions: results });
+    //     } else {
+    //       display.push("No Questions to Display");
+    //     }
+    //   })
+    //   console.log('All Questions test ======', this.state.allQuestions, this.state.currentProduct)
+    // })
 
     // Default load up to 2 questions max or if none, display "no questions" message
-    const display = [];
-    if (this.state.allQuestions >=2) {
-      for (let i = 0; i < 2; i++) {
-        display.push(this.state.allQuestions[i]);
-        this.incrementCurrentQuestion();
-      }
-      this.setState({ displayedQuestions: results });
-      console.log('displayed Questions ========', this.state.displayedQuestions);
-    } else if (this.state.allQuestions === 1) {
-      display.push(this.state.allQuestions[1]);
-      this.incrementCurrentQuestion();
-      this.setState({ displayedQuestions: results });
-    } else {
-      display.push("No Questions to Display");
-    }
-
+    
   }
 
   // addQuestionToPage(data) {
@@ -89,9 +121,10 @@ class QuestionList extends React.Component {
 
 
     return (
-      this.state.displayedQuestions[this.state.currentQuestion] ? 
+      this.state.displayedQuestions.length > 0 ? 
       (<div className="row question-list">
-        {/* <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} /> */}
+        dfdfd
+        <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} />
         {/* <Question displayedQuestions={this.state.displayedQuestions[1].question_body} /> */}
         <Question displayedQuestions={"render anything!"} />
       </div>)
