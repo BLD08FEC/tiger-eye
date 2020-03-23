@@ -89,6 +89,9 @@ export class OrderSelection extends Component {
       selectedStyleSKUS, selectedSize, selectedQuantity, productData, selectedStyleName, selectedStyle_id, selectedPrice, salePrice, cart, updateCart,
     }) => (
       <div>
+        <div>
+          {this.state.showCartError && <div className="cart-error">Size must be selected to add item to your cart</div>}
+        </div>
         {selectedStyleSKUS.null === null ? <div />
           : (
             <button

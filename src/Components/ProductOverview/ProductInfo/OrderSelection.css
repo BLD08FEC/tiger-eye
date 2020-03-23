@@ -4,6 +4,11 @@
     color: #f5f5f5;
 }
 
+.cart-error {
+    font-size: 0.8em;
+    color: red;
+}
+
 .select-quantity {
     margin: 0.3em;
     background-color: #323639;;
