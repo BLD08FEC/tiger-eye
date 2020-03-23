@@ -8,16 +8,16 @@ export class OrderSelection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        showCartError: false,
+      showCartError: false,
     };
     this.showCartError = this.showCartError.bind(this);
     this.hideCartError = this.hideCartError.bind(this);
-  }  
+  }
 
   showCartError(e, selectedSize) {
     e.preventDefault();
     if (selectedSize === null) {
-        this.setState({ showCartError: true });
+      this.setState({ showCartError: true });
     }
   }
 
@@ -26,21 +26,32 @@ export class OrderSelection extends Component {
     this.setState({ showCartError: false });
   }
 
+  resetQuantity(availableStock, selectedQuantity, updateSelectedQuantity) {
+    if (availableStock < selectedQuantity) {
+      updateSelectedQuantity(1);
+    }
+  }
 
 
-    renderSelectSize = ({ selectedStyleSKUS, updateSelectedSize, updateSelectedQuantity, selectedQuantity, selectedSize }) => {
+    renderSelectSize = ({
+      selectedStyleSKUS, updateSelectedSize, updateSelectedQuantity, selectedQuantity, selectedSize,
+    }) => {
       const availableSizes = Object.keys(selectedStyleSKUS);
 
       return (
         <div>
-          {this.state.showCartError && <div className="cart-error">Select a size first!</div>}
+          {this.state.showCartError && <div className="cart-error">Select a size!</div>}
           <div>Size:</div>
           {availableSizes[0] !== 'null'
             ? (
-              <select className="select-size" id="available-sizes" onChange={(e) => {
+              <select
+                className="select-size"
+                id="available-sizes"
+                onChange={(e) => {
                   updateSelectedSize(e.target.value);
                   this.hideCartError(e);
-              }}>
+                }}
+              >
                 <option value="" selected="selected" disabled hidden>Select Size</option>
                 {availableSizes.map((size) => (
                   <option value={size} key={size}>{size}</option>))}
@@ -51,6 +62,7 @@ export class OrderSelection extends Component {
                 <option>OUT OF STOCK</option>
               </select>
             )}
+          {this.resetQuantity(selectedStyleSKUS[selectedSize], selectedQuantity, updateSelectedQuantity)}
         </div>
       );
     }
@@ -83,9 +95,10 @@ export class OrderSelection extends Component {
               className="add-to-cart btn"
               type="button"
               onClick={(e) => {
-                  this.showCartError(e, selectedSize);
-                  buildOrder(productData.name, productData.id, selectedStyleName, selectedStyle_id, selectedSize, selectedQuantity, selectedPrice, salePrice, cart, updateCart);
-              }}>
+                this.showCartError(e, selectedSize);
+                buildOrder(productData.name, productData.id, selectedStyleName, selectedStyle_id, selectedSize, selectedQuantity, selectedPrice, salePrice, cart, updateCart);
+              }}
+            >
               Add to Cart
             </button>
           )}
