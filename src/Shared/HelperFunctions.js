@@ -39,9 +39,14 @@ export const availableStock = (availableStock) => {
 };
 
 export const buildOrder = (productName, product_id, styleName, style_id, size, quantity = 1, price, salePrice, cart, updateCart) => {
+  if (size === null) {
+    return;
+  }
+  
   if (!quantity) {
       quantity = 1;
   }
+
 
   const order = {
       name: productName,
