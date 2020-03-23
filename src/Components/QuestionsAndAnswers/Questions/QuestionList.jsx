@@ -19,39 +19,40 @@ class QuestionList extends React.Component {
     // this.displayedQuestions = this.displayedQuestions.bind(this);
     // const productQuestions = data.results,
   }
- // set product number - need to dynamically render questions from particular product.
+    // set product number - need to dynamically render questions from particular product.
     // this.setState({ currentProduct: data.product_id })
 
-  componentDidMount() {
+  async componentDidMount() {
     const results = [];
     const display = [];
 
-    helpersAPI.getQuestions(3, (data) => {
-
-      Promise.all(data.results.map(q => {
-        results.push(q);
-        
-        console.log("All Questions test ====== ", this.state.allQuestions)
-      }))
-        .then(() => {
-          this.setState({ allQuestions: results });
-          if (this.state.allQuestions >= 2) {
-            for (let i = 0; i < 2; i++) {
-              display.push(this.state.allQuestions[i]);
-              this.incrementCurrentQuestion();
-            }
-            this.setState({ displayedQuestions: results });
-            console.log('displayed Questions ========', this.state.displayedQuestions);
-          } else if (this.state.allQuestions === 1) {
-            display.push(this.state.allQuestions[1]);
-            this.incrementCurrentQuestion();
-            this.setState({ displayedQuestions: results });
-          } else {
-            display.push("No Questions to Display");
-          }
+    await function() {
+      helpersAPI.getQuestions(3, (data) => {
+        data.results.map(q => {
+          results.push(q);
         })
       })
-      console.log('All Questions test2 ======', this.state.allQuestions, this.state.currentProduct)
+      this.setState({ allQuestions: results })
+    }
+    // apiQuestions();
+    
+    console.log("All Questions test ====== ", this.state.allQuestions)
+    if (this.state.allQuestions >= 2) {
+      for (let i = 0; i < 2; i++) {
+        display.push(this.state.allQuestions[i]);
+        this.incrementCurrentQuestion();
+      }
+      console.log('displayed Questions ========', this.state.displayedQuestions);
+      this.setState({ displayedQuestions: results });
+    } else if (this.state.allQuestions === 1) {
+      display.push(this.state.allQuestions[1]);
+      this.incrementCurrentQuestion();
+      this.setState({ displayedQuestions: results });
+    } else {
+      display.push("No Questions to Display");
+    }
+    console.log('All Questions test2 ======', this.state.allQuestions)
+  }
 
 
     // helpersAPI.getQuestions(3, (data) => {
@@ -79,8 +80,7 @@ class QuestionList extends React.Component {
     // })
 
     // Default load up to 2 questions max or if none, display "no questions" message
-    
-  }
+
 
   // addQuestionToPage(data) {
 
@@ -113,13 +113,6 @@ class QuestionList extends React.Component {
 
   // need to map displayedQuestions array in state to be rendered individually
   render() {
-    // return (
-    //   this.state.displayedQuestions.map((item, key) => {
-    //       return <Question displayedQuestions={item} key={key} />
-    //   })
-    // )
-
-
     return (
       this.state.displayedQuestions.length > 0 ? 
       (<div className="row question-list">
@@ -128,7 +121,7 @@ class QuestionList extends React.Component {
         {/* <Question displayedQuestions={this.state.displayedQuestions[1].question_body} /> */}
         <Question displayedQuestions={"render anything!"} />
       </div>)
-      : (<div></div>)
+      : (<div>render if false</div>)
     );
   }
 }
