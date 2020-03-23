@@ -7,18 +7,40 @@ import { updateSelectedQuantity, updateCart, updateSelectedSize } from '../../..
 export class OrderSelection extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+        showCartError: false,
+    };
+    this.showCartError = this.showCartError.bind(this);
+    this.hideCartError = this.hideCartError.bind(this);
+  }  
+
+  showCartError(e, selectedSize) {
+    e.preventDefault();
+    if (selectedSize === null) {
+        this.setState({ showCartError: true });
+    }
   }
 
-    renderSelectSize = ({ selectedStyleSKUS, updateSelectedSize }) => {
+  hideCartError(e) {
+    e.preventDefault();
+    this.setState({ showCartError: false });
+  }
+
+
+
+    renderSelectSize = ({ selectedStyleSKUS, updateSelectedSize, updateSelectedQuantity, selectedQuantity, selectedSize }) => {
       const availableSizes = Object.keys(selectedStyleSKUS);
 
       return (
         <div>
+          {this.state.showCartError && <div className="cart-error">Select a size first!</div>}
           <div>Size:</div>
           {availableSizes[0] !== 'null'
             ? (
-              <select onChange={(e) => updateSelectedSize(e.target.value)} className="select-size" id="available-sizes">
+              <select className="select-size" id="available-sizes" onChange={(e) => {
+                  updateSelectedSize(e.target.value);
+                  this.hideCartError(e);
+              }}>
                 <option value="" selected="selected" disabled hidden>Select Size</option>
                 {availableSizes.map((size) => (
                   <option value={size} key={size}>{size}</option>))}
@@ -60,8 +82,10 @@ export class OrderSelection extends Component {
             <button
               className="add-to-cart btn"
               type="button"
-              onClick={() => buildOrder(productData.name, productData.id, selectedStyleName, selectedStyle_id, selectedSize, selectedQuantity, selectedPrice, salePrice, cart, updateCart)}
-            >
+              onClick={(e) => {
+                  this.showCartError(e, selectedSize);
+                  buildOrder(productData.name, productData.id, selectedStyleName, selectedStyle_id, selectedSize, selectedQuantity, selectedPrice, salePrice, cart, updateCart);
+              }}>
               Add to Cart
             </button>
           )}
