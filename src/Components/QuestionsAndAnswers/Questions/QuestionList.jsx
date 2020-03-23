@@ -1,10 +1,8 @@
 /* eslint-disable */
-
 import React from 'react';
 import Question from './Question';
 import helpersAPI from '../../../Shared/api';
 // import data from '../dumData';
-
 
 // helper API func = helpers.getQuestions(productId, cb){}
 
@@ -12,7 +10,7 @@ class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProduct: 0,
+      // currentProduct: 3,
       currentQuestion: 0,
       displayedQuestions: [],
       allQuestions: [],
@@ -24,14 +22,16 @@ class QuestionList extends React.Component {
 
   componentDidMount() {
     const results = [];
-    const productQuestions = helpersAPI.getQuestions(3, (data) => {
-      this.setState({currentProduct: data.product_id})
-      data.results.forEach(q => results.push(q))
-      this.setState({ allQuestions: results })
-      // console.log('currentProduct ======', this.state.allQuestions, this.state.currentProduct)
+    helpersAPI.getQuestions(3, (data) => {
+      data.results.forEach(q => results.push(q));
+      this.setState({ allQuestions: results });
+      console.log('currentProduct ======', this.state.allQuestions, this.state.currentProduct)
     });
 
-    //Default load up to 2 questions max or if none, display "no questions" message
+    // set product number - need to dynamically render questions from particular product.
+    // this.setState({ currentProduct: data.product_id })
+
+    // Default load up to 2 questions max or if none, display "no questions" message
     const display = [];
     if (this.state.allQuestions >=2) {
       for (let i = 0; i < 2; i++) {
@@ -39,75 +39,61 @@ class QuestionList extends React.Component {
         this.incrementCurrentQuestion();
       }
       this.setState({ displayedQuestions: results });
+      console.log('displayed Questions ========', this.state.displayedQuestions);
     } else if (this.state.allQuestions === 1) {
-      display.push(this.state.allQuestions[i]);
+      display.push(this.state.allQuestions[1]);
       this.incrementCurrentQuestion();
       this.setState({ displayedQuestions: results });
     } else {
       display.push("No Questions to Display");
     }
 
-    // const max = productQuestions.lenght;
-    // if (max > this.state.currentQuestion + 2) {
-    //   results.push(data.results[this.state.currentQuestion]);
-    //   this.setState({ displayedQuestions: results });
-    //   this.incrementCurrentQuestion();
-    //   results.push(data.results[this.state.currentQuestion]);
-    //   this.setState({ displayedQuestions: results });
-    //   this.incrementCurrentQuestion();
-    // }
-    // if (max === this.state.currentQuestion + 1) {
-    //   results.push(data.results[this.state.currentQuestion]);
-    //   this.setState({ displayedQuestions: results });
-    //   this.incrementCurrentQuestion();
-    // } else {
-    //   this.state.displayedQuestions.push('No more questions');
-    // }
-
-    // const data = helpersAPI.getQuestions(3, result => {
-    //   this.setState({
-    //     displayedQuestions: results;
-    //   });
-    // });
-
   }
 
-  addQuestionToPage(data) {
+  // addQuestionToPage(data) {
 
-  }
+  // }
 
   incrementCurrentQuestion() {
     const currentNum = this.state.currentQuestion;
     this.setState((state) => ({ currentQuestion: currentNum + 1 }));
   }
 
-  nextTwo() {
-    const results = [];
-    const max = this.state.allQuestions.length;
-    if (max > this.state.currentQuestion + 2) {
-      results.push(data.results[this.state.currentQuestion]);
-      this.setState({ displayedQuestions: results });
-      this.incrementCurrentQuestion();
-      results.push(data.results[this.state.currentQuestion]);
-      this.setState({ displayedQuestions: results });
-      this.incrementCurrentQuestion();
-    }
-    if (max === this.state.currentQuestion + 1) {
-      results.push(data.results[this.state.currentQuestion]);
-      this.setState({ displayedQuestions: results });
-      this.incrementCurrentQuestion();
-    } else {
-      this.state.displayedQuestions.push('No more questions');
-    }
-  }
+  // nextTwo() {
+  //   const results = [];
+  //   const max = this.state.allQuestions.length;
+  //   if (max > this.state.currentQuestion + 2) {
+  //     results.push(data.results[this.state.currentQuestion]);
+  //     this.setState({ displayedQuestions: results });
+  //     this.incrementCurrentQuestion();
+  //     results.push(data.results[this.state.currentQuestion]);
+  //     this.setState({ displayedQuestions: results });
+  //     this.incrementCurrentQuestion();
+  //   }
+  //   if (max === this.state.currentQuestion + 1) {
+  //     results.push(data.results[this.state.currentQuestion]);
+  //     this.setState({ displayedQuestions: results });
+  //     this.incrementCurrentQuestion();
+  //   } else {
+  //     this.state.displayedQuestions.push('No more questions');
+  //   }
+  // }
 
   // need to map displayedQuestions array in state to be rendered individually
   render() {
+    // return (
+    //   this.state.displayedQuestions.map((item, key) => {
+    //       return <Question displayedQuestions={item} key={key} />
+    //   })
+    // )
+
+
     return (
-      this.state.displayedQuestions.length > 0 ? 
+      this.state.displayedQuestions[this.state.currentQuestion] ? 
       (<div className="row question-list">
-        <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} />
-        {/* <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion+1].question_body} /> */}
+        {/* <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} /> */}
+        {/* <Question displayedQuestions={this.state.displayedQuestions[1].question_body} /> */}
+        <Question displayedQuestions={"render anything!"} />
       </div>)
       : (<div></div>)
     );
