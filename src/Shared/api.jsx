@@ -88,7 +88,7 @@ const helpersAPI = {
 
   getQuestions(productId, cb) {
     axios.get(`http://3.134.102.30/qa/${productId}`)
-      .then((res) => cb(res.data))
+      .then((res) => cb(res.data));
     // .then((res) => console.log('res ======= ', res.data));
     // .catch((err) => cb(err));
     // .throw(err);
