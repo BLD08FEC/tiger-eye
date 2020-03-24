@@ -1,7 +1,41 @@
+.arrow {
+  cursor: pointer;
+  font-size: 1.2em;
+  color: #cb7119;
+}
+
 .main-image {
   object-fit: cover;
   width: 100%;
   height: 75vh;
+  z-index: 1;
 }
 
+.thumbnail {
+  z-index: 2;
+  object-fit: cover;
+  width: 3.3em;
+  height: 3.3em;
+  margin: 5px;
+  cursor: pointer;
+  // padding-top: auto;
+  // padding-bottom: auto;
+}
+
+.thumbnail-list {
+  height: 75vh;
+  z-index: 2;
+  position: absolute;
+}
+
+.thumbnail-margin {
+  position: relative;
+  // height: 75vh;
+  padding-top: 50%;
+  padding-bottom: 50%;
+}
+
+.selected {
+  border: 0.2em solid #cb7119;
+}
 

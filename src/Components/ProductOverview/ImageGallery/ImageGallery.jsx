@@ -29,7 +29,7 @@ export class ImageGallery extends Component {
     this.setState({ selectedIndex: index });
   }
 
-  renderThumbnails(selectedStylePhotos, thumbnailIndex, name) {
+  renderThumbnails(selectedStylePhotos, thumbnailIndex, name, selectedIndex) {
     const thumbnails = [];
     const endpoint = thumbnailIndex + 6;
 
@@ -37,17 +37,26 @@ export class ImageGallery extends Component {
       if (i === selectedStylePhotos.length) {
         break;
       }
-      thumbnails.push(
-        <div>
+
+      i === selectedIndex 
+      ? thumbnails.push(
+        <div key={i}>
           <img
             src={selectedStylePhotos[i].thumbnail_url}
-            className="thumbnail"
-            key={i}
+            className="thumbnail selected"
             alt={name}
             onClick={(e) => this.thumbnailClick(e, i)}
           />
-        </div>,
-      );
+        </div>)
+      : thumbnails.push(
+        <div key={i}>
+          <img
+            src={selectedStylePhotos[i].thumbnail_url}
+            className="thumbnail"
+            alt={name}
+            onClick={(e) => this.thumbnailClick(e, i)}
+          />
+        </div>)
     }
     return thumbnails;
   }
@@ -64,9 +73,11 @@ export class ImageGallery extends Component {
             && (
             <div>
               <div className="thumbnail-list">
-                <div>up</div>
-                {this.renderThumbnails(selectedStylePhotos, thumbnailIndex, selectedStyleName)}
-                <div>down</div>
+                <div className="thumbnail-margin">
+                    <div className="arrow arrow-up">&#x219F;</div>
+                    {this.renderThumbnails(selectedStylePhotos, thumbnailIndex, selectedStyleName, selectedIndex)}
+                    <div className="arrow arrow-down">&#x21A1;</div>
+                </div>
               </div>
               <img
                 src={selectedStylePhotos[selectedIndex].url}
