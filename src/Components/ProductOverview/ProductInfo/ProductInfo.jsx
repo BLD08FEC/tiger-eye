@@ -1,8 +1,11 @@
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { connect } from 'react-redux';
 import Stars from '../../../Shared/Stars';
 import Styles from './Styles';
+import './OrderSelection.css';
+import OrderSelection from './OrderSelection';
 
 const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
   <div className="container-fluid">
@@ -28,21 +31,8 @@ const ProductInfo = ({ productData, selectedPrice, salePrice }) => (
     <div className="row product-styles">
       <Styles />
     </div>
-    <div className="row">
-      <div className="col-12 col-sm-8">
-        select size
-      </div>
-      <div className="col-12 col-sm-4">
-        quantity
-      </div>
-    </div>
-    <div className="row">
-      <div className="col-12 col-sm-8 cart">
-        ADD TO BAG
-      </div>
-      <div className="col-12 col-sm-4 favorite">
-        FAVORITE
-      </div>
+    <div>
+      <OrderSelection />
     </div>
   </div>
 );
