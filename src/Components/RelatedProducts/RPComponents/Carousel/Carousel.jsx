@@ -9,20 +9,26 @@ import ProductCard from '../ProductCard/ProductCard';
 // import Next from '';
 
 class Carousel extends React.Component {
-  constructor({ currentCard, relatedProducts }) {
-    super({ currentCard, relatedProducts });
-    this.state = {
-      relatedProducts,
-      currentCard,
-    };
+  constructor({
+    RPproductData, RPproductName, RPproductCategory, RPproductPrice, RPrelatedProducts, RPcurrentCard,
+  }) {
+    super(
+      {
+        RPproductData, RPproductName, RPproductCategory, RPproductPrice, RPrelatedProducts, RPcurrentCard,
+      },
+    );
+    // this.state = {
+    //   relatedProducts,
+    //   currentCard,
+    // };
     this.next = this.next.bind(this);
   }
 
   // const Carousel = ({ relatedProducts, currentCard }) => {})
 
   next(direction) {
-    let changeTo = this.state.currentCard;
-    const maxx = this.state.relatedProducts.length;
+    let changeTo = this.RPcurrentCard;
+    const maxx = this.RPrelatedProducts.length;
 
     if (direction === 'left') {
       changeTo -= 1;
@@ -40,7 +46,13 @@ class Carousel extends React.Component {
   }
 
   render() { // { relatedProducts, currentCard }
-    console.log(this.state.relatedProducts, this.state.relatedProducts.length);
+    // let cardArr = this.RPrelatedProducts;
+
+    // eslint-disable-next-line no-console
+    // console.log(`${this.RPrelatedProducts}`);
+    // eslint-disable-next-line no-console
+    // console.log(this.RPrelatedProducts);
+
     return (
       <div className="container-fluid carousel-main">
         <div className="row">
@@ -49,10 +61,10 @@ class Carousel extends React.Component {
             <div className="container-fluid">
               <div className="row">
                 {/* {this.state.relatedProducts.map((i, id) => <ProductCard className="col-sm-3 carousel-card" productId={id} />)} */}
-                <ProductCard className="col-sm-3 carousel-card" productStyle={this.state.relatedProducts[this.state.currentCard + 1]} isRelated={this.props.isRelated} />
-                <ProductCard className="col-sm-3 carousel-card" productStyle={this.state.relatedProducts[this.state.currentCard + 1]} isRelated={this.props.isRelated} />
-                <ProductCard className="col-sm-3 carousel-card" productStyle={this.state.relatedProducts[this.state.currentCard + 2]} isRelated={this.props.isRelated} />
-                <ProductCard className="col-sm-3 carousel-card" productStyle={this.state.relatedProducts[this.state.currentCard + 3]} isRelated={this.props.isRelated} />
+                <ProductCard className="col-sm-3 carousel-card" carouselSpot="1"/* relatedProductId={cardArr[0]} */ />
+                <ProductCard className="col-sm-3 carousel-card" carouselSpot="2" />
+                <ProductCard className="col-sm-3 carousel-card" carouselSpot="3" />
+                <ProductCard className="col-sm-3 carousel-card" carouselSpot="4" />
               </div>
             </div>
           </div>
@@ -64,9 +76,12 @@ class Carousel extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  productData: state.productDataReducer.productData,
-  relatedProducts: state.relatedProductsReducer.relatedProducts,
-  // currentCard: state.currentCardReducer.currentCard,
+  RPproductData: state.relatedProductsReducer.RPproductData,
+  RPproductName: state.relatedProductsReducer.RPproductName,
+  RPproductCategory: state.relatedProductsReducer.RPproductCategory,
+  RPproductPrice: state.relatedProductsReducer.RPproductPrice,
+  RPrelatedProducts: state.relatedProductsReducer.RPrelatedProducts,
+  RPcurrentCard: state.relatedProductsReducer.RPcurrentCard,
 });
 
 export default connect(mapStateToProps)(Carousel);
