@@ -20,7 +20,7 @@ import axios from 'axios';
 
 // ========  potential refactor to clean up code and enable single module export
 
-const helpersAPI = {
+const helperAPI = {
   getCart(userToken, cb) {
     axios.get(`http://3.134.102.30/cart/${userToken}`)
       // .then((res) => console.log(res.data));
@@ -395,4 +395,4 @@ const helpersAPI = {
 // reportReview,
 // );
 
-export default helpersAPI;
+export default helperAPI;

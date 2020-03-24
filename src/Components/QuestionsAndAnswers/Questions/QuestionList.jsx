@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import Question from './Question';
-import helpersAPI from '../../../Shared/api';
+import helperAPI from '../../../Shared/api';
 // import data from '../dumData';
 
 // helper API func = helpers.getQuestions(productId, cb){}
@@ -26,7 +26,7 @@ class QuestionList extends React.Component {
     const display = [];
 
     const apiQuestions = function() {
-      helpersAPI.getQuestions(3, (data) => {
+      helperAPI.getQuestions(3, (data) => {
         data.results.map(q => {
           results.push(q);
         })
