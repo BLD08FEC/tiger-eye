@@ -13,6 +13,8 @@ export class ImageGallery extends Component {
     };
     this.checkStyleChange = this.checkStyleChange.bind(this);
     this.thumbnailClick = this.thumbnailClick.bind(this);
+    this.scrollPrevious = this.scrollPrevious.bind(this);
+    this.scrollNext = this.scrollNext.bind(this);
   }
 
   checkStyleChange(selectedStyleName) {
@@ -29,7 +31,31 @@ export class ImageGallery extends Component {
     this.setState({ selectedIndex: index });
   }
 
-  renderThumbnails(selectedStylePhotos, thumbnailIndex, name, selectedIndex) {
+  scrollPrevious() {
+    const { selectedStylePhotos } = this.props;
+    const { selectedIndex, thumbnailIndex } = this.state;
+    console.log(selectedStylePhotos.length);
+
+    if (thumbnailIndex > 0) {
+        this.setState({ thumbnailIndex: thumbnailIndex - 1 });
+    }
+    return;
+  }
+
+  scrollNext() {
+    const { selectedStylePhotos } = this.props;
+    const { selectedIndex, thumbnailIndex } = this.state;
+    console.log(selectedStylePhotos.length);
+
+    if (thumbnailIndex < selectedStylePhotos.length - 7) {
+        this.setState({ thumbnailIndex: thumbnailIndex + 1 });
+    }
+    return;
+  }
+
+  renderThumbnails() {
+    const { selectedStylePhotos, selectedStyleName } = this.props;
+    const { selectedIndex, thumbnailIndex } = this.state;
     const thumbnails = [];
     const endpoint = thumbnailIndex + 6;
 
@@ -44,7 +70,7 @@ export class ImageGallery extends Component {
           <img
             src={selectedStylePhotos[i].thumbnail_url}
             className="thumbnail selected"
-            alt={name}
+            alt={selectedStyleName}
             onClick={(e) => this.thumbnailClick(e, i)}
           />
         </div>)
@@ -53,7 +79,7 @@ export class ImageGallery extends Component {
           <img
             src={selectedStylePhotos[i].thumbnail_url}
             className="thumbnail"
-            alt={name}
+            alt={selectedStyleName}
             onClick={(e) => this.thumbnailClick(e, i)}
           />
         </div>)
@@ -63,7 +89,7 @@ export class ImageGallery extends Component {
 
   render() {
     const { selectedStylePhotos, selectedStyleName } = this.props;
-    const { selectedIndex, thumbnailIndex } = this.state;
+    const { selectedIndex } = this.state;
 
     this.checkStyleChange(selectedStyleName);
 
@@ -74,9 +100,9 @@ export class ImageGallery extends Component {
             <div>
               <div className="thumbnail-list">
                 <div className="thumbnail-margin">
-                    <div className="arrow arrow-up">&#x219F;</div>
-                    {this.renderThumbnails(selectedStylePhotos, thumbnailIndex, selectedStyleName, selectedIndex)}
-                    <div className="arrow arrow-down">&#x21A1;</div>
+                    <div onClick={() => this.scrollPrevious()} className="arrow arrow-up">&#x219F;</div>
+                    {this.renderThumbnails()}
+                    <div onClick={() => this.scrollNext()} className="arrow arrow-down">&#x21A1;</div>
                 </div>
               </div>
               <img
