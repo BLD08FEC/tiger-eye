@@ -15,42 +15,44 @@ class QuestionList extends React.Component {
       displayedQuestions: [],
       allQuestions: [],
     };
+    // this.allQuestions = this.allQuestions.bind(this);
     // this.currentQuestion = this.currentQuestion.bind(this);
     // this.displayedQuestions = this.displayedQuestions.bind(this);
     // const productQuestions = data.results,
   }
-    // set product number - need to dynamically render questions from particular product.
-    // this.setState({ currentProduct: data.product_id })
 
   async componentDidMount() {
     const results = [];
     const display = [];
 
-    await function() {
+    const apiQuestions = function() {
       helpersAPI.getQuestions(3, (data) => {
         data.results.map(q => {
           results.push(q);
         })
       })
-      this.setState({ allQuestions: results })
     }
-    // apiQuestions();
-    
+    await apiQuestions();
+    await this.setState({ allQuestions: results })
     console.log("All Questions test ====== ", this.state.allQuestions)
-    if (this.state.allQuestions >= 2) {
-      for (let i = 0; i < 2; i++) {
-        display.push(this.state.allQuestions[i]);
+    
+    const addTwoQuestions = () => {
+      if (this.state.allQuestions.length >= 2) {
+        for (let i = 0; i < 2; i++) {
+          display.push(this.state.allQuestions[i]);
+          this.incrementCurrentQuestion();
+        }
+        console.log('displayed Questions ========', this.state.displayedQuestions);
+        this.setState({ displayedQuestions: results });
+      } else if (this.state.allQuestions === 1) {
+        display.push(this.state.allQuestions[1]);
         this.incrementCurrentQuestion();
+        this.setState({ displayedQuestions: results });
+      } else {
+        display.push("No Questions to Display");
       }
-      console.log('displayed Questions ========', this.state.displayedQuestions);
-      this.setState({ displayedQuestions: results });
-    } else if (this.state.allQuestions === 1) {
-      display.push(this.state.allQuestions[1]);
-      this.incrementCurrentQuestion();
-      this.setState({ displayedQuestions: results });
-    } else {
-      display.push("No Questions to Display");
     }
+    await addTwoQuestions();
     console.log('All Questions test2 ======', this.state.allQuestions)
   }
 
