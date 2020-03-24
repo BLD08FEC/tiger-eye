@@ -13,20 +13,15 @@ export class ImageGallery extends Component {
     const { selectedStylePhotos, selectedStyleName } = this.props;
 
     return (
-      <div className="container-fluid">
-        <div className="row">
-            <div>
+      <div>
+        <div>
             {selectedStylePhotos.length > 0
-            && 
-            <div className="text-center">
-                <img 
-                    src={selectedStylePhotos[0].url}
-                    className="main-image"
-                    alt={selectedStyleName}
-                    />
-            </div>
-            } 
-            </div>
+            && <img 
+                src={selectedStylePhotos[0].url}
+                className="main-image"
+                alt={selectedStyleName}
+                />
+            }
         </div>
       </div>
     );
