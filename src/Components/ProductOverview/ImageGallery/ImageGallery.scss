@@ -1,7 +1,72 @@
+.arrow {
+  cursor: pointer;
+  font-size: 3.5vh;
+  font-weight: bold;
+  color: #cb7119;
+}
+
+.main-arrow {
+  z-index: 3;
+  cursor: pointer;
+  color: #cb7119;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.main-arrow:hover {
+  font-size: 2.5em;
+}
+
+.arrow-left {
+  transform: rotate(180deg);
+  z-index: 3;
+  position: absolute;
+  left: 40%;
+  top: 91.5%;
+}
+
+.arrow-right {
+  z-index: 3;
+  position: absolute;
+  left: 55%;
+  top: 90%;
+}
+
 .main-image {
   object-fit: cover;
   width: 100%;
   height: 75vh;
+  z-index: 1;
 }
+
+.selected {
+  border: 0.2em solid #cb7119;
+}
+
+.thumbnail {
+  z-index: 2;
+  object-fit: cover;
+  width: 8vh;
+  height: 8vh;
+  margin: 3px;
+  cursor: pointer;
+  opacity: 80%;
+  // padding-top: auto;
+  // padding-bottom: auto;
+}
+
+.thumbnail-list {
+  height: 75vh;
+  z-index: 2;
+  position: absolute;
+}
+
+.thumbnail-margin {
+  position: relative;
+  height: 75vh;
+  // padding-top: 50%;
+  // padding-bottom: 50%;
+}
+
 
 
