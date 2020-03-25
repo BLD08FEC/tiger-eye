@@ -28,10 +28,10 @@ const relatedProductsReducer = (state = initialState, action) => {
     case RP_GET_STYLES:
       return { ...state, RPproductThumbnails: action.payload.results[0].photos[0].thumbnail_url };
     case RP_INCREMENT:
-      // console.log("stuff has now increased");
+      console.log('stuff has now increased');
       return { ...state, RPcurrentCard: state.RPcurrentCard + 1 };
     case RP_DECREMENT:
-      // console.log("stuff is decrementing");
+      console.log('stuff is decrementing');
       return { ...state, RPcurrentCard: state.RPcurrentCard - 1 };
     default:
       return state;
