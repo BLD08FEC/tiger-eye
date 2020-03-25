@@ -8,7 +8,7 @@ import './Carousel.scss';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {
-  RPincrement, RPincrementReset, RPdecrement, RPdecrementReset,
+  RPincrement, /* RPincrementReset, */ RPdecrement, /* RPdecrementReset, */
 } from '../../../../data/actions/relatedProductsAction';
 import ProductCard from '../ProductCard/ProductCard';
 // import Next from '';
