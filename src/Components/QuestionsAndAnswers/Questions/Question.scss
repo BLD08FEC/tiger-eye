@@ -1,18 +1,19 @@
 .question {
     display: grid;
-    background-color: blue;
+    background-color: whitesmoke;
 
 
 }
 
 .question-name {
-    font-size: 20;
-    color: red;
+    // font-size: 15;
+    color: black;
 }
 
 .question-body {
-    font-size: 15;
-    color: green;
+    // font-size: 25;
+    font-weight: bold;
+    color: black;
 }
 
 .question-btn {
