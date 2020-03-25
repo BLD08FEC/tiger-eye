@@ -37,6 +37,7 @@
   width: 100%;
   height: 75vh;
   z-index: 1;
+  cursor: zoom-in;
 }
 
 .selected {
@@ -51,8 +52,6 @@
   margin: 3px;
   cursor: pointer;
   opacity: 80%;
-  // padding-top: auto;
-  // padding-bottom: auto;
 }
 
 .thumbnail-list {
@@ -64,9 +63,4 @@
 .thumbnail-margin {
   position: relative;
   height: 75vh;
-  // padding-top: 50%;
-  // padding-bottom: 50%;
 }
-
-
-
