@@ -9,12 +9,15 @@ export class ImageGallery extends Component {
     this.state = {
       selectedIndex: 0,
       thumbnailIndex: 0,
+      showModal: false,
     };
     this.resetSelectedIndex = this.resetSelectedIndex.bind(this);
     this.thumbnailClick = this.thumbnailClick.bind(this);
     this.scrollPrevious = this.scrollPrevious.bind(this);
     this.scrollNext = this.scrollNext.bind(this);
     this.showNextOrPrevious = this.showNextOrPrevious.bind(this);
+    this.showExpanded = this.showExpanded.bind(this);
+    this.hideExpanded = this.hideExpanded.bind(this);
   }
 
   resetSelectedIndex() {
@@ -58,6 +61,15 @@ export class ImageGallery extends Component {
     }
   }
 
+  showExpanded = () => {
+    this.setState({ showModal: true });
+  };
+
+  hideExpanded = () => {
+    this.setState({ showModal: false });
+  };
+
+
   renderThumbnails() {
     const { selectedStylePhotos, selectedStyleName } = this.props;
     const { selectedIndex, thumbnailIndex } = this.state;
@@ -96,7 +108,7 @@ export class ImageGallery extends Component {
 
   render() {
     const { selectedStylePhotos, selectedStyleName } = this.props;
-    const { selectedIndex } = this.state;
+    const { selectedIndex, showModal } = this.state;
 
     return (
       <div>
@@ -132,11 +144,39 @@ export class ImageGallery extends Component {
                       src={selectedStylePhotos[selectedIndex].url}
                       className="main-image"
                       alt={selectedStyleName}
+                      onClick={() => this.showExpanded()}
                     />
                   </div>
                 )}
             </div>
             )}
+            {showModal === true &&
+            <div className="modal1">
+                <div className="modal-main1">
+                    <div className="close-modal" onClick={() => this.hideExpanded()}>X</div>
+                    <div className="arrow-right">
+                        {selectedIndex !== selectedStylePhotos.length-1 && 
+                        <div id="next" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
+                        &#x2905;
+                        </div>
+                        } 
+                    </div>
+                    <div className="arrow-left">
+                    {selectedIndex !== 0 && 
+                        <div id="previous" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
+                        &#x2905;
+                        </div>
+                    } 
+                    </div>
+                    <img
+                    src={selectedStylePhotos[selectedIndex].url}
+                    className="modal-image"
+                    alt={selectedStyleName}
+                    onClick={() => this.showExpanded()}
+                    />
+                </div>
+            </div>
+            }
       </div>
     );
   }
