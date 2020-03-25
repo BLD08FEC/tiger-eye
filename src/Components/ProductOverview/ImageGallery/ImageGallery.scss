@@ -1,7 +1,30 @@
 .arrow {
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 1.3em;
   color: #cb7119;
+}
+
+.main-arrow {
+  z-index: 3;
+  cursor: pointer;
+  color: #cb7119;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.arrow-left {
+  transform: rotate(180deg);
+  z-index: 3;
+  position: absolute;
+  // float: left;
+  left: 10%;
+}
+
+.arrow-right {
+  z-index: 3;
+  position: absolute;
+  // float: right;
+  left: 87%;
 }
 
 .main-image {
@@ -9,6 +32,10 @@
   width: 100%;
   height: 75vh;
   z-index: 1;
+}
+
+.selected {
+  border: 0.2em solid #cb7119;
 }
 
 .thumbnail {
@@ -36,7 +63,5 @@
   padding-bottom: 50%;
 }
 
-.selected {
-  border: 0.2em solid #cb7119;
-}
+
 

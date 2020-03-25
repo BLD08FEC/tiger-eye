@@ -14,6 +14,7 @@ export class ImageGallery extends Component {
     this.thumbnailClick = this.thumbnailClick.bind(this);
     this.scrollPrevious = this.scrollPrevious.bind(this);
     this.scrollNext = this.scrollNext.bind(this);
+    this.showNextOrPrevious = this.showNextOrPrevious.bind(this);
   }
 
   resetSelectedIndex() {
@@ -24,22 +25,36 @@ export class ImageGallery extends Component {
     e.preventDefault();
     this.setState({ selectedIndex: index });
   }
+  
+  scrollNext() {
+    const { selectedStylePhotos } = this.props;
+    const { thumbnailIndex } = this.state;
+
+    if (thumbnailIndex < selectedStylePhotos.length - 7) {
+      this.setState({ thumbnailIndex: thumbnailIndex + 1 });
+    }
+  }
 
   scrollPrevious() {
-    const { selectedStylePhotos } = this.props;
-    const { selectedIndex, thumbnailIndex } = this.state;
+    const { thumbnailIndex } = this.state;
 
     if (thumbnailIndex > 0) {
       this.setState({ thumbnailIndex: thumbnailIndex - 1 });
     }
   }
 
-  scrollNext() {
-    const { selectedStylePhotos } = this.props;
-    const { selectedIndex, thumbnailIndex } = this.state;
 
-    if (thumbnailIndex < selectedStylePhotos.length - 7) {
-      this.setState({ thumbnailIndex: thumbnailIndex + 1 });
+  showNextOrPrevious(e) {
+    e.preventDefault();
+    const { selectedStylePhotos } = this.props;
+    const { selectedIndex } = this.state;
+
+    if (e.target.id === 'next' && selectedIndex < selectedStylePhotos.length-1) {
+        this.setState({ selectedIndex: selectedIndex + 1 });
+        this.scrollNext();
+    } else if (e.target.id === 'previous' && selectedIndex > 0) {
+        this.setState({ selectedIndex: selectedIndex - 1 });
+        this.scrollPrevious();
     }
   }
 
@@ -97,6 +112,16 @@ export class ImageGallery extends Component {
                         <div onClick={() => this.scrollPrevious()} className="arrow arrow-up">&#x219F;</div>
                         {this.renderThumbnails()}
                         <div onClick={() => this.scrollNext()} className="arrow arrow-down">&#x21A1;</div>
+                      </div>
+                    </div>
+                    <div className="arrow-right">
+                      <div id="next" className="main-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
+                        &#x2905;
+                      </div>
+                    </div>
+                    <div className="arrow-left">
+                      <div id="previous" className="main-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
+                        &#x2905;
                       </div>
                     </div>
                     <img
