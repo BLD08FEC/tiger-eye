@@ -2,11 +2,16 @@ import React from 'react';
 import './Question.scss';
 
 
-const Question = ({ displayedQuestions, key }) => (
+const Question = ({ displayedQuestion }) => (
   <div className="question">
-    <div>{key}</div>
-    <div className="qustion-name">{displayedQuestions.asker_name}</div>
-    <div className="question-body">{displayedQuestions.question_body}</div>
+    <span>
+      <div className="question-body">
+        <h5>
+          {"Q. " + displayedQuestion.question_body}
+        </h5>
+      </div>
+      <div className="question-name">{displayedQuestion.asker_name}</div>
+    </span>
   </div>
 );
 
