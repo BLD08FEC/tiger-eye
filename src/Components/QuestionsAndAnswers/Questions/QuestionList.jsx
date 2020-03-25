@@ -24,7 +24,7 @@ class QuestionList extends React.Component {
   async componentDidMount() {
     // const display = [];
     const allQuestions = this.state.allQuestions
-    const apiQuestions = async () => {
+    const addInitialQuestions = async () => {
       await helperAPI.getQuestions(3, (data) => {
         if (data.results.length >= 2) {
           this.setState({
@@ -43,8 +43,9 @@ class QuestionList extends React.Component {
       })
     }
     // await apiQuestions();
-    apiQuestions();
-    await console.log("All Questions test2 ====== ", this.state.allQuestions)
+    addInitialQuestions();
+  }
+    // await console.log("All Questions test2 ====== ", this.state.allQuestions)
     // this.setState({ allQuestions: [...data.results], displayedQuestions: data.results.slice(0,2) });
     
     // const addTwoQuestions = () => {
@@ -65,7 +66,6 @@ class QuestionList extends React.Component {
     // }
     // await addTwoQuestions();
     // console.log('All Questions test2 ======', this.state.allQuestions)
-  }
 
 
     // helpersAPI.getQuestions(3, (data) => {
@@ -129,10 +129,17 @@ class QuestionList extends React.Component {
     return this.state.displayedQuestions.length > 0 ? (
       <>
         <div className="row question-list">
-          {this.state.displayedQuestions.map((question) => <Question displayedQuestion={question} />)}
+          {this.state.displayedQuestions.map((question) => {
+            <>
+              <Question displayedQuestion={question} />
+              <h3>question NUMBER</h3>
+              <br/>
+            </>
+          })}
+         
         </div>
-        <div className="row">
-          <button type="button">Show More Questions</button>
+        <div className="question-btn-div">
+          <button type="button" className="question-btn">Show More Questions</button>
         </div>
       </>
     ) : (
