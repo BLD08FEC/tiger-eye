@@ -13,3 +13,5 @@ const Answer = ({ displayedAnswer, key }) => (
     </div>
   </div>
 );
+
+export default Answer;
