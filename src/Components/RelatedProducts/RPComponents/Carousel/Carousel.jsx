@@ -1,8 +1,3 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import './Carousel.scss';
 import { connect } from 'react-redux';
@@ -11,7 +6,6 @@ import {
   RPincrement, /* RPincrementReset, */ RPdecrement, /* RPdecrementReset, */
 } from '../../../../data/actions/relatedProductsAction';
 import ProductCard from '../ProductCard/ProductCard';
-// import Next from '';
 
 class Carousel extends React.Component {
   constructor({
@@ -27,15 +21,10 @@ class Carousel extends React.Component {
   // const Carousel = ({ relatedProducts, currentCard }) => {})
 
   render() {
-    // eslint-disable-next-line no-console
-    // console.log(this.RPrelatedProducts);
-    // eslint-disable-next-line no-console
-    // console.log(this.RPrelatedProducts);
-
     return (
       <div className="container-fluid carousel-main">
         <div className="row">
-          <div className="col-xs-1 col-sm-1 carousel-arrow" direction="left" pointer="&#9654;" onClick={this.props.RPdecrement}><div>&#9664;</div></div>
+          <div className="col-xs-1 col-sm-1 carousel-arrow" direction="left" pointer="&#9654;" onClick={{ RPdecrement }} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9664;</div></div>
           <div className="col-xs-10 col-sm-10 card-group">
             <div className="container-fluid">
               <div className="row">
@@ -47,7 +36,7 @@ class Carousel extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-xs-1 col-sm-1 carousel-arrow" direction="right" pointer="&#9664;" onClick={this.props.RPincrement}>&#9654;</div>
+          <div className="col-xs-1 col-sm-1 carousel-arrow" direction="right" pointer="&#9664;" onClick={{ RPincrement }} onKeyPress={() => {}} role="button" tabIndex={0}>&#9654;</div>
         </div>
       </div>
     );
