@@ -1,7 +1,114 @@
+.arrow {
+  cursor: pointer;
+  font-size: 3.5vh;
+  font-weight: bold;
+  color: #cb7119;
+}
+
+.close-modal {
+  z-index: 5;
+  color: #f5f5f5;
+  background-color: #323639;
+  cursor: pointer;
+  left: 95%;
+  position: absolute;
+}
+
+.main-arrow {
+  z-index: 3;
+  cursor: pointer;
+  color: #cb7119;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.main-arrow:hover {
+  font-size: 2.5em;
+}
+
+.arrow-left {
+  transform: rotate(180deg);
+  z-index: 3;
+  position: absolute;
+  left: 40%;
+  top: 91.5%;
+}
+
+.arrow-right {
+  z-index: 3;
+  position: absolute;
+  left: 55%;
+  top: 90%;
+}
+
 .main-image {
   object-fit: cover;
   width: 100%;
   height: 75vh;
+  z-index: 1;
+  cursor: zoom-in;
 }
 
+.modal-arrow {
+  z-index: 3;
+  cursor: pointer;
+  color: #cb7119;
+  font-weight: bold;
+  font-size: 3em;
+}
 
+.modal-arrow:hover {
+  font-size: 3.5em;
+}
+
+.modal1 {
+  display: block;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  width:100vw;
+  height: 100vh;
+  background: #323639;
+}
+
+.modal-main1 {
+  position:fixed;
+  background: white;
+  width: 90vw;
+  height: 90vh;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.modal-image {
+  object-fit: cover;
+  width: 90vw;
+  height: 90vh;
+}
+
+.selected {
+  border: 0.2em solid #cb7119;
+}
+
+.thumbnail {
+  z-index: 2;
+  object-fit: cover;
+  width: 8vh;
+  height: 8vh;
+  margin: 3px;
+  cursor: pointer;
+  opacity: 80%;
+}
+
+.thumbnail-list {
+  height: 75vh;
+  z-index: 2;
+  position: absolute;
+}
+
+.thumbnail-margin {
+  position: relative;
+  height: 75vh;
+}
