@@ -1,4 +1,4 @@
-/*eslint-disable*/
+/* eslint-disable*/
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ImageGallery.scss';
@@ -20,6 +20,14 @@ export class ImageGallery extends Component {
     this.hideExpanded = this.hideExpanded.bind(this);
   }
 
+  showExpanded = () => {
+    this.setState({ showModal: true });
+  };
+
+  hideExpanded = () => {
+    this.setState({ showModal: false });
+  };
+
   resetSelectedIndex() {
     this.setState({ selectedIndex: 0 });
   }
@@ -28,7 +36,7 @@ export class ImageGallery extends Component {
     e.preventDefault();
     this.setState({ selectedIndex: index });
   }
-  
+
   scrollNext() {
     const { selectedStylePhotos } = this.props;
     const { thumbnailIndex } = this.state;
@@ -46,29 +54,19 @@ export class ImageGallery extends Component {
     }
   }
 
-
   showNextOrPrevious(e) {
     e.preventDefault();
     const { selectedStylePhotos } = this.props;
     const { selectedIndex } = this.state;
 
-    if (e.target.id === 'next' && selectedIndex < selectedStylePhotos.length-1) {
-        this.setState({ selectedIndex: selectedIndex + 1 });
-        this.scrollNext();
+    if (e.target.id === 'next' && selectedIndex < selectedStylePhotos.length - 1) {
+      this.setState({ selectedIndex: selectedIndex + 1 });
+      this.scrollNext();
     } else if (e.target.id === 'previous' && selectedIndex > 0) {
-        this.setState({ selectedIndex: selectedIndex - 1 });
-        this.scrollPrevious();
+      this.setState({ selectedIndex: selectedIndex - 1 });
+      this.scrollPrevious();
     }
   }
-
-  showExpanded = () => {
-    this.setState({ showModal: true });
-  };
-
-  hideExpanded = () => {
-    this.setState({ showModal: false });
-  };
-
 
   renderThumbnails() {
     const { selectedStylePhotos, selectedStyleName } = this.props;
@@ -90,7 +88,7 @@ export class ImageGallery extends Component {
               alt={selectedStyleName}
               onClick={(e) => this.thumbnailClick(e, i)}
             />
-          </div>
+          </div>,
         )
         : thumbnails.push(
           <div key={i}>
@@ -100,7 +98,7 @@ export class ImageGallery extends Component {
               alt={selectedStyleName}
               onClick={(e) => this.thumbnailClick(e, i)}
             />
-          </div>
+          </div>,
         );
     }
     return thumbnails;
@@ -127,18 +125,20 @@ export class ImageGallery extends Component {
                       </div>
                     </div>
                     <div className="arrow-right">
-                        {selectedIndex !== selectedStylePhotos.length-1 && 
+                      {selectedIndex !== selectedStylePhotos.length - 1
+                        && (
                         <div id="next" className="main-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
-                           &#x2905;
+                          &#x2905;
                         </div>
-                        } 
+                        )}
                     </div>
                     <div className="arrow-left">
-                      {selectedIndex !== 0 && 
+                      {selectedIndex !== 0
+                        && (
                         <div id="previous" className="main-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
                           &#x2905;
                         </div>
-                      } 
+                        )}
                     </div>
                     <img
                       src={selectedStylePhotos[selectedIndex].url}
@@ -150,33 +150,36 @@ export class ImageGallery extends Component {
                 )}
             </div>
             )}
-            {showModal === true &&
+        {showModal === true
+            && (
             <div className="modal1">
-                <div className="modal-main1">
-                    <div className="close-modal" onClick={() => this.hideExpanded()}>X</div>
-                    <div className="arrow-right">
-                        {selectedIndex !== selectedStylePhotos.length-1 && 
+              <div className="modal-main1">
+                <div className="close-modal" onClick={() => this.hideExpanded()}>X</div>
+                <div className="arrow-right">
+                  {selectedIndex !== selectedStylePhotos.length - 1
+                        && (
                         <div id="next" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
-                        &#x2905;
+                          &#x2905;
                         </div>
-                        } 
-                    </div>
-                    <div className="arrow-left">
-                    {selectedIndex !== 0 && 
-                        <div id="previous" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
-                        &#x2905;
-                        </div>
-                    } 
-                    </div>
-                    <img
-                    src={selectedStylePhotos[selectedIndex].url}
-                    className="modal-image"
-                    alt={selectedStyleName}
-                    onClick={() => this.showExpanded()}
-                    />
+                        )}
                 </div>
+                <div className="arrow-left">
+                  {selectedIndex !== 0
+                        && (
+                        <div id="previous" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
+                          &#x2905;
+                        </div>
+                        )}
+                </div>
+                <img
+                  src={selectedStylePhotos[selectedIndex].url}
+                  className="modal-image"
+                  alt={selectedStyleName}
+                  onClick={() => this.showExpanded()}
+                />
+              </div>
             </div>
-            }
+            )}
       </div>
     );
   }
@@ -188,8 +191,4 @@ const mapStateToProps = (state) => ({
   selectedStyleName: state.productDataReducer.selectedStyleName,
 });
 
-const mapDispatchToProps = {
-
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ImageGallery);
+export default connect(mapStateToProps)(ImageGallery);
