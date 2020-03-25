@@ -15,7 +15,7 @@ const QuestionsAndAnswers = () => (
     <Search />
     <QuestionList className="row question-list" />
     {/* <AnswerList className="row answer-list" /> */}
-    <hr></hr>
+    <hr />
     <div className="lower-btns">
       <div className="question-btn-div-1">
         <button type="button" className="question-btn">
