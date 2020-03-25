@@ -1,6 +1,7 @@
 .arrow {
   cursor: pointer;
-  font-size: 1.3em;
+  font-size: 3.5vh;
+  font-weight: bold;
   color: #cb7119;
 }
 
@@ -9,22 +10,26 @@
   cursor: pointer;
   color: #cb7119;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.8em;
+}
+
+.main-arrow:hover {
+  font-size: 2.5em;
 }
 
 .arrow-left {
   transform: rotate(180deg);
   z-index: 3;
   position: absolute;
-  // float: left;
-  left: 10%;
+  left: 40%;
+  top: 91.5%;
 }
 
 .arrow-right {
   z-index: 3;
   position: absolute;
-  // float: right;
-  left: 87%;
+  left: 55%;
+  top: 90%;
 }
 
 .main-image {
@@ -41,9 +46,9 @@
 .thumbnail {
   z-index: 2;
   object-fit: cover;
-  width: 3.3em;
-  height: 3.3em;
-  margin: 5px;
+  width: 8vh;
+  height: 8vh;
+  margin: 3px;
   cursor: pointer;
   opacity: 80%;
   // padding-top: auto;
@@ -58,9 +63,9 @@
 
 .thumbnail-margin {
   position: relative;
-  // height: 75vh;
-  padding-top: 50%;
-  padding-bottom: 50%;
+  height: 75vh;
+  // padding-top: 50%;
+  // padding-bottom: 50%;
 }
 
 
