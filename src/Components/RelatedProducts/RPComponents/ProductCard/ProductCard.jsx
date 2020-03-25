@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import React/* , { Component } */ from 'react';
 import { connect } from 'react-redux';
 import './ProductCard.scss';
@@ -11,7 +12,7 @@ import Stars from '../../../../Shared/Stars';
 const ProductCard = ({
   RPproductCategory, RPproductName, RPproductPrice, RPproductThumbnails,
 }) => {
-  console.log({ RPproductThumbnails });
+  // console.log({ RPproductThumbnails });
   return (
     <div className="container-fluid product-card-main">
       <img className="row product-card-img-top" src={RPproductThumbnails} alt="ALT_MESSAGE" />
