@@ -1,0 +1,44 @@
+.product-card-main {
+    width: 25%;
+    max-width: 250px;
+    max-height: 350px;
+    padding: 0;
+    background-color: grey;
+}
+
+.product-card-img-top {
+    height: 75%;
+    vertical-align: top;
+    
+}
+
+.product-card-body {
+    height: 25%;
+    background-color: red;
+    // margin: 2em;
+    padding-top: 1em;
+    padding-bottom: 0;
+}
+
+.product-card-title {
+    background-color: blue;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.product-card-category {
+    font-size: 10px;
+    background-color: green;
+    text-transform: uppercase;
+}
+
+.product-card-price {
+    font-size: 10px;
+    background-color: purple;
+}
+
+.product-card-star {
+    background-color: orange;
+}
