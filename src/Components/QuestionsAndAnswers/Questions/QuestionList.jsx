@@ -22,27 +22,30 @@ class QuestionList extends React.Component {
   }
 
   async componentDidMount() {
-    const display = [];
-
-    const apiQuestions = async function() {
+    // const display = [];
+    const allQuestions = this.state.allQuestions
+    const apiQuestions = async () => {
       await helperAPI.getQuestions(3, (data) => {
-        if (this.state.allQuestions.length >= 2) {
+        if (allQuestions.length === 0) {
           this.setState({
             allQuestions: [...data.results],
             displayedQuestions: data.results.slice(0, 2)
           });
-          this.setState({ displayedQuestions: results });
-        } else if (this.state.allQuestions === 1) {
+          this.setState({ displayedQuestions: data.results });
+          console.log("All Questions test1 ====== ", this.state.allQuestions);
+        } else if (allQuestions === 1) {
           this.incrementCurrentQuestion();
           this.setState({ displayedQuestions: data.results.slice(0, 1) });
-        } else {
-          this.setState({ displayedQuestions: "No Questions to Display" });
-        }
+        } 
+        // else {
+        //   this.setState({ displayedQuestions: "No Questions to Display" });
+        // }
       })
     }
-    await apiQuestions();
-    console.log("All Questions test ====== ", this.state.allQuestions)
-    this.setState({ allQuestions: [...data.results], displayedQuestions: data.results.slice(0,2) });
+    // await apiQuestions();
+    apiQuestions();
+    await console.log("All Questions test2 ====== ", this.state.allQuestions)
+    // this.setState({ allQuestions: [...data.results], displayedQuestions: data.results.slice(0,2) });
     
     // const addTwoQuestions = () => {
     //   if (this.state.allQuestions.length >= 2) {
@@ -124,9 +127,14 @@ class QuestionList extends React.Component {
   // need to map displayedQuestions array in state to be rendered individually
   render() {
     return this.state.displayedQuestions.length > 0 ? (
-      <div className="row question-list">
-        {this.state.displayedQuestions.map((question) => <Question displayedQuestion={question} />)}
-      </div>
+      <>
+        <div className="row question-list">
+          {this.state.displayedQuestions.map((question) => <Question displayedQuestion={question} />)}
+        </div>
+        <div className="row">
+          <button type="button">Show More Questions</button>
+        </div>
+      </>
     ) : (
       <div>render if false</div>
     );
