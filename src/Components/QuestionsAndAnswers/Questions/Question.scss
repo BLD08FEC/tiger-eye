@@ -1,0 +1,30 @@
+.question {
+    display: grid;
+    background-color: blue;
+
+
+}
+
+.question-name {
+    font-size: 20;
+    color: red;
+}
+
+.question-body {
+    font-size: 15;
+    color: green;
+}
+
+.question-btn {
+  font-size: 13px;
+  padding: 3px;
+  max-width: 45%;
+  background-color: #cb7119;
+  border-radius: 7px;
+}
+
+.question-btn-div {
+  background-color: whitesmoke;
+  border: 5px solid whitesmoke;
+  border-radius: 7px;
+}
