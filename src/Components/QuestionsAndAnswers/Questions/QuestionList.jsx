@@ -2,6 +2,7 @@
 import React from 'react';
 import Question from './Question';
 import helperAPI from '../../../Shared/api';
+import Search from '../../../Shared/Search/search';
 // import data from '../dumData';
 
 // helper API func = helpers.getQuestions(productId, cb){}
@@ -32,7 +33,7 @@ class QuestionList extends React.Component {
             displayedQuestions: data.results.slice(0, 2)
           });
           // this.setState({ displayedQuestions: data.results });
-          // console.log("All Questions test1 ====== ", this.state.allQuestions, this.state.displayedQuestions);
+          console.log("All Questions test1 ====== ", this.state.allQuestions, this.state.displayedQuestions);
         } else if (allQuestions === 1) {
           this.incrementCurrentQuestion();
           this.setState({ displayedQuestions: data.results.slice(0, 1) });
@@ -128,18 +129,26 @@ class QuestionList extends React.Component {
   render() {
     return this.state.displayedQuestions.length > 0 ? (
       <>
-        <div className="row question-list">
-          {this.state.displayedQuestions.map((question) => {
-            <>
-              <Question displayedQuestion={question} />
-              <h3>question NUMBER</h3>
-              <br/>
-            </>
-          })}
+      <hr></hr>
+      <em>List of Answered Questions</em>
+        
+        <div className="question-list">
+          {this.state.displayedQuestions.map((question, key) => {
+            console.log(key);
+            return (
+              <div>
+                <Question 
+                  displayedQuestion={question} 
+                  key={key} 
+                />
+              </div>
+            ); 
+          }
+          )}
          
         </div>
         <div className="question-btn-div">
-          <button type="button" className="question-btn">Show More Questions</button>
+          <button type="button" className="question-btn">Show More Answered Questions</button>
         </div>
       </>
     ) : (
