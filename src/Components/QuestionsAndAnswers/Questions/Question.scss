@@ -24,8 +24,20 @@
   border-radius: 7px;
 }
 
-.question-btn-div {
+.lower-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   background-color: whitesmoke;
   border: 5px solid whitesmoke;
   border-radius: 7px;
+}
+
+.question-btn-div-1 {
+  grid-column: 1;
+  // position: left;
+}
+
+.question-btn-div-2 {
+  grid-column: 2;
+  // position: right;
 }
