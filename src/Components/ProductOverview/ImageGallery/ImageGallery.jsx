@@ -115,14 +115,18 @@ export class ImageGallery extends Component {
                       </div>
                     </div>
                     <div className="arrow-right">
-                      <div id="next" className="main-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
-                        &#x2905;
-                      </div>
+                        {selectedIndex !== selectedStylePhotos.length-1 && 
+                        <div id="next" className="main-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
+                           &#x2905;
+                        </div>
+                        } 
                     </div>
                     <div className="arrow-left">
-                      <div id="previous" className="main-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
-                        &#x2905;
-                      </div>
+                      {selectedIndex !== 0 && 
+                        <div id="previous" className="main-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
+                          &#x2905;
+                        </div>
+                      } 
                     </div>
                     <img
                       src={selectedStylePhotos[selectedIndex].url}
