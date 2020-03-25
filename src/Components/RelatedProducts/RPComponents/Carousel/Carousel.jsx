@@ -35,19 +35,19 @@ class Carousel extends React.Component {
     return (
       <div className="container-fluid carousel-main">
         <div className="row">
-          <div className="col-xs-1 col-sm-1 carousel-arrow" direction="left" pointer="&#9654;" onClick={() => RPdecrement(this.RPcurrentCard)}><div>&#9664;</div></div>
+          <div className="col-xs-1 col-sm-1 carousel-arrow" direction="left" pointer="&#9654;" onClick={this.props.RPdecrement}><div>&#9664;</div></div>
           <div className="col-xs-10 col-sm-10 card-group">
             <div className="container-fluid">
               <div className="row">
                 {/* {for (let i = this.RPcurrentCard; i < this.RPcurrentCard + 4; i++) {<ProductCard className="col-sm-3 carousel-card" productId={id} />)} */}
-                <ProductCard className="col-sm-3 carousel-card" carouselSpot="1"/* relatedProductId={} */ />
-                <ProductCard className="col-sm-3 carousel-card" carouselSpot="2" />
-                <ProductCard className="col-sm-3 carousel-card" carouselSpot="3" />
-                <ProductCard className="col-sm-3 carousel-card" carouselSpot="4" />
+                <ProductCard className="col-sm-3 carousel-card" /* relatedProductId={} */ />
+                <ProductCard className="col-sm-3 carousel-card" />
+                <ProductCard className="col-sm-3 carousel-card" />
+                <ProductCard className="col-sm-3 carousel-card" />
               </div>
             </div>
           </div>
-          <div className="col-xs-1 col-sm-1 carousel-arrow" direction="right" pointer="&#9664;" onClick={() => RPincrement(this.RPcurrentCard)}>&#9654;</div>
+          <div className="col-xs-1 col-sm-1 carousel-arrow" direction="right" pointer="&#9664;" onClick={this.props.RPincrement}>&#9654;</div>
         </div>
       </div>
     );
@@ -62,8 +62,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
-    handleIncrement: RPincrement,
-    handleDecrement: RPdecrement,
+    RPincrement,
+    RPdecrement,
   }, dispatch)
 );
 

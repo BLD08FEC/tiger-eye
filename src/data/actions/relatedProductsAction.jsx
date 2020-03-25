@@ -54,22 +54,28 @@ export const RPgetStylesSuccess = (styleThumbs) => ({
   payload: styleThumbs,
 });
 
-export const RPincrement = (count) => ({
-  type: RP_INCREMENT,
-  payload: count + 1,
-});
+export const RPincrement = (/* count */) => {
+  // console.log("woo-hoo for incrementation");
+  return ({
+    type: RP_INCREMENT,
+    // payload: count + 1,
+  });
+};
 
-export const RPincrementReset = (count) => ({
-  type: RP_INCREMENT,
-  payload: 0,
-});
+// export const RPincrementReset = (/* count */) => ({
+//   type: RP_INCREMENT_RESET,
+//   // payload: 0,
+// });
 
-export const RPdecrement = (count) => ({
-  type: RP_DECREMENT,
-  payload: count - 1,
-});
+export const RPdecrement = (count) => {
+  // console.log("woot 4 decrement");
+  return ({
+    type: RP_DECREMENT,
+    payload: count,
+  });
+};
 
-export const RPdecrementReset = (newNum) => ({
-  type: RP_INCREMENT,
-  payload: newNum,
-});
+// export const RPdecrementReset = (/* newNum */) => ({
+//   type: RP_DECREMENT_RESET,
+//   // payload: newNum,
+// });
