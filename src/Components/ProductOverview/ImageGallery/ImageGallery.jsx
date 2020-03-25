@@ -1,4 +1,4 @@
-/* eslint-disable */
+/*eslint-disable*/
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ImageGallery.scss';
@@ -9,21 +9,15 @@ export class ImageGallery extends Component {
     this.state = {
       selectedIndex: 0,
       thumbnailIndex: 0,
-      styleName: null,
     };
-    this.checkStyleChange = this.checkStyleChange.bind(this);
+    this.resetSelectedIndex = this.resetSelectedIndex.bind(this);
     this.thumbnailClick = this.thumbnailClick.bind(this);
     this.scrollPrevious = this.scrollPrevious.bind(this);
     this.scrollNext = this.scrollNext.bind(this);
   }
 
-  checkStyleChange(selectedStyleName) {
-    if (this.state.styleName !== selectedStyleName) {
-      this.setState({
-        selectedIndex: 0,
-        styleName: selectedStyleName,
-      });
-    }
+  resetSelectedIndex() {
+    this.setState({ selectedIndex: 0 });
   }
 
   thumbnailClick(e, index) {
@@ -34,23 +28,19 @@ export class ImageGallery extends Component {
   scrollPrevious() {
     const { selectedStylePhotos } = this.props;
     const { selectedIndex, thumbnailIndex } = this.state;
-    console.log(selectedStylePhotos.length);
 
     if (thumbnailIndex > 0) {
-        this.setState({ thumbnailIndex: thumbnailIndex - 1 });
+      this.setState({ thumbnailIndex: thumbnailIndex - 1 });
     }
-    return;
   }
 
   scrollNext() {
     const { selectedStylePhotos } = this.props;
     const { selectedIndex, thumbnailIndex } = this.state;
-    console.log(selectedStylePhotos.length);
 
     if (thumbnailIndex < selectedStylePhotos.length - 7) {
-        this.setState({ thumbnailIndex: thumbnailIndex + 1 });
+      this.setState({ thumbnailIndex: thumbnailIndex + 1 });
     }
-    return;
   }
 
   renderThumbnails() {
@@ -64,25 +54,27 @@ export class ImageGallery extends Component {
         break;
       }
 
-      i === selectedIndex 
-      ? thumbnails.push(
-        <div key={i}>
-          <img
-            src={selectedStylePhotos[i].thumbnail_url}
-            className="thumbnail selected"
-            alt={selectedStyleName}
-            onClick={(e) => this.thumbnailClick(e, i)}
-          />
-        </div>)
-      : thumbnails.push(
-        <div key={i}>
-          <img
-            src={selectedStylePhotos[i].thumbnail_url}
-            className="thumbnail"
-            alt={selectedStyleName}
-            onClick={(e) => this.thumbnailClick(e, i)}
-          />
-        </div>)
+      i === selectedIndex
+        ? thumbnails.push(
+          <div key={i}>
+            <img
+              src={selectedStylePhotos[i].thumbnail_url}
+              className="thumbnail selected"
+              alt={selectedStyleName}
+              onClick={(e) => this.thumbnailClick(e, i)}
+            />
+          </div>
+        )
+        : thumbnails.push(
+          <div key={i}>
+            <img
+              src={selectedStylePhotos[i].thumbnail_url}
+              className="thumbnail"
+              alt={selectedStyleName}
+              onClick={(e) => this.thumbnailClick(e, i)}
+            />
+          </div>
+        );
     }
     return thumbnails;
   }
@@ -91,25 +83,29 @@ export class ImageGallery extends Component {
     const { selectedStylePhotos, selectedStyleName } = this.props;
     const { selectedIndex } = this.state;
 
-    this.checkStyleChange(selectedStyleName);
-
     return (
       <div>
         {selectedStylePhotos.length > 0
             && (
             <div>
-              <div className="thumbnail-list">
-                <div className="thumbnail-margin">
-                    <div onClick={() => this.scrollPrevious()} className="arrow arrow-up">&#x219F;</div>
-                    {this.renderThumbnails()}
-                    <div onClick={() => this.scrollNext()} className="arrow arrow-down">&#x21A1;</div>
-                </div>
-              </div>
-              <img
-                src={selectedStylePhotos[selectedIndex].url}
-                className="main-image"
-                alt={selectedStyleName}
-              />
+              {(selectedIndex > selectedStylePhotos.length - 1)
+                ? this.resetSelectedIndex()
+                : (
+                  <div>
+                    <div className="thumbnail-list">
+                      <div className="thumbnail-margin">
+                        <div onClick={() => this.scrollPrevious()} className="arrow arrow-up">&#x219F;</div>
+                        {this.renderThumbnails()}
+                        <div onClick={() => this.scrollNext()} className="arrow arrow-down">&#x21A1;</div>
+                      </div>
+                    </div>
+                    <img
+                      src={selectedStylePhotos[selectedIndex].url}
+                      className="main-image"
+                      alt={selectedStyleName}
+                    />
+                  </div>
+                )}
             </div>
             )}
       </div>
