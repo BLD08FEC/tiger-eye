@@ -18,12 +18,16 @@ import './Shared/Header/header.scss';
 import { getProductData, getProductStyles } from './data/actions/productDataAction';
 import { getProductsList } from './data/actions/productsListAction';
 import { getReviewMetaData } from './data/actions/reviewMetaDataAction';
+import { RPgetProductData, RPgetRelatedProducts, RPgetStyles } from './data/actions/relatedProductsAction';
 
 class App extends Component {
   componentDidMount() {
     this.props.getReviewMetaData();
     this.props.getProductData();
     this.props.getProductsList();
+    this.props.RPgetProductData();
+    this.props.RPgetRelatedProducts();
+    this.props.RPgetStyles();
     this.props.getProductStyles();
   }
 
@@ -50,12 +54,18 @@ const mapStateToProps = (state) => ({
   reviewMetaData: state.reviewMetaReducer.reviewMetaData,
   productData: state.productDataReducer.productData,
   productsList: state.productsListReducer.productsList,
+  RPproductData: state.relatedProductsReducer.RPproductData,
+  RPrelatedProducts: state.relatedProductsReducer.RPrelatedProducts,
+  RPgetStyles: state.relatedProductsReducer.RPproductThumbnails,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   getReviewMetaData: () => dispatch(getReviewMetaData()),
   getProductData: () => dispatch(getProductData()),
   getProductsList: () => dispatch(getProductsList()),
+  RPgetProductData: () => dispatch(RPgetProductData()),
+  RPgetRelatedProducts: () => dispatch(RPgetRelatedProducts()),
+  RPgetStyles: () => dispatch(RPgetStyles()),
   getProductStyles: () => dispatch(getProductStyles()),
 });
 
