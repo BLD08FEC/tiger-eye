@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Stars from '../../../Shared/Stars';
 import Styles from './Styles';
-import './OrderSelection.css';
+import './OrderSelection.scss';
 import OrderSelection from './OrderSelection';
 
 const ProductInfo = ({ productData, selectedPrice, salePrice }) => (

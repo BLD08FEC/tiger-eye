@@ -3,7 +3,7 @@
 /* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
-import './DescriptionFeaturesShare.css'
+import './DescriptionFeaturesShare.scss'
 
 function renderProductFeatures(features) {
   if (features) {
