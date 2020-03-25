@@ -26,13 +26,13 @@ class QuestionList extends React.Component {
     const allQuestions = this.state.allQuestions
     const apiQuestions = async () => {
       await helperAPI.getQuestions(3, (data) => {
-        if (allQuestions.length === 0) {
+        if (data.results.length >= 2) {
           this.setState({
             allQuestions: [...data.results],
             displayedQuestions: data.results.slice(0, 2)
           });
-          this.setState({ displayedQuestions: data.results });
-          console.log("All Questions test1 ====== ", this.state.allQuestions);
+          // this.setState({ displayedQuestions: data.results });
+          // console.log("All Questions test1 ====== ", this.state.allQuestions, this.state.displayedQuestions);
         } else if (allQuestions === 1) {
           this.incrementCurrentQuestion();
           this.setState({ displayedQuestions: data.results.slice(0, 1) });
@@ -137,7 +137,7 @@ class QuestionList extends React.Component {
       </>
     ) : (
       <div>render if false</div>
-    );
+    )
   }
 }
 
