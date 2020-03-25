@@ -145,10 +145,6 @@ class QuestionList extends React.Component {
             ); 
           }
           )}
-         
-        </div>
-        <div className="question-btn-div">
-          <button type="button" className="question-btn">Show More Answered Questions</button>
         </div>
       </>
     ) : (

@@ -7,7 +7,7 @@ const Question = ({ displayedQuestion }) => (
     <span>
       <div className="question-body">
         <h5>
-          {"Q. " + displayedQuestion.question_body}
+          {`Q. ${displayedQuestion.question_body}`}
         </h5>
       </div>
       <div className="question-name">{displayedQuestion.asker_name}</div>

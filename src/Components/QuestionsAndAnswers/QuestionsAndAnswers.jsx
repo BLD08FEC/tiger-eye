@@ -1,6 +1,6 @@
-import React from "react";
-import QuestionList from "./Questions/QuestionList";
-import Search from "../../Shared/Search/search";
+import React from 'react';
+import QuestionList from './Questions/QuestionList';
+import Search from '../../Shared/Search/search';
 // import helpers from '../../Shared/api';
 // require helpers from '../../shared/api.js'
 // not sure how to import info from api calls
