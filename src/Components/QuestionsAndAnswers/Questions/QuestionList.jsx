@@ -22,38 +22,46 @@ class QuestionList extends React.Component {
   }
 
   async componentDidMount() {
-    const results = [];
     const display = [];
 
-    const apiQuestions = function() {
-      helperAPI.getQuestions(3, (data) => {
-        data.results.map(q => {
-          results.push(q);
-        })
+    const apiQuestions = async function() {
+      await helperAPI.getQuestions(3, (data) => {
+        if (this.state.allQuestions.length >= 2) {
+          this.setState({
+            allQuestions: [...data.results],
+            displayedQuestions: data.results.slice(0, 2)
+          });
+          this.setState({ displayedQuestions: results });
+        } else if (this.state.allQuestions === 1) {
+          this.incrementCurrentQuestion();
+          this.setState({ displayedQuestions: data.results.slice(0, 1) });
+        } else {
+          this.setState({ displayedQuestions: "No Questions to Display" });
+        }
       })
     }
     await apiQuestions();
-    await this.setState({ allQuestions: results })
     console.log("All Questions test ====== ", this.state.allQuestions)
+    this.setState({ allQuestions: [...data.results], displayedQuestions: data.results.slice(0,2) });
     
-    const addTwoQuestions = () => {
-      if (this.state.allQuestions.length >= 2) {
-        for (let i = 0; i < 2; i++) {
-          display.push(this.state.allQuestions[i]);
-          this.incrementCurrentQuestion();
-        }
-        console.log('displayed Questions ========', this.state.displayedQuestions);
-        this.setState({ displayedQuestions: results });
-      } else if (this.state.allQuestions === 1) {
-        display.push(this.state.allQuestions[1]);
-        this.incrementCurrentQuestion();
-        this.setState({ displayedQuestions: results });
-      } else {
-        display.push("No Questions to Display");
-      }
-    }
-    await addTwoQuestions();
-    console.log('All Questions test2 ======', this.state.allQuestions)
+    // const addTwoQuestions = () => {
+    //   if (this.state.allQuestions.length >= 2) {
+    //     for (let i = 0; i < 2; i++) {
+    //       display.push(this.state.allQuestions[i]);
+    //       this.incrementCurrentQuestion();
+    //     }
+    //     console.log('displayed Questions ========', this.state.displayedQuestions);
+    //     this.setState({ displayedQuestions: results });
+    //   } else if (this.state.allQuestions === 1) {
+    //     display.push(this.state.allQuestions[1]);
+    //     this.incrementCurrentQuestion();
+    //     this.setState({ displayedQuestions: results });
+    //   } else {
+    //     display.push("No Questions to Display");
+    //   }
+    // }
+    // await addTwoQuestions();
+    // console.log('All Questions test2 ======', this.state.allQuestions)
   }
 
 
@@ -115,15 +123,12 @@ class QuestionList extends React.Component {
 
   // need to map displayedQuestions array in state to be rendered individually
   render() {
-    return (
-      this.state.displayedQuestions.length > 0 ? 
-      (<div className="row question-list">
-        dfdfd
-        <Question displayedQuestions={this.state.displayedQuestions[this.state.currentQuestion].question_body} />
-        {/* <Question displayedQuestions={this.state.displayedQuestions[1].question_body} /> */}
-        <Question displayedQuestions={"render anything!"} />
-      </div>)
-      : (<div>render if false</div>)
+    return this.state.displayedQuestions.length > 0 ? (
+      <div className="row question-list">
+        {this.state.displayedQuestions.map((question) => <Question displayedQuestion={question} />)}
+      </div>
+    ) : (
+      <div>render if false</div>
     );
   }
 }
