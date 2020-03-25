@@ -8,6 +8,4 @@ const Question = ({ displayedQuestions }) => (
   </div>
 );
 
-// buttn func = onClick = { next() }
-
 export default Question;
