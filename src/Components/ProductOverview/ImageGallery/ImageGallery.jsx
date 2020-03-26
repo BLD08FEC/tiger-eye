@@ -1,6 +1,7 @@
 /* eslint-disable*/
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Magnifier from 'react-magnifier';
 import './ImageGallery.scss';
 
 export class ImageGallery extends Component {
@@ -98,8 +99,8 @@ export class ImageGallery extends Component {
             alt={selectedStyleName}
             onClick={(e) => this.thumbnailClick(e, i)}
           />
-        </div>
-      )
+        </div>,
+      );
     }
     return thumbnails;
   }
@@ -153,43 +154,46 @@ export class ImageGallery extends Component {
         {showModal === true
             && (
             <div>
-                <div className="modal1">
-                  <div className="modal-main1">
-                    <div className="close-modal" onClick={() => this.hideExpanded()}>X</div>
-                    <div className="arrow-right">
+              <div className="modal1">
+                <div className="modal-main1">
+                  <div className="close-modal" onClick={() => this.hideExpanded()}>X</div>
+                  <div className="arrow-right">
                     {selectedIndex !== selectedStylePhotos.length - 1
                             && (
                             <div id="next" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
-                            &#x2905;
+                              &#x2905;
                             </div>
                             )}
-                    </div>
-                    <div className="arrow-left">
+                  </div>
+                  <div className="arrow-left">
                     {selectedIndex !== 0
                             && (
                             <div id="previous" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
-                            &#x2905;
+                              &#x2905;
                             </div>
                             )}
-                    </div>
-                    <img
-                      src={selectedStylePhotos[selectedIndex].url}
-                      className="modal-image"
-                      alt={selectedStyleName}
-                      onClick={() => this.showZoomed()}
-                    />
                   </div>
-                  {showZoomed === true && (
-                      <div className="zoom-modal">
-                          <img
-                            src={selectedStylePhotos[selectedIndex].url}
-                            className="zoomed-image"
-                            alt={selectedStyleName}
-                            onClick={() => this.hideZoomed()}
-                           />
-                      </div>
-                  )}
+                  <img
+                    src={selectedStylePhotos[selectedIndex].url}
+                    className="modal-image"
+                    alt={selectedStyleName}
+                    onClick={() => this.showZoomed()}
+                  />
                 </div>
+                {showZoomed === true && (
+                  <div className="modal1">
+                    <div className="modal-image modal-main1" onClick={() => this.hideZoomed()}>
+                      <Magnifier
+                        src={selectedStylePhotos[selectedIndex].url}
+                        alt={selectedStyleName}
+                        mgWidth={350}
+                        mgHeight={350}
+                        zoomFactor={1.3}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
             )}
       </div>
