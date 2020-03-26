@@ -6,29 +6,19 @@ import AnswerList from './Answers/AnswerList';
 // require helpers from '../../shared/api.js'
 // not sure how to import info from api calls
 
-const QuestionsAndAnswers = () => (
-  <div className="container questions-and-answers">
-    <div className="questions">
-      <em>Common Questions Realated To This Product</em>
-    </div>
-    <hr />
-    <Search />
-    <QuestionList className="row question-list" />
-    {/* <AnswerList className="row answer-list" /> */}
-    <hr />
-    <div className="lower-btns">
-      <div className="question-btn-div-1">
-        <button type="button" className="question-btn">
-          Show More Answered Questions
-        </button>
+const QuestionsAndAnswers = (props) => {
+  return (
+    <div className="container questions-and-answers">
+      <div className="questions">
+        <em>Common Questions Realated To This Product</em>
       </div>
-      <div className="question-btn-div-2">
-        <button type="button" className="question-btn">
-          Add A Question +
-        </button>
-      </div>
+      <hr />
+      <Search />
+      <QuestionList className="row question-list" />
+      {/* <AnswerList className="row answer-list" /> */}
+      <hr />
     </div>
-  </div>
-);
+  );
+};
 
 export default QuestionsAndAnswers;
