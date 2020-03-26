@@ -55,8 +55,8 @@ class QuestionList extends React.Component {
       console.log("inside ======",  ...this.state.displayedQuestions)
       this.setState({ displayedQuestions: [...this.state.displayedQuestions, this.state.allQuestions[this.state.currentQuestion]] });
       this.incrementCurrentQuestion();
-    } else if (data.results.length === 0) {
-      this.setState({ displayedQuestions: ['No Questions to Display'] });
+    } else if (this.state.allQuestions.length - this.state.displayedQuestions.length === 0) {
+             this.setState({ displayedQuestions: ["No Questions to Display"] });
     }
     // console.log(
     //   "add two test ======",
@@ -84,9 +84,6 @@ class QuestionList extends React.Component {
             return (
               <div>
                 <Question displayedQuestion={question} key={key} />
-                {/* <QuestionsAndAnswers
-                  addTwoQuestions={this.addTwoQuestions}
-                /> */}
               </div>
             );
           })}
