@@ -66,13 +66,10 @@ class QuestionList extends React.Component {
     // );
   }
 
-
-
   incrementCurrentQuestion() {
     const currentNum = this.state.currentQuestion;
     this.setState({ currentQuestion: currentNum + 1 });
   }
-
 
 
   render() {
