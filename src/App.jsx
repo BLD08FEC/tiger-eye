@@ -11,8 +11,6 @@ import logo from './Shared/Logo/tigerEye.png';
 import Search from './Shared/Search/search';
 import './Shared/Logo/logo.scss';
 import './Shared/Header/header.scss';
-// import './Shared/Search/search.scss';
-
 
 // Redux
 import { getProductData, getProductStyles } from './data/actions/productDataAction';
@@ -30,7 +28,6 @@ class App extends Component {
     this.props.RPgetStyles();
     this.props.getProductStyles();
   }
-
 
   render() {
     return (
