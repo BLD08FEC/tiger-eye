@@ -110,7 +110,7 @@ export class OrderSelection extends Component {
 
     render() {
       return (
-        <div>
+        <div className="order-selection">
           <div className="row">
             <div className="col-6 col-sm-6">
               {this.renderSelectSize(this.props)}

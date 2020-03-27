@@ -4,13 +4,19 @@ import { connect } from 'react-redux';
 import '../ProductOverview.css';
 import { updateSelectedStyle } from '../../../data/actions/productDataAction';
 
-const Styles = ({ productStyles, selectedStyleName, selectedStyle_id, updateSelectedStyle }) => (
+const Styles = ({
+  productStyles, selectedStyleName, selectedStyle_id, updateSelectedStyle,
+}) => (
   productStyles.product_id ? (
     <div className="select-checkmark">
-      <div className="style-name">Style: {selectedStyleName}</div>
-      <div>    
+      <div className="style-name">
+        Style:
+        {selectedStyleName}
+      </div>
+      <div className="styles-all">
         {productStyles.results.map((style, index) => (
-          style.skus.null !== null &&
+          style.skus.null !== null
+          && (
           <label className="style-container" key={style.style_id}>
             {selectedStyle_id === style.style_id
               ? <input type="radio" name="style-selector" checked />
@@ -25,6 +31,7 @@ const Styles = ({ productStyles, selectedStyleName, selectedStyle_id, updateSele
               onClick={() => updateSelectedStyle(productStyles.results[index])}
             />
           </label>
+          )
         ))}
       </div>
     </div>
