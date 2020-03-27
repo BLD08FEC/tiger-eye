@@ -31,6 +31,7 @@ const ProductCard = (props) => {
     <div className="product-card-main">
       <div className="container-fluid">
         <div className="row product-card-img-top">
+          <button className="button-overlay">+</button>
           <ProductCardImage cardProduct={card.id} />
         </div>
         <div className="row product-card-info-bottom">

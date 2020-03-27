@@ -7,6 +7,13 @@
     align-items: center;
 }
 
+.button-overlay{
+    position: absolute;
+    justify-self: flex-end;
+    // right: 0;
+    z-index: 1;
+}
+
 .product-card-info-bottom {
     height: 16vw;
     padding-left: 2%;
