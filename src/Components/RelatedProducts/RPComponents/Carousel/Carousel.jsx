@@ -20,7 +20,8 @@ class Carousel extends Component {
   componentDidMount() {
     fetch(`http://52.26.193.201:3000/products/${this.props.currentProduct}/related`)
       .then((res) => res.json())
-      .then((data) => this.setState({ arrLength: data.length }));
+      .then((data) => this.setState({ arrLength: data.length }))
+      .catch((err) => err);
   }
 
   next(direction) {

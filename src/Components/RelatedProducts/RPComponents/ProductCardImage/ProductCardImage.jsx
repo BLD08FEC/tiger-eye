@@ -8,7 +8,6 @@ const ProductCardImage = (props) => {
     fetch(`http://52.26.193.201:3000/products/${props.cardProduct}/styles`)
       .then((res) => res.json())
       .then((data) => setImageUrl(data.results[0].photos[0].thumbnail_url))
-      // eslint-disable-next-line no-console
       .catch((err) => err);
   });
 
