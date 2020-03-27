@@ -80,7 +80,7 @@ class AnswerList extends React.Component {
   render() {
     return this.state.displayedAnswers.length > 0 ? (
       <>
-        <em>Answer = Below </em>
+        <p></p>
         <div className="answer-list">
           {this.state.displayedAnswers.map((answer, key) => {
             return (
