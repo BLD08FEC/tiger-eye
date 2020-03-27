@@ -1,48 +1,55 @@
 .question {
-    display: grid;
-    background-color: whitesmoke;
-
-
+  display: grid;
+  background-color: whitesmoke;
 }
 
 .question-name {
-    // font-size: 15;
-    color: black;
+  // font-size: 15;
+  color: black;
 }
 
 .question-body {
-    // font-size: 25;
-    font-weight: bold;
-    color: black;
+  // font-size: 25;
+  font-weight: bold;
+  color: black;
 }
 
 .question-btn {
-  font-size: 13px;
+  color: white;
+  font-size: 17px;
   padding: 3px;
   max-width: 45%;
-  background-color: #cb7119;
+  background-color: #323639;
   border-radius: 7px;
 }
 
 .lower-btns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: whitesmoke;
+  grid-template-columns: 3fr 3fr 3fr;
+  // background-color: orange;
+  // margin-left: -70px;
   border: 5px solid whitesmoke;
   border-radius: 7px;
 }
 
 .question-btn-div-1 {
   grid-column: 1;
-  // position: left;
+  // float: left;
+  max-width: 100%;
+  min-width: 177px;
+  margin-left: -25%;
 }
 
 .question-btn-div-2 {
   grid-column: 2;
+  max-width: 100%;
+  min-width: 177px;
+  padding: 0px;
+  margin-left: -50%;
   // position: right;
 }
 
 .question-helpfulness {
   font-size: 12;
-  font-weight: lighter
+  font-weight: lighter;
 }
