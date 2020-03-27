@@ -96,13 +96,14 @@ class QuestionList extends React.Component {
             );
           })}
           <div className="lower-btns">
+            <p></p>
             <div className="question-btn-div-1">
               <button
                 type="button"
                 className="question-btn"
                 onClick={this.addTwoQuestions}
               >
-                Show More Answered Questions
+                Show More Questions
               </button>
             </div>
             <div className="question-btn-div-2">
