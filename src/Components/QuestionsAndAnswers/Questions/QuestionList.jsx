@@ -33,7 +33,13 @@ class QuestionList extends React.Component {
           this.incrementCurrentQuestion();
           this.setState({ displayedQuestions: data.results.slice(0, 1) });
         } else if (data.results.length === 0) {
-          this.setState({ displayedQuestions: ['No Questions to Display'] });
+          let display = this.state.displayedQuestions;
+          display.push({
+            "question_body":'No Questions to Display Yet..',
+            "asker_name": "Add Your Question",
+            "question_helpfulness": 10,
+          })
+          this.setState({ displayedQuestions: display });
         }
       });
     };
@@ -43,27 +49,27 @@ class QuestionList extends React.Component {
   // this.setState({ allQuestions: [...data.results], displayedQuestions: data.results.slice(0,2) });
 
   addTwoQuestions() {
-    console.log("add two test ======", this.state.allQuestions, this.state.currentQuestion, this.state.displayedQuestions)
+    // console.log("add two test ======", this.state.allQuestions, this.state.currentQuestion, this.state.displayedQuestions)
     if (this.state.allQuestions.length - this.state.displayedQuestions.length >= 2) {
       this.setState({
         displayedQuestions: [...this.state.displayedQuestions, this.state.allQuestions[this.state.currentQuestion], this.state.allQuestions[this.state.currentQuestion + 1]]
       });
       this.incrementCurrentQuestion();
       this.incrementCurrentQuestion();
-      console.log('All Questions test1 ====== ', this.state.allQuestions, this.state.displayedQuestions);
+      // console.log('All Questions test1 ====== ', this.state.allQuestions, this.state.displayedQuestions);
     } else if (this.state.allQuestions.length - this.state.displayedQuestions.length === 1) {
       console.log("inside ======",  ...this.state.displayedQuestions)
       this.setState({ displayedQuestions: [...this.state.displayedQuestions, this.state.allQuestions[this.state.currentQuestion]] });
       this.incrementCurrentQuestion();
     } else if (this.state.allQuestions.length - this.state.displayedQuestions.length === 0) {
-             this.setState({ displayedQuestions: ["No Questions to Display"] });
+      let display = this.state.displayedQuestions;
+      display.push({
+            "question_body":'Have a Question of your own?',
+            "asker_name": "Add it below...",
+            "question_helpfulness": 10,
+      })
+      this.setState({ displayedQuestions: display });
     }
-    // console.log(
-    //   "add two test ======",
-    //   this.state.allQuestions,
-    //   this.state.currentQuestion,
-    //   this.state.displayedQuestions
-    // );
   }
 
   incrementCurrentQuestion() {
@@ -82,9 +88,14 @@ class QuestionList extends React.Component {
           {this.state.displayedQuestions.map((question, key) => {
             // console.log(key);
             return (
-              <div>
-                <Question displayedQuestion={question} key={key} />
-              </div>
+              <>
+                <div>
+                  <Question displayedQuestion={question} key={key} />
+                </div>
+                <div>
+                  {/* <Answer question={question} /> */}
+                </div>
+              </>
             );
           })}
           <div className="lower-btns">
