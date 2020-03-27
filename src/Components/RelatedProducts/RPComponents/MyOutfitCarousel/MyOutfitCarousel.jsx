@@ -1,7 +1,9 @@
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import './MyOutfitCarousel.scss';
 import OutfitCard from '../OutfitCard/OutfitCard';
-import EmptyCard from '../EmptyCard/EmptyCard';
+import ProductCard from '../ProductCard/ProductCard';
 
 class MyOutfitCarousel extends Component {
   constructor(props) {
@@ -11,6 +13,7 @@ class MyOutfitCarousel extends Component {
       myOutfitCarouselIndex: 0,
     };
     this.next = this.next.bind(this);
+    this.addToOutfit = this.addToOutfit(this);
   }
 
   next(direction) {
@@ -34,37 +37,60 @@ class MyOutfitCarousel extends Component {
     this.setState({ myOutfitCarouselIndex: changeToCard });
   }
 
-  render = () => (
-    <div className="container-fluid carousel-main">
-      <div className="row">
-        <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('left')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9664;</div></div>
-        <div className="col-xs-10">
+  addToOutfit(productId) {
+    const newOutfit = this.state.myOutfit;
 
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-xs-3">
-                <OutfitCard
-                  currentProduct={this.props.currentProduct}
-                  cardIndex={this.state.carouselIndex}
-                />
-              </div>
-              <div className="col-xs-3">
-                <EmptyCard />
-              </div>
-              <div className="col-xs-3">
-                <EmptyCard />
-              </div>
-              <div className="col-xs-3">
-                <EmptyCard />
+    newOutfit.push(productId);
+    console.log(newOutfit);
+    this.setState({ myOutfit: newOutfit });
+  }
+
+  render = () => {
+    const showCards = this.state.myOutfit.slice(this.state.myOutfitCarouselIndex, this.state.myOutfitCarouselIndex + 3);
+
+    for (let i = 0; i < 3; i += 1) {
+      if (showCards.length < 3) {
+        showCards.push(0);
+      }
+    }
+
+    return (
+      <div className="container-fluid carousel-main">
+        <div className="row">
+          <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('left')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9664;</div></div>
+          <div className="col-xs-10">
+
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-xs-3">
+                  <OutfitCard
+                    currentProduct={this.props.currentProduct}
+                    cardIndex={this.state.myOutfitCarouselIndex}
+                    onClick={() => this.addToOutfit(this.props.currentProduct)}
+                  />
+                </div>
+                {this.state.myOutfit.map((i, id) => <ProductCard key={id} currentProduct={this.props.currentProduct} cardIndex={this.state.myOutfitCarouselIndex} />)}
+                {/* {for (let i = myOutfitCarouselIndex; i < (myOutfitCarouselIndex + 3); i++) {
+                    (<ProductCard currentProduct={this.props.currentProduct} cardIndex={this.state.myOutfitCarouselIndex} />)
+                }} */}
+                {/* <div className="col-xs-3">
+                    <EmptyCard />
+                </div>
+                <div className="col-xs-3">
+                    <EmptyCard />
+                </div>
+                <div className="col-xs-3">
+                    <EmptyCard />
+                </div> */}
               </div>
             </div>
-          </div>
 
+          </div>
+          <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('right')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9654;</div></div>
         </div>
-        <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('right')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9654;</div></div>
       </div>
-    </div>
-  )
+    );
+  }
 }
 
 export default MyOutfitCarousel;
