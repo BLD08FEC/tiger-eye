@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './MyOutfitCarousel.scss';
 import OutfitCard from '../OutfitCard/OutfitCard';
+import EmptyCard from '../EmptyCard/EmptyCard';
 
 class MyOutfitCarousel extends Component {
   constructor(props) {
@@ -44,6 +45,15 @@ class MyOutfitCarousel extends Component {
                   currentProduct={this.props.currentProduct}
                   cardIndex={this.state.carouselIndex}
                 />
+              </div>
+              <div className="col-xs-3">
+                <EmptyCard />
+              </div>
+              <div className="col-xs-3">
+                <EmptyCard />
+              </div>
+              <div className="col-xs-3">
+                <EmptyCard />
               </div>
               {/* <div className="col-xs-3">
                 <ProductCard
