@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import './Carousel.scss';
 // import { connect } from 'react-redux';
