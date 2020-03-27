@@ -4,6 +4,8 @@ import Question from './Question';
 import helperAPI from '../../../Shared/api';
 import Search from '../../../Shared/Search/search';
 import QuestionsAndAnswers from '../QuestionsAndAnswers';
+// import Answer from '../Answers/Answer';
+// import AnswerList from ''../Answers/AnswerList';
 
 // helper API func = helpers.getQuestions(productId, cb){}
 
@@ -88,14 +90,9 @@ class QuestionList extends React.Component {
           {this.state.displayedQuestions.map((question, key) => {
             // console.log(key);
             return (
-              <>
                 <div>
                   <Question displayedQuestion={question} key={key} />
                 </div>
-                <div>
-                  {/* <Answer question={question} /> */}
-                </div>
-              </>
             );
           })}
           <div className="lower-btns">
