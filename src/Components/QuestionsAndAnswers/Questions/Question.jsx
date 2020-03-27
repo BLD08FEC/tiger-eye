@@ -1,16 +1,18 @@
 import React from 'react';
+import './Question.scss';
 
-const Question = ({ displayedQuestions }) => (
-  <div className="q">
-    <div className="row">
-      <div className="question">{displayedQuestions}</div>
-    </div>
-    <div className="row">
-      <button type="button">Show More Questions</button>
-    </div>
+
+const Question = ({ displayedQuestion }) => (
+  <div className="question">
+    <span>
+      <div className="question-body">
+        <h5>
+          {`Q. ${displayedQuestion.question_body}`}
+        </h5>
+      </div>
+      <div className="question-name">{displayedQuestion.asker_name}</div>
+    </span>
   </div>
 );
-
-// buttn func = onClick = { next() }
 
 export default Question;
