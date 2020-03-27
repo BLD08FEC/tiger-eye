@@ -2,13 +2,14 @@
 import React from 'react';
 import Answer from './Answer';
 import helperAPI from '../../../Shared/api';
-import Question from "../Questions/Question";
+// import Question from "../Questions/Question";
 
 class AnswerList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentProduct: 6,
+      currentQuestion: 40,
       currentAnswer: 0,
       displayedAnswers: [],
       allAnswers: []
@@ -16,18 +17,14 @@ class AnswerList extends React.Component {
   }
 
   async componentDidMount() {
-    console.log("answer Q id ========", Question.question_id);
+    // console.log("answer Q id ========", questionID);
     // const allAnswers = this.state.allAnswers;
     const addInitialAnswers = async () => {
-      await helperAPI.getAnswers(this.state.currentProduct, data => {
+      await helperAPI.getAnswers(this.state.currentQuestion, data => {
         this.setState({ allAnswers: [...data.results] });
+        console.log("All Answers test1 ====== ", this.state.allAnswers, this.state.displayedAnswers);
         if (data.results.length >= 2) {
           this.setState({ displayedAnswers: data.results.slice(0, 2) });
-          // console.log(
-          //   "All Questions test1 ====== ",
-          //   this.state.allAnswers,
-          //   this.state.displayedAnswers
-          // );
         } else if (data.results.length === 1) {
           this.incrementCurrentAnswer();
           this.setState({ displayedAnswers: data.results.slice(0, 1) });
@@ -44,9 +41,7 @@ class AnswerList extends React.Component {
   addTwoAnswers() {
     // console.log("add two test ======", this.state.allAnswers, this.state.currentQuestion, this.state.displayedAnswers)
     if (
-      this.state.allAnswers.length - this.state.displayedAnswers.length >=
-      2
-    ) {
+      this.state.allAnswers.length - this.state.displayedAnswers.length >= 2) {
       this.setState({
         displayedAnswers: [
           ...this.state.displayedAnswers,
@@ -57,10 +52,7 @@ class AnswerList extends React.Component {
       this.incrementCurrentAnswer();
       this.incrementCurrentAnswer();
       // console.log('All Answers test1 ====== ', this.state.allAnswers, this.state.displayedAnswers);
-    } else if (
-      this.state.allAnswers.length - this.state.displayedAnswers.length ===
-      1
-    ) {
+    } else if (this.state.allAnswers.length - this.state.displayedAnswers.length === 1) {
       console.log("inside ======", ...this.state.displayedAnswers);
       this.setState({
         displayedAnswers: [
@@ -69,10 +61,7 @@ class AnswerList extends React.Component {
         ]
       });
       this.incrementCurrentAnswer();
-    } else if (
-      this.state.allAnswers.length - this.state.displayedAnswers.length ===
-      0
-    ) {
+    } else if ( this.state.allAnswers.length - this.state.displayedAnswers.length === 0) {
       let display = this.state.displayedAnswers;
       display.push({
         body: "Have a Answer of your own?",
