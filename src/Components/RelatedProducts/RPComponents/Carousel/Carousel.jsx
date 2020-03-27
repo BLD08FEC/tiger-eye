@@ -12,8 +12,15 @@ class Carousel extends Component {
     super(props);
     this.state = {
       carouselIndex: 0,
+      length: 0,
     };
     this.next = this.next.bind(this);
+  }
+
+  componentDidMount() {
+    fetch(`http://52.26.193.201:3000/products/${this.props.currentProduct}/related`)
+      .then((res) => res.json())
+      .then((data) => this.setState({ length: data.length }));
   }
 
   next(direction) {
@@ -37,12 +44,12 @@ class Carousel extends Component {
   }
 
   render = () => (
-    <div className="container-flex carousel-main">
+    <div className="container-fluid carousel-main">
       <div className="row">
         <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('left')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9664;</div></div>
         <div className="col-xs-10">
 
-          <div className="container-flex">
+          <div className="container-fluid">
             <div className="row">
               <div className="col-xs-3">
                 <ProductCard
