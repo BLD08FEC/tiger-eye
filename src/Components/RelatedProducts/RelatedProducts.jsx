@@ -15,17 +15,19 @@ class RelatedProducts extends Component {
 
   render() {
     return (
-      <div className="container-fluid related-products-main">
-        <div className="row carousel-title"><em>You might also like...</em></div>
-        <div className="row related-products-carousel-parent">
-          <Carousel currentProduct={this.state.currentProduct} />
-        </div>
-        <div className="row carousel-title"><em>Build your own outfit.</em></div>
-        <div className="row my-outfit-carousel-parent">
-          <MyOutfitCarousel currentProduct={this.state.currentProduct} myOutfit={this.state.myOutfit} />
-        </div>
-        <div className="row modal-dashboard-parent">
-          <ModalDashboard />
+      <div className="related-products-main">
+        <div className="container-fluid">
+          <div className="row carousel-title"><em>You might also like...</em></div>
+          <div className="row related-products-carousel-parent">
+            <Carousel currentProduct={this.state.currentProduct} />
+          </div>
+          <div className="row carousel-title"><em>Build your own outfit.</em></div>
+          <div className="row my-outfit-carousel-parent">
+            <MyOutfitCarousel currentProduct={this.state.currentProduct} myOutfit={this.state.myOutfit} />
+          </div>
+          <div className="row modal-dashboard-parent">
+            <ModalDashboard />
+          </div>
         </div>
       </div>
     );

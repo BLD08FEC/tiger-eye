@@ -31,47 +31,46 @@ class MyOutfitCarousel extends Component {
     this.setState({ myOutfitCarouselIndex: changeToCard });
   }
 
-  render = () =>
-    (
-      <div className="container-flex carousel-main">
-        <div className="row">
-          <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('left')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9664;</div></div>
-          <div className="col-xs-10">
+  render = () => (
+    <div className="container-fluid carousel-main">
+      <div className="row">
+        <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('left')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9664;</div></div>
+        <div className="col-xs-10">
 
-            <div className="container-flex">
-              <div className="row">
-                <div className="col-xs-3">
-                  <OutfitCard
-                    currentProduct={this.props.currentProduct}
-                    cardIndex={this.state.carouselIndex}
-                  />
-                </div>
-                {/* <div className="col-xs-3">
-                  <ProductCard
-                    currentProduct={this.props.currentProduct}
-                    cardIndex={this.state.carouselIndex + 1}
-                  />
-                </div>
-                <div className="col-xs-3">
-                  <ProductCard
-                    currentProduct={this.props.currentProduct}
-                    cardIndex={this.state.carouselIndex + 2}
-                  />
-                </div>
-                <div className="col-xs-3">
-                  <ProductCard
-                    currentProduct={this.props.currentProduct}
-                    cardIndex={this.state.carouselIndex + 3}
-                  />
-                </div> */}
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-xs-3">
+                <OutfitCard
+                  currentProduct={this.props.currentProduct}
+                  cardIndex={this.state.carouselIndex}
+                />
               </div>
+              {/* <div className="col-xs-3">
+                <ProductCard
+                currentProduct={this.props.currentProduct}
+                cardIndex={this.state.carouselIndex + 1}
+                />
+                </div>
+                <div className="col-xs-3">
+                <ProductCard
+                currentProduct={this.props.currentProduct}
+                cardIndex={this.state.carouselIndex + 2}
+                />
+                </div>
+                <div className="col-xs-3">
+                <ProductCard
+                currentProduct={this.props.currentProduct}
+                cardIndex={this.state.carouselIndex + 3}
+                />
+              </div> */}
             </div>
-
           </div>
-          <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('right')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9654;</div></div>
+
         </div>
+        <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('right')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9654;</div></div>
       </div>
-    )
+    </div>
+  )
 }
 
 export default MyOutfitCarousel;

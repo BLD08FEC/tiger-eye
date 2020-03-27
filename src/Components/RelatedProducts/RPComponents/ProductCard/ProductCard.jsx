@@ -24,25 +24,27 @@ const ProductCard = (props) => {
   });
 
   return (
-    <div className="container-fluid product-card-main">
-      <div className="row product-card-img-top">
-        <ProductCardImage cardProduct={card.id} />
-      </div>
-      <div className="row product-card-info-bottom">
-        <div className="container-fluid product-card-body">
-          <div className="row product-card-category">
-            {card.category}
-          </div>
-          <div className="row product-card-title">
-            {card.name}
-          </div>
-          <div className="row product-card-price">
-            $
-            {card.default_price}
-            .00
-          </div>
-          <div className="row product-card-star">
-            <Stars />
+    <div className="product-card-main">
+      <div className="container-fluid">
+        <div className="row product-card-img-top">
+          <ProductCardImage cardProduct={card.id} />
+        </div>
+        <div className="row product-card-info-bottom">
+          <div className="container-fluid product-card-body">
+            <div className="row product-card-category">
+              {card.category}
+            </div>
+            <div className="row product-card-title">
+              {card.name}
+            </div>
+            <div className="row product-card-price">
+              $
+              {card.default_price}
+              .00
+            </div>
+            <div className="row product-card-star">
+              <Stars />
+            </div>
           </div>
         </div>
       </div>
