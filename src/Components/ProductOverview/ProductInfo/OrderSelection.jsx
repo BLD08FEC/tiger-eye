@@ -58,7 +58,7 @@ export class OrderSelection extends Component {
               </select>
             )
             : (
-              <select disabled value="OUT OF STOCK">
+              <select className="out-of-stock" disabled value="OUT OF STOCK">
                 <option>OUT OF STOCK</option>
               </select>
             )}
