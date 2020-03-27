@@ -9,7 +9,6 @@ class RelatedProducts extends Component {
     super(props);
     this.state = {
       currentProduct: 7,
-      myOutfit: [],
     };
   }
 
@@ -23,7 +22,7 @@ class RelatedProducts extends Component {
           </div>
           <div className="row carousel-title"><em>Build your own outfit.</em></div>
           <div className="row my-outfit-carousel-parent">
-            <MyOutfitCarousel currentProduct={this.state.currentProduct} myOutfit={this.state.myOutfit} />
+            <MyOutfitCarousel currentProduct={this.state.currentProduct} />
           </div>
           <div className="row modal-dashboard-parent">
             <ModalDashboard />
