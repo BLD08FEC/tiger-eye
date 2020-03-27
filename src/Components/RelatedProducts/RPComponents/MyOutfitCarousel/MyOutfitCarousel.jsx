@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';

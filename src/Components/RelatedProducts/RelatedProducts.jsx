@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import './RelatedProducts.scss';
 import Carousel from './RPComponents/Carousel/Carousel';
