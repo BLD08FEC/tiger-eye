@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ProductCard.scss';
 // import { connect } from 'react-redux';
-import EmptyCard from '../EmptyCard/EmptyCard'
+import EmptyCard from '../EmptyCard/EmptyCard';
 import ProductCardImage from '../ProductCardImage/ProductCardImage';
 import Stars from '../../../../Shared/Stars';
 
@@ -24,7 +24,7 @@ const ProductCard = (props) => {
       .catch((err) => console.log(err));
   });
 
-  if (card === undefined) {
+  if (card.id === undefined) {
     return (<EmptyCard />);
   }
   return (
