@@ -3,6 +3,9 @@ import React from 'react';
 import Question from './Question';
 import helperAPI from '../../../Shared/api';
 import Search from '../../../Shared/Search/search';
+import QuestionsAndAnswers from '../QuestionsAndAnswers';
+// import Answer from '../Answers/Answer';
+// import AnswerList from ''../Answers/AnswerList';
 
 // helper API func = helpers.getQuestions(productId, cb){}
 
@@ -10,11 +13,12 @@ class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProduct: 3,
+      currentProduct: 6,
       currentQuestion: 0,
       displayedQuestions: [],
       allQuestions: [],
     };
+    this.addTwoQuestions = this.addTwoQuestions.bind(this);
   }
 
   async componentDidMount() {
@@ -23,13 +27,21 @@ class QuestionList extends React.Component {
       await helperAPI.getQuestions(this.state.currentProduct, (data) => {
         this.setState({ allQuestions: [...data.results] });
         if (data.results.length >= 2) {
-          this.setState({ displayedQuestions: data.results.slice(0, 2) });
-          console.log('All Questions test1 ====== ', this.state.allQuestions, this.state.displayedQuestions);
+          this.setState({ displayedQuestions: data.results.slice(this.state.currentQuestion, this.state.currentQuestion + 2) });
+          this.incrementCurrentQuestion();
+          this.incrementCurrentQuestion();
+          // console.log('All Questions test1 ====== ', this.state.allQuestions, this.state.displayedQuestions);
         } else if (data.results.length === 1) {
           this.incrementCurrentQuestion();
           this.setState({ displayedQuestions: data.results.slice(0, 1) });
-        } else {
-          this.setState({ displayedQuestions: ['No Questions to Display'] });
+        } else if (data.results.length === 0) {
+          let display = this.state.displayedQuestions;
+          display.push({
+            "question_body":'No Questions to Display Yet..',
+            "asker_name": "Add Your Question",
+            "question_helpfulness": 10,
+          })
+          this.setState({ displayedQuestions: display });
         }
       });
     };
@@ -38,83 +50,36 @@ class QuestionList extends React.Component {
   // await console.log("All Questions test2 ====== ", this.state.allQuestions)
   // this.setState({ allQuestions: [...data.results], displayedQuestions: data.results.slice(0,2) });
 
-  // const addTwoQuestions = () => {
-  //   if (this.state.allQuestions.length >= 2) {
-  //     for (let i = 0; i < 2; i++) {
-  //       display.push(this.state.allQuestions[i]);
-  //       this.incrementCurrentQuestion();
-  //     }
-  //     console.log('displayed Questions ========', this.state.displayedQuestions);
-  //     this.setState({ displayedQuestions: results });
-  //   } else if (this.state.allQuestions === 1) {
-  //     display.push(this.state.allQuestions[1]);
-  //     this.incrementCurrentQuestion();
-  //     this.setState({ displayedQuestions: results });
-  //   } else {
-  //     display.push("No Questions to Display");
-  //   }
-  // }
-  // await addTwoQuestions();
-  // console.log('All Questions test2 ======', this.state.allQuestions)
-
-
-  // helpersAPI.getQuestions(3, (data) => {
-  //   data.results.forEach(q => results.push(q));
-  //   this.setState({ allQuestions: results })
-  //   Promise.all(this.state.allQuestions)
-  //   .then( () => {
-  //     console.log("All Questions test2 ====== ", this.state.allQuestions.length)
-  //     if (this.state.allQuestions >= 2) {
-  //       for (let i = 0; i < 2; i++) {
-  //         display.push(this.state.allQuestions[i]);
-  //         this.incrementCurrentQuestion();
-  //       }
-  //       this.setState({ displayedQuestions: results });
-  //       console.log('displayed Questions ========', this.state.displayedQuestions);
-  //     } else if (this.state.allQuestions === 1) {
-  //       display.push(this.state.allQuestions[1]);
-  //       this.incrementCurrentQuestion();
-  //       this.setState({ displayedQuestions: results });
-  //     } else {
-  //       display.push("No Questions to Display");
-  //     }
-  //   })
-  //   console.log('All Questions test ======', this.state.allQuestions, this.state.currentProduct)
-  // })
-
-  // Default load up to 2 questions max or if none, display "no questions" message
-
-
-  // addQuestionToPage(data) {
-
-  // }
+  addTwoQuestions() {
+    // console.log("add two test ======", this.state.allQuestions, this.state.currentQuestion, this.state.displayedQuestions)
+    if (this.state.allQuestions.length - this.state.displayedQuestions.length >= 2) {
+      this.setState({
+        displayedQuestions: [...this.state.displayedQuestions, this.state.allQuestions[this.state.currentQuestion], this.state.allQuestions[this.state.currentQuestion + 1]]
+      });
+      this.incrementCurrentQuestion();
+      this.incrementCurrentQuestion();
+      // console.log('All Questions test1 ====== ', this.state.allQuestions, this.state.displayedQuestions);
+    } else if (this.state.allQuestions.length - this.state.displayedQuestions.length === 1) {
+      console.log("inside ======",  ...this.state.displayedQuestions)
+      this.setState({ displayedQuestions: [...this.state.displayedQuestions, this.state.allQuestions[this.state.currentQuestion]] });
+      this.incrementCurrentQuestion();
+    } else if (this.state.allQuestions.length - this.state.displayedQuestions.length === 0) {
+      let display = this.state.displayedQuestions;
+      display.push({
+            "question_body":'Have a Question of your own?',
+            "asker_name": "Add it below...",
+            "question_helpfulness": 10,
+      })
+      this.setState({ displayedQuestions: display });
+    }
+  }
 
   incrementCurrentQuestion() {
     const currentNum = this.state.currentQuestion;
-    this.setState((state) => ({ currentQuestion: currentNum + 1 }));
+    this.setState({ currentQuestion: currentNum + 1 });
   }
 
-  // nextTwo() {
-  //   const results = [];
-  //   const max = this.state.allQuestions.length;
-  //   if (max > this.state.currentQuestion + 2) {
-  //     results.push(data.results[this.state.currentQuestion]);
-  //     this.setState({ displayedQuestions: results });
-  //     this.incrementCurrentQuestion();
-  //     results.push(data.results[this.state.currentQuestion]);
-  //     this.setState({ displayedQuestions: results });
-  //     this.incrementCurrentQuestion();
-  //   }
-  //   if (max === this.state.currentQuestion + 1) {
-  //     results.push(data.results[this.state.currentQuestion]);
-  //     this.setState({ displayedQuestions: results });
-  //     this.incrementCurrentQuestion();
-  //   } else {
-  //     this.state.displayedQuestions.push('No more questions');
-  //   }
-  // }
 
-  // need to map displayedQuestions array in state to be rendered individually
   render() {
     return this.state.displayedQuestions.length > 0 ? (
       <>
@@ -125,14 +90,27 @@ class QuestionList extends React.Component {
           {this.state.displayedQuestions.map((question, key) => {
             // console.log(key);
             return (
-              <div>
-                <Question
-                  displayedQuestion={question}
-                  key={key}
-                />
-              </div>
+                <div>
+                  <Question displayedQuestion={question} key={key} />
+                </div>
             );
           })}
+          <div className="lower-btns">
+            <div className="question-btn-div-1">
+              <button
+                type="button"
+                className="question-btn"
+                onClick={this.addTwoQuestions}
+              >
+                Show More Answered Questions
+              </button>
+            </div>
+            <div className="question-btn-div-2">
+              <button type="button" className="question-btn">
+                Add A Question +
+              </button>
+            </div>
+          </div>
         </div>
       </>
     ) : (
