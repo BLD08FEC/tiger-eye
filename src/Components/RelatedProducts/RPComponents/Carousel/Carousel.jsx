@@ -12,7 +12,7 @@ class Carousel extends Component {
     super(props);
     this.state = {
       carouselIndex: 0,
-      length: 0,
+      arrLength: 0,
     };
     this.next = this.next.bind(this);
   }
@@ -20,12 +20,13 @@ class Carousel extends Component {
   componentDidMount() {
     fetch(`http://52.26.193.201:3000/products/${this.props.currentProduct}/related`)
       .then((res) => res.json())
-      .then((data) => this.setState({ length: data.length }));
+      .then((data) => this.setState({ arrLength: data.length }));
   }
 
   next(direction) {
     // direction.preventDefault();
     let changeToCard = this.state.carouselIndex;
+    const max = this.state.arrLength;
 
     if (direction === 'left') {
       changeToCard -= 1;
@@ -33,11 +34,11 @@ class Carousel extends Component {
     if (direction === 'right') {
       changeToCard += 1;
     }
-    if (changeToCard > 3) { // alter this to be dynamic based on number of related products
+    if (changeToCard >= max - 3) { // alter this to be dynamic based on number of related products
       changeToCard = 0;
     }
     if (changeToCard < 0) { // alter this to be dynamic based on number of related products
-      changeToCard = 2;
+      changeToCard = max - 4;
     }
 
     this.setState({ carouselIndex: changeToCard });
