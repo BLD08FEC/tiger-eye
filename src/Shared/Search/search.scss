@@ -1,6 +1,7 @@
 .searchContainer {
   grid-column: 3;
-  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   align-items: center;
 }
 
@@ -9,7 +10,7 @@
   font-size: 17px;
   padding: 7px;
   margin-right: 5px;
-  max-width: 75%;
+  max-width: 50%;
   border: 2px solid whitesmoke;
   outline: none;
   border-radius: 7px;
@@ -23,6 +24,7 @@
 
 .searchBtn {
   align-content: right;
+  height: 42.5;
   color: whitesmoke;
   font-size: 17px;
   padding: 7px;
