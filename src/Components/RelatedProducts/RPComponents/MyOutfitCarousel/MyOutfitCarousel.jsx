@@ -11,7 +11,7 @@ class MyOutfitCarousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      myOutfit: [],
+      myOutfit: [12, 8, 6, 15, 26, 14],
       myOutfitCarouselIndex: 0,
     };
     this.next = this.next.bind(this);
@@ -39,21 +39,25 @@ class MyOutfitCarousel extends Component {
     this.setState({ myOutfitCarouselIndex: changeToCard });
   }
 
-  addToOutfit(productId) {
-    const newOutfit = this.state.myOutfit;
+  addToOutfit() {
+    const newOutfit = this.state.myOutfit.slice();
 
-    newOutfit.push(productId);
+    newOutfit.unshift(this.props.currentProduct);
     console.log(newOutfit);
     this.setState({ myOutfit: newOutfit });
   }
 
   render = () => {
-    const showCards = this.state.myOutfit.slice(this.state.myOutfitCarouselIndex, this.state.myOutfitCarouselIndex + 3);
+    const cardDeck = this.state.myOutfit.slice();
+    let showHand = cardDeck;
 
-    for (let i = 0; i < 3; i += 1) {
-      if (showCards.length < 3) {
-        showCards.push(0);
+    if (cardDeck.length < 3) {
+      for (let i = cardDeck.length; i <= 3; i += 1) {
+        cardDeck.push(0);
       }
+    }
+    if (cardDeck.length >= 3) {
+      showHand = cardDeck.slice(0, 4);
     }
 
     return (
@@ -68,10 +72,10 @@ class MyOutfitCarousel extends Component {
                   <OutfitCard
                     currentProduct={this.props.currentProduct}
                     cardIndex={this.state.myOutfitCarouselIndex}
-                    onClick={() => this.addToOutfit(this.props.currentProduct)}
+                    handleClick={() => this.addToOutfit()}
                   />
                 </div>
-                {this.state.myOutfit.map((i, id) => <ProductCard key={id} currentProduct={this.props.currentProduct} cardIndex={this.state.myOutfitCarouselIndex} />)}
+                {showHand.map((i, id) => <ProductCard key={id} currentProduct={this.props.currentProduct} cardIndex={this.state.myOutfitCarouselIndex} />)}
                 {/* {for (let i = myOutfitCarouselIndex; i < (myOutfitCarouselIndex + 3); i++) {
                     (<ProductCard currentProduct={this.props.currentProduct} cardIndex={this.state.myOutfitCarouselIndex} />)
                 }} */}
