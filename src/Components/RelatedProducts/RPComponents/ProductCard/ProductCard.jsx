@@ -14,7 +14,7 @@ const ProductCard = (props) => {
       .then((res) => res.json())
       .then((relatedData) => {
         // eslint-disable-next-line no-undef
-        fetch(`http://52.26.193.201:3000/products/${relatedData[props.cardIndex]}`)
+        fetch(`http://52.26.193.201:3000/products/${props.cardProductId}`)
           .then((res) => res.json())
           .then((cardData) => setCard(cardData))
           // eslint-disable-next-line no-console
