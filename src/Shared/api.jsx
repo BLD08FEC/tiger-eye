@@ -1,8 +1,7 @@
-// import React from 'react';
 import axios from 'axios';
 
-
 // API location: http://3.134.102.30/
+// API location2*: http://52.26.193.201:3000
 // connection info pulled from: https://gist.github.com/trentgoing/409c2d76ce8e187e2132e45d9bed4605#file-products_api-md
 
 // The different data services for this api are
@@ -11,12 +10,6 @@ import axios from 'axios';
 // Products
 // Questions & Answers
 // Reviews
-
-// axios.get('https://jsonplaceholder.typicode.com/users')
-//   .then((res) => {
-//     const persons = res.data;
-//     this.setState({ persons });
-//   });
 
 // ========  potential refactor to clean up code and enable single module export
 
