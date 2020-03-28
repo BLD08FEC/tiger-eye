@@ -37,12 +37,15 @@ class AnswerList extends React.Component {
             this.incrementCurrentAnswer();
           } 
           if (data.results.length === 1) {
-            console.log("hello I'm inside the 1 func", data.results.length)
+            // console.log("hello I'm inside the 1 func", data.results.length)
             this.setState({ displayedAnswers: data.results.slice(0, 1) }, () => console.log("Myles test 2", this.state));
             this.incrementCurrentAnswer();
-          } else {
+          } 
+          if (data.results.length === 0) {
             this.setState({
-              displayedAnswers: ["No Answers Available For This Question... Yet"]
+              displayedAnswers: [
+                "No Answers Available For This Question... Yet"
+              ]
             });
           }
         }
