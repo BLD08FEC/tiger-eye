@@ -4,6 +4,7 @@ import Question from './Question';
 import helperAPI from '../../../Shared/api';
 import Search from '../../../Shared/Search/search';
 import QuestionsAndAnswers from '../QuestionsAndAnswers';
+import {connect} from 'react-redux';
 // import Answer from '../Answers/Answer';
 // import AnswerList from ''../Answers/AnswerList';
 
@@ -13,7 +14,7 @@ class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProduct: 6,
+      currentProduct: 1,
       currentQuestion: 0,
       displayedQuestions: [],
       allQuestions: [],
@@ -23,7 +24,11 @@ class QuestionList extends React.Component {
 
   async componentDidMount() {
     // const { allQuestions } = this.state;
+    // await this.setState({currentProduct: this.props.productData.id})
+
     const addInitialQuestions = async () => {
+      // console.log(this.state.currentProduct)
+
       await helperAPI.getQuestions(this.state.currentProduct, (data) => {
         this.setState({ allQuestions: [...data.results] });
         if (data.results.length >= 2) {
@@ -96,13 +101,14 @@ class QuestionList extends React.Component {
             );
           })}
           <div className="lower-btns">
+            <p></p>
             <div className="question-btn-div-1">
               <button
                 type="button"
                 className="question-btn"
                 onClick={this.addTwoQuestions}
               >
-                Show More Answered Questions
+                Show More Questions
               </button>
             </div>
             <div className="question-btn-div-2">
@@ -119,4 +125,8 @@ class QuestionList extends React.Component {
   }
 }
 
-export default QuestionList;
+const mapStateToProps = state => ({
+  productData: state.productDataReducer.productData
+});
+
+export default connect(mapStateToProps)(QuestionList);

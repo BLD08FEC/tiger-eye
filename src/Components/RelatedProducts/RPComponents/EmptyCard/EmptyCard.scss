@@ -1,9 +1,10 @@
 .empty-card {
-    margin: 5px;
+    margin-left: 28px;
     padding: 0;
-    width: 10vw;
-    height: 16vw;
+    width: 160px;
+    height: 274px;
     border: solid 1px black;
     align-items: center;
     overflow-wrap: break-word;
+    // remove border (and text from .jsx file) when this is fully functioning so that it is just a blank card
 }

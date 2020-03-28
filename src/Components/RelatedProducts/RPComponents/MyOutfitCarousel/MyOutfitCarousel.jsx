@@ -29,31 +29,35 @@ class MyOutfitCarousel extends Component {
     if (direction === 'right') {
       changeToCard += 1;
     }
-    if (changeToCard >= max - 3) { // alter this to be dynamic based on number of related products
+    if (changeToCard > max - 3) { // alter this to be dynamic based on number of related products
       changeToCard = 0;
     }
     if (changeToCard < 0) { // alter this to be dynamic based on number of related products
-      changeToCard = max - 4;
+      changeToCard = max - 3;
     }
 
     this.setState({ myOutfitCarouselIndex: changeToCard });
   }
 
-  addToOutfit(productId) {
-    const newOutfit = this.state.myOutfit;
+  addToOutfit(id) {
+    const newOutfit = this.state.myOutfit.slice();
 
-    newOutfit.push(productId);
+    newOutfit.unshift(id);
     console.log(newOutfit);
     this.setState({ myOutfit: newOutfit });
   }
 
   render = () => {
-    const showCards = this.state.myOutfit.slice(this.state.myOutfitCarouselIndex, this.state.myOutfitCarouselIndex + 3);
+    const cardDeck = this.state.myOutfit.slice();
+    let showHand = cardDeck;
 
-    for (let i = 0; i < 3; i += 1) {
-      if (showCards.length < 3) {
-        showCards.push(0);
+    if (cardDeck.length < 3) {
+      for (let i = cardDeck.length; i <= 3; i += 1) {
+        showHand.push(0);
       }
+    }
+    if (cardDeck.length > 3) {
+      showHand = cardDeck.slice(this.state.myOutfitCarouselIndex, this.state.myOutfitCarouselIndex + 3);
     }
 
     return (
@@ -71,19 +75,14 @@ class MyOutfitCarousel extends Component {
                     onClick={() => this.addToOutfit(this.props.currentProduct)}
                   />
                 </div>
-                {this.state.myOutfit.map((i, id) => <ProductCard key={id} currentProduct={this.props.currentProduct} cardIndex={this.state.myOutfitCarouselIndex} />)}
-                {/* {for (let i = myOutfitCarouselIndex; i < (myOutfitCarouselIndex + 3); i++) {
-                    (<ProductCard currentProduct={this.props.currentProduct} cardIndex={this.state.myOutfitCarouselIndex} />)
-                }} */}
-                {/* <div className="col-xs-3">
-                    <EmptyCard />
-                </div>
-                <div className="col-xs-3">
-                    <EmptyCard />
-                </div>
-                <div className="col-xs-3">
-                    <EmptyCard />
-                </div> */}
+                {showHand.map((i, id) => (
+                  <ProductCard
+                    key={i}
+                    carouselType="myOutfit"
+                    currentProduct={this.props.currentProduct}
+                    cardProductId={showHand[id]}
+                  />
+                ))}
               </div>
             </div>
 

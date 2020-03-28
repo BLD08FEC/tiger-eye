@@ -2,6 +2,14 @@
     margin: 0.4em;
     background-color: #323639;;
     color: #f5f5f5;
+    border-radius: 7px;
+}
+
+.add-to-cart:hover {
+    margin: 0.4em;
+    background-color: #323639;;
+    color: #f5f5f5;
+    border-radius: 7px;
 }
 
 .cart-error {
@@ -9,16 +17,35 @@
     color: red;
 }
 
+.out-of-stock {
+    font-size: 0.8em;
+}
+
+.order-selection {
+    margin: auto;
+}
+
 .select-quantity {
+    font-size: 17px;
+    border: 0px;
+    padding: 7px;
+    height: 42.5px;
     margin: 0.3em;
     background-color: #323639;;
-    color: #f5f5f5;
+    color: whitesmoke;
     width: 3.5em;
+    border-radius: 7px;
+    cursor: pointer;
 }
 
 .select-size {
+    border: 0px;
+    font-size: 17px;
+    height: 42.5px;
     margin: 0.3em;
     background-color: #323639;;
     color: #f5f5f5;
     width: 7em;
+    border-radius: 7px;
+    cursor: pointer;
 }

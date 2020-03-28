@@ -20,6 +20,8 @@
     font-size: 1.5em;
     color: #323639;
     font-weight: bold;
+    margin-top: 0.1em;
+    margin-bottom: 0.3em;;
 }
 
 .rating {
@@ -44,28 +46,25 @@
     font-size: 0.7em;
 }
 
-.slogan {
-    font-size: 1.1em;
-    color: #323639;
-    font-weight: bold;
-}
 .strike-price {
     font-size: 0.8em;
     color: #cb7119;
 }
 
+.styles-all {
+    width: 250px;
+}
+
 .style-pics {
     object-fit: cover;
-    /* width: 2.7em;
-    height: 2.7em; */
     width: 50px;
     height: 50px;
     margin: 0.2em;
-    /* display: inline; */
 }
 
 .select-checkmark {
     display: inline;
+    margin-top: 0.4em;
 }
 
 [type=radio] { 
@@ -82,8 +81,7 @@
 }
 
 [type=radio]:checked{
-    height: 2.5em; 
-    /* opacity: .75; */
+    height: 2.5em;
 }
 
 .checkmark {
@@ -104,4 +102,3 @@
     font-size: 0.85em;
     text-align: left;
 }
-
