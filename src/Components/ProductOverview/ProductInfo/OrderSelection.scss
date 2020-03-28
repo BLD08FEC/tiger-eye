@@ -9,11 +9,20 @@
     color: red;
 }
 
+.out-of-stock {
+    font-size: 0.8em;
+}
+
+.order-selection {
+    margin: auto;
+}
+
 .select-quantity {
     margin: 0.3em;
     background-color: #323639;;
     color: #f5f5f5;
     width: 3.5em;
+    cursor: pointer;
 }
 
 .select-size {
@@ -21,4 +30,5 @@
     background-color: #323639;;
     color: #f5f5f5;
     width: 7em;
+    cursor: pointer;
 }

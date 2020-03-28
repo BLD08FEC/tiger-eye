@@ -12,7 +12,7 @@ import {
   UPDATE_CART,
 } from '../types/types';
 
-export const getProductData = (product_id = 1) => (dispatch) => axios.get(`http://3.134.102.30/products/${product_id}`)
+export const getProductData = (product_id = 1) => (dispatch) => axios.get(`http://52.26.193.201:3000/products/${product_id}`)
   .then((res) => dispatch(getProductDataSuccess(res.data)))
   .catch((error) => {
     console.log(error);
@@ -23,7 +23,7 @@ export const getProductDataSuccess = (productData) => ({
   payload: productData,
 });
 
-export const getProductStyles = (product_id = 1) => (dispatch) => axios.get(`http://3.134.102.30/products/${product_id}/styles`)
+export const getProductStyles = (product_id = 1) => (dispatch) => axios.get(`http://52.26.193.201:3000/products/${product_id}/styles`)
   .then((res) => {
     dispatch(getProductStylesSuccess(res.data));
     const defaultStyle = defaultStyleFinder(res.data.results);
