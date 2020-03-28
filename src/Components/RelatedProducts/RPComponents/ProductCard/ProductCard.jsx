@@ -29,7 +29,7 @@ const ProductCard = (props) => {
   }
   return (
     <div className="product-card-main">
-      <div className="container-fluid">
+      <div className="container">
         <div className="row product-card-img-top">
           <button type="button" className="button-overlay">+</button>
           <ProductCardImage cardProduct={card.id} />
