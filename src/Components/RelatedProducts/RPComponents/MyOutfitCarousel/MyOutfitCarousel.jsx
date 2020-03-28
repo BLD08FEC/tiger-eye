@@ -11,7 +11,7 @@ class MyOutfitCarousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      myOutfit: [12, 8, 6, 15, 26, 14],
+      myOutfit: [],
       myOutfitCarouselIndex: 0,
     };
     this.next = this.next.bind(this);
@@ -57,7 +57,7 @@ class MyOutfitCarousel extends Component {
       }
     }
     if (cardDeck.length >= 3) {
-      showHand = cardDeck.slice(0, 4);
+      showHand = cardDeck.slice(0, 3);
     }
 
     return (

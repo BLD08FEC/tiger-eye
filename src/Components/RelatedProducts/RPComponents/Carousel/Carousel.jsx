@@ -49,7 +49,17 @@ class Carousel extends Component {
   }
 
   render = () => {
-    const fullDeck = this.state.relatedArr;
+    const cardDeck = this.state.relatedArr.slice();
+    let showHand = cardDeck;
+
+    if (cardDeck.length < 4) {
+      for (let i = cardDeck.length; i <= 4; i += 1) {
+        cardDeck.push(0);
+      }
+    }
+    if (cardDeck.length >= 4) {
+      showHand = cardDeck.slice(0, 4);
+    }
 
     return (
       <div className="container-fluid carousel-main">
@@ -59,7 +69,7 @@ class Carousel extends Component {
 
             <div className="container-fluid">
               <div className="row">
-                {this.state.relatedArr.map((i, id) => <div className="col-xs-3"><ProductCard key={i} carouselType="suggestions" currentProduct={this.props.currentProduct} cardProductId={this.state.relatedArr[id]} /></div>)}
+                {showHand.map((i, id) => <div className="col-xs-3"><ProductCard key={i} carouselType="suggestions" currentProduct={this.props.currentProduct} cardProductId={this.state.relatedArr[id]} /></div>)}
               </div>
             </div>
 
