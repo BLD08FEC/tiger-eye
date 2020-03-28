@@ -1,6 +1,6 @@
 import React from 'react';
 import './search.scss';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { render } from '@testing-library/react';
 
 const Search = () => (

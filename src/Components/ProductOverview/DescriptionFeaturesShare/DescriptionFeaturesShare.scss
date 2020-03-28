@@ -1,6 +1,8 @@
 .description {
     font-size: 0.8em;
     color: #323639;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .description-features {
@@ -39,6 +41,9 @@
 
 .list-checkmarks {
     padding-left:1.5rem;
+    float: left;
+    text-align: left;
+    margin-top: 10px;
 }
 .list-checkmarks li {
     list-style-type:none;
@@ -49,4 +54,12 @@
     content: "\f00c";
     margin:0 10px 0 -28px;
     color: #cb7119;
+}
+
+.slogan {
+    font-size: 1.1em;
+    color: #323639;
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px;
 }

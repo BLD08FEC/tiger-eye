@@ -9,6 +9,7 @@ import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
 import logo from './Shared/Logo/tigerEye.png';
 import Search from './Shared/Search/search';
+import Cart from './Shared/Cart/cart';
 import './Shared/Logo/logo.scss';
 import './Shared/Header/header.scss';
 
@@ -36,6 +37,7 @@ class App extends Component {
           <div className="header">
             <img src={logo} alt="Tiger Eye Logo" className="logo" />
             <Search />
+            <Cart />
           </div>
           <div className="row"><ProductOverview /></div>
           <div className="row"><RelatedProducts /></div>

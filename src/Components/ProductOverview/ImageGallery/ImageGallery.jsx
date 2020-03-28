@@ -106,12 +106,19 @@ export class ImageGallery extends Component {
   }
 
   render() {
-    const { selectedStylePhotos, selectedStyleName } = this.props;
+    const { selectedStylePhotos, selectedStyleName, selectedStyleSKUS } = this.props;
     const { selectedIndex, showModal, showZoomed } = this.state;
 
     return (
       <div>
-        {selectedStylePhotos.length > 0
+        {selectedStyleSKUS.null === null 
+        ? <div className="soldout-main-image">
+            <div className="soldout">
+                <div>OUT OF STOCK</div>
+                <div>&#x2639;</div>
+            </div>
+          </div>
+        : selectedStylePhotos.length > 0
             && (
             <div>
               {(selectedIndex > selectedStylePhotos.length - 1)
@@ -205,6 +212,7 @@ const mapStateToProps = (state) => ({
   productStyles: state.productDataReducer.productStyles,
   selectedStylePhotos: state.productDataReducer.selectedStylePhotos,
   selectedStyleName: state.productDataReducer.selectedStyleName,
+  selectedStyleSKUS: state.productDataReducer.selectedStyleSKUS,
 });
 
 export default connect(mapStateToProps)(ImageGallery);

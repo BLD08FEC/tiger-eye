@@ -1,13 +1,14 @@
 .searchContainer {
   grid-column: 3;
-  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   align-items: center;
-  padding: 3px;
 }
 
 .input {
-  font-size: 13px;
-  padding: 3px;
+  align-content: right;
+  font-size: 17px;
+  padding: 7px;
   margin-right: 5px;
   max-width: 50%;
   border: 2px solid whitesmoke;
@@ -16,17 +17,20 @@
 }
 
 .input:focus {
-  border: 2px solid #cb7119;
+  border: 2px solid #323639;
   transition: 0.75s ease-in-out;
   border-radius: 11px;
 }
 
 .searchBtn {
-  font-size: 13px;
-  padding: 3px;
+  align-content: right;
+  height: 42.5;
+  color: whitesmoke;
+  font-size: 17px;
+  padding: 7px;
   max-width: 45%;
-  background-color: #cb7119;
-  border: 2px solid #cb7119;
+  background-color: #323639;
+  border: 2px solid #323639;
   border-radius: 7px;
 }
 
@@ -45,8 +49,8 @@
     transform: rotateX(0deg) rotateY(0deg);
     transition: 0.75s ease-in-out;
     color: white;
-    padding-right: 13px;
-    padding-left: 13px;
+    padding-right: 17px;
+    padding-left: 17px;
     padding-left: 7px;
     padding-bottom: 7px;
     border: 1px solid #000000;
@@ -59,11 +63,12 @@
   100% {
     // transform: rotateX(90deg);
     transition: 1s ease-in-out;
-    padding: 3px;
+    padding: 7px;
     width: minmax(37px, 25%);
     height: minmax(15px, 3vh);
-    background-color: #cb7119;
-    border: 2px solid #cb7119;
+    background-color: #323639;
+    border: 2px solid #323639;
     border-radius: 7px;
   }
 }
+
