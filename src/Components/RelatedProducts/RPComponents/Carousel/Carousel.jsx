@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
@@ -28,7 +29,6 @@ class Carousel extends Component {
   }
 
   next(direction) {
-    // direction.preventDefault();
     let changeToCard = this.state.carouselIndex;
     const max = this.state.relatedArr.length;
 
@@ -38,7 +38,7 @@ class Carousel extends Component {
     if (direction === 'right') {
       changeToCard += 1;
     }
-    if (changeToCard >= max - 3) { // alter this to be dynamic based on number of related products
+    if (changeToCard > max - 4) { // alter this to be dynamic based on number of related products
       changeToCard = 0;
     }
     if (changeToCard < 0) { // alter this to be dynamic based on number of related products
@@ -52,13 +52,18 @@ class Carousel extends Component {
     const cardDeck = this.state.relatedArr.slice();
     let showHand = cardDeck;
 
+    // for (let i = 0; i < cardDeck.length; i += 1) {
+    //   if (cardDeck[i] === 0) {
+    //     delete cardDeck[i];
+    //   }
+    // }
     if (cardDeck.length < 4) {
       for (let i = cardDeck.length; i <= 4; i += 1) {
-        cardDeck.push(0);
+        showHand.push(0);
       }
     }
-    if (cardDeck.length >= 4) {
-      showHand = cardDeck.slice(0, 4);
+    if (cardDeck.length > 4) {
+      showHand = cardDeck.slice(this.state.carouselIndex, this.state.carouselIndex + 4);
     }
 
     return (
@@ -69,7 +74,16 @@ class Carousel extends Component {
 
             <div className="container-fluid">
               <div className="row">
-                {showHand.map((i, id) => <div className="col-xs-3"><ProductCard key={i} carouselType="suggestions" currentProduct={this.props.currentProduct} cardProductId={this.state.relatedArr[id]} /></div>)}
+                {showHand.map((i, id) => (
+                  <div className="col-xs-3">
+                    <ProductCard
+                      key={i}
+                      carouselType="suggestions"
+                      currentProduct={this.props.currentProduct}
+                      cardProductId={showHand[id]}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
 
