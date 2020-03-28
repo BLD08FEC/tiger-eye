@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
@@ -9,6 +10,7 @@ import './Carousel.scss';
 //   RPincrement, /* RPincrementReset, */ RPdecrement, /* RPdecrementReset, */
 // } from '../../../../data/actions/relatedProductsAction';
 import ProductCard from '../ProductCard/ProductCard';
+// import helperAPI from '../../../../Shared/api';
 
 class Carousel extends Component {
   constructor(props) {
@@ -28,7 +30,6 @@ class Carousel extends Component {
   }
 
   next(direction) {
-    // direction.preventDefault();
     let changeToCard = this.state.carouselIndex;
     const max = this.state.relatedArr.length;
 
@@ -38,7 +39,7 @@ class Carousel extends Component {
     if (direction === 'right') {
       changeToCard += 1;
     }
-    if (changeToCard >= max - 3) { // alter this to be dynamic based on number of related products
+    if (changeToCard > max - 4) { // alter this to be dynamic based on number of related products
       changeToCard = 0;
     }
     if (changeToCard < 0) { // alter this to be dynamic based on number of related products
@@ -49,7 +50,17 @@ class Carousel extends Component {
   }
 
   render = () => {
-    const fullDeck = this.state.relatedArr;
+    const cardDeck = this.state.relatedArr.slice();
+    let showHand = cardDeck;
+
+    if (cardDeck.length < 4) {
+      for (let i = cardDeck.length; i <= 4; i += 1) {
+        showHand.push(0);
+      }
+    }
+    if (cardDeck.length > 4) {
+      showHand = cardDeck.slice(this.state.carouselIndex, this.state.carouselIndex + 4);
+    }
 
     return (
       <div className="container-fluid carousel-main">
@@ -59,7 +70,16 @@ class Carousel extends Component {
 
             <div className="container-fluid">
               <div className="row">
-                {this.state.relatedArr.map((i, id) => <div className="col-xs-3"><ProductCard key={i} carouselType="suggestions" currentProduct={this.props.currentProduct} cardProductId={this.state.relatedArr[id]} /></div>)}
+                {showHand.map((i, id) => (
+                  <div className="col-xs-3">
+                    <ProductCard
+                      key={i}
+                      carouselType="suggestions"
+                      currentProduct={this.props.currentProduct}
+                      cardProductId={showHand[id]}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
 
