@@ -52,11 +52,6 @@ class Carousel extends Component {
     const cardDeck = this.state.relatedArr.slice();
     let showHand = cardDeck;
 
-    // for (let i = 0; i < cardDeck.length; i += 1) {
-    //   if (cardDeck[i] === 0) {
-    //     delete cardDeck[i];
-    //   }
-    // }
     if (cardDeck.length < 4) {
       for (let i = cardDeck.length; i <= 4; i += 1) {
         showHand.push(0);
