@@ -27,34 +27,66 @@ const ProductCard = (props) => {
   if (card.id === undefined) {
     return (<EmptyCard />);
   }
-  return (
-    <div className="product-card-main">
-      <div className="container">
-        <div className="row product-card-img-top">
-          <button type="button" className="button-overlay">+</button>
-          <ProductCardImage cardProduct={card.id} />
-        </div>
-        <div className="row product-card-info-bottom">
-          <div className="container-fluid product-card-body">
-            <div className="row product-card-category">
-              {card.category}
-            </div>
-            <div className="row product-card-title">
-              {card.name}
-            </div>
-            <div className="row product-card-price">
-              $
-              {card.default_price}
-              .00
-            </div>
-            <div className="row product-card-star">
-              <Stars />
+  if (props.carouselType === 'suggestions') {
+    return (
+      <div className="product-card-main">
+        <div className="container">
+          <div className="row product-card-img-top">
+            <button type="button" className="button-overlay">+</button>
+            <ProductCardImage cardProduct={card.id} />
+          </div>
+          <div className="row product-card-info-bottom">
+            <div className="container-fluid product-card-body">
+              <div className="row product-card-category">
+                {card.category}
+              </div>
+              <div className="row product-card-title">
+                {card.name}
+              </div>
+              <div className="row product-card-price">
+                $
+                {card.default_price}
+                .00
+              </div>
+              <div className="row product-card-star">
+                <Stars />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+  if (props.carouselType === 'myOutfit') {
+    return (
+      <div className="product-card-main">
+        <div className="container">
+          <div className="row product-card-img-top">
+            <button type="button" className="button-overlay">+</button>
+            <ProductCardImage cardProduct={card.id} />
+          </div>
+          <div className="row product-card-info-bottom">
+            <div className="container-fluid product-card-body">
+              <div className="row product-card-category">
+                {card.category}
+              </div>
+              <div className="row product-card-title">
+                {card.name}
+              </div>
+              <div className="row product-card-price">
+                $
+                {card.default_price}
+                .00
+              </div>
+              <div className="row product-card-star">
+                <Stars />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default ProductCard;
