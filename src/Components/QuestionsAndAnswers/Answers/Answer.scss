@@ -1,24 +1,28 @@
 .answer {
     display: grid;
+    grid-template-columns: 1fr, 1fr;
     background-color: whitesmoke;
 }
 
 .answer-name {
-    font-size: 20;
-    color: red;
+    font-size: 17px;
+    font-weight: lighter;
+    color: black;
 }
 
 .answer-body {
-    font-size: 15;
+    padding: 13px;
+    font-size: 17px;
     font-weight: bold;
-    color: green;
+    color: black;
 }
 
 .answer-btn {
+  grid-column: 1;
   font-size: 13px;
   padding: 3px;
-  max-width: 45%;
-  background-color: #cb7119;
+  max-width: 50%;
+  background-color: #323639;
   border-radius: 7px;
 }
 
