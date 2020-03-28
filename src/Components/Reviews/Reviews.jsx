@@ -3,10 +3,7 @@ import React from 'react';
 import Review from './Review';
 import helperAPI from '../../Shared/api';
 
-// const data = ['REVIEW NUMBER ONE', 'REVIEW NUMBER TWO', 'REVIEW NUMBER THREE'];
-
 class Reviews extends React.Component {
-  // helperAPI.getReviews()
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +22,17 @@ class Reviews extends React.Component {
   render() {
     const { reviews } = this.state;
     const list = reviews.map((review, index) => (<Review review={review} key={review.review_id} />));
-    return (<div>{list}</div>);
+    return (
+      <div className="">
+        <div className="">
+          <div className="row">
+            <div className="col-12 col-sm-12 col-lg-12 col-xl-12">
+              {list}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
