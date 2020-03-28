@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable consistent-return */
 /* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';

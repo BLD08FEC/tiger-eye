@@ -1,6 +1,7 @@
 /* eslint-disable*/
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Magnifier from 'react-magnifier';
 import './ImageGallery.scss';
 
 export class ImageGallery extends Component {
@@ -10,6 +11,7 @@ export class ImageGallery extends Component {
       selectedIndex: 0,
       thumbnailIndex: 0,
       showModal: false,
+      showZoomed: false,
     };
     this.resetSelectedIndex = this.resetSelectedIndex.bind(this);
     this.thumbnailClick = this.thumbnailClick.bind(this);
@@ -18,6 +20,8 @@ export class ImageGallery extends Component {
     this.showNextOrPrevious = this.showNextOrPrevious.bind(this);
     this.showExpanded = this.showExpanded.bind(this);
     this.hideExpanded = this.hideExpanded.bind(this);
+    this.showZoomed = this.showZoomed.bind(this);
+    this.hideZoomed = this.hideZoomed.bind(this);
   }
 
   showExpanded = () => {
@@ -26,6 +30,14 @@ export class ImageGallery extends Component {
 
   hideExpanded = () => {
     this.setState({ showModal: false });
+  };
+
+  showZoomed = () => {
+    this.setState({ showZoomed: true });
+  };
+
+  hideZoomed = () => {
+    this.setState({ showZoomed: false });
   };
 
   resetSelectedIndex() {
@@ -79,38 +91,34 @@ export class ImageGallery extends Component {
         break;
       }
 
-      i === selectedIndex
-        ? thumbnails.push(
-          <div key={i}>
-            <img
-              src={selectedStylePhotos[i].thumbnail_url}
-              className="thumbnail selected"
-              alt={selectedStyleName}
-              onClick={(e) => this.thumbnailClick(e, i)}
-            />
-          </div>,
-        )
-        : thumbnails.push(
-          <div key={i}>
-            <img
-              src={selectedStylePhotos[i].thumbnail_url}
-              className="thumbnail"
-              alt={selectedStyleName}
-              onClick={(e) => this.thumbnailClick(e, i)}
-            />
-          </div>,
-        );
+      thumbnails.push(
+        <div key={i}>
+          <img
+            src={selectedStylePhotos[i].thumbnail_url}
+            className={i == selectedIndex ? ('thumbnail selected') : ('thumbnail')}
+            alt={selectedStyleName}
+            onClick={(e) => this.thumbnailClick(e, i)}
+          />
+        </div>,
+      );
     }
     return thumbnails;
   }
 
   render() {
-    const { selectedStylePhotos, selectedStyleName } = this.props;
-    const { selectedIndex, showModal } = this.state;
+    const { selectedStylePhotos, selectedStyleName, selectedStyleSKUS } = this.props;
+    const { selectedIndex, showModal, showZoomed } = this.state;
 
     return (
       <div>
-        {selectedStylePhotos.length > 0
+        {selectedStyleSKUS.null === null 
+        ? <div className="soldout-main-image">
+            <div className="soldout">
+                <div>OUT OF STOCK</div>
+                <div>&#x2639;</div>
+            </div>
+          </div>
+        : selectedStylePhotos.length > 0
             && (
             <div>
               {(selectedIndex > selectedStylePhotos.length - 1)
@@ -152,31 +160,46 @@ export class ImageGallery extends Component {
             )}
         {showModal === true
             && (
-            <div className="modal1">
-              <div className="modal-main1">
-                <div className="close-modal" onClick={() => this.hideExpanded()}>X</div>
-                <div className="arrow-right">
-                  {selectedIndex !== selectedStylePhotos.length - 1
-                        && (
-                        <div id="next" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
-                          &#x2905;
-                        </div>
-                        )}
+            <div>
+              <div className="modal1">
+                <div className="modal-main1">
+                  <div className="close-modal" onClick={() => this.hideExpanded()}>X</div>
+                  <div className="arrow-right">
+                    {selectedIndex !== selectedStylePhotos.length - 1
+                            && (
+                            <div id="next" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
+                              &#x2905;
+                            </div>
+                            )}
+                  </div>
+                  <div className="arrow-left">
+                    {selectedIndex !== 0
+                            && (
+                            <div id="previous" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
+                              &#x2905;
+                            </div>
+                            )}
+                  </div>
+                  <img
+                    src={selectedStylePhotos[selectedIndex].url}
+                    className="modal-image"
+                    alt={selectedStyleName}
+                    onClick={() => this.showZoomed()}
+                  />
                 </div>
-                <div className="arrow-left">
-                  {selectedIndex !== 0
-                        && (
-                        <div id="previous" className="modal-arrow" onClick={(e) => this.showNextOrPrevious(e)}>
-                          &#x2905;
-                        </div>
-                        )}
-                </div>
-                <img
-                  src={selectedStylePhotos[selectedIndex].url}
-                  className="modal-image"
-                  alt={selectedStyleName}
-                  onClick={() => this.showExpanded()}
-                />
+                {showZoomed === true && (
+                  <div className="modal1">
+                    <div className="modal-image modal-main1" onClick={() => this.hideZoomed()}>
+                      <Magnifier
+                        src={selectedStylePhotos[selectedIndex].url}
+                        alt={selectedStyleName}
+                        mgWidth={350}
+                        mgHeight={350}
+                        zoomFactor={1.3}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             )}
@@ -189,6 +212,7 @@ const mapStateToProps = (state) => ({
   productStyles: state.productDataReducer.productStyles,
   selectedStylePhotos: state.productDataReducer.selectedStylePhotos,
   selectedStyleName: state.productDataReducer.selectedStyleName,
+  selectedStyleSKUS: state.productDataReducer.selectedStyleSKUS,
 });
 
 export default connect(mapStateToProps)(ImageGallery);

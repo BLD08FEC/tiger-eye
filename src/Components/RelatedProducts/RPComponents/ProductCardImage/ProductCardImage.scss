@@ -1,0 +1,19 @@
+.card-image img{
+    padding: -2px;
+    object-fit: cover;
+    width: 158px;
+    height: 158px;
+    // vertical-align: top;
+    position: relative;
+}
+
+.button-overlay{
+    position: absolute;
+    z-index: 1;
+    // justify-self: flex-end;
+    // align-self: flex-end;
+    
+    // right: 0%;
+    // left: 130px; // 160px (card width) - 30px (button width) = 30px
+    // right: 0px;
+}

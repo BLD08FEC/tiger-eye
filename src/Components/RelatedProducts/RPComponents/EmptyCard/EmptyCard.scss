@@ -1,4 +1,4 @@
-.add-item {
+.empty-card {
     margin-left: 28px;
     padding: 0;
     width: 160px;
@@ -6,4 +6,5 @@
     border: solid 1px black;
     align-items: center;
     overflow-wrap: break-word;
+    // remove border (and text from .jsx file) when this is fully functioning so that it is just a blank card
 }
