@@ -13,7 +13,6 @@ const initialState = {
 };
 
 const relatedProductsReducer = (state = initialState, action) => {
-  // console.log(state.RPcurrentCard);
   switch (action.type) {
     case RP_GET_PRODUCT_DATA:
       return {
@@ -28,10 +27,12 @@ const relatedProductsReducer = (state = initialState, action) => {
     case RP_GET_STYLES:
       return { ...state, RPproductThumbnails: action.payload.results[0].photos[0].thumbnail_url };
     case RP_INCREMENT:
-      // console.log("stuff has now increased");
+      console.log('stuff has now increased');
+      console.log(`current card is: ${state.RPcurrentCard}`);
       return { ...state, RPcurrentCard: state.RPcurrentCard + 1 };
     case RP_DECREMENT:
-      // console.log("stuff is decrementing");
+      console.log('stuff is decrementing');
+      console.log(`current card is: ${state.RPcurrentCard}`);
       return { ...state, RPcurrentCard: state.RPcurrentCard - 1 };
     default:
       return state;
