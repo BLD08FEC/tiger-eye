@@ -28,4 +28,3 @@ const ProductCardImage = (props) => {
 };
 
 export default ProductCardImage;
-

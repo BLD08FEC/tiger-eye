@@ -49,7 +49,7 @@ class Carousel extends Component {
   }
 
   render = () => {
-    const fullDeck = this.state.relatedArr
+    const fullDeck = this.state.relatedArr;
 
     return (
       <div className="container-fluid carousel-main">

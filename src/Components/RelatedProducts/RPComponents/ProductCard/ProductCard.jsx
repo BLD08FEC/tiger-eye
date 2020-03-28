@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import React, { useState, useEffect } from 'react';
 import './ProductCard.scss';
 // import { connect } from 'react-redux';
