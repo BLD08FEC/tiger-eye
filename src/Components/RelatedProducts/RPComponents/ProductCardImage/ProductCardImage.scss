@@ -10,10 +10,5 @@
 .button-overlay{
     position: absolute;
     z-index: 1;
-    // justify-self: flex-end;
-    // align-self: flex-end;
-    
-    // right: 0%;
-    // left: 130px; // 160px (card width) - 30px (button width) = 30px
-    // right: 0px;
+    transform: translateX(132px);
 }
