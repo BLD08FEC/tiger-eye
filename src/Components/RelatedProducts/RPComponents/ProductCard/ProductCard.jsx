@@ -5,6 +5,7 @@ import './ProductCard.scss';
 import EmptyCard from '../EmptyCard/EmptyCard';
 import ProductCardImage from '../ProductCardImage/ProductCardImage';
 import Stars from '../../../../Shared/Stars';
+// import helperApi from '../../../../Shared/api';
 
 const ProductCard = (props) => {
   const [card, setCard] = useState({ });
