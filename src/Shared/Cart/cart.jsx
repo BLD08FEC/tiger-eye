@@ -1,6 +1,6 @@
-import React from "react";
-import "./cart.scss";
-import { connect } from "react-redux";
+import React from 'react';
+import './cart.scss';
+// import { connect } from 'react-redux';
 
 const Cart = () => (
   <div id="cart">

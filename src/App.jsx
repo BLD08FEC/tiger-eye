@@ -9,7 +9,7 @@ import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
 import Reviews from './Components/Reviews/Reviews';
 import logo from './Shared/Logo/tigerEye.png';
 import Search from './Shared/Search/search';
-import Cart from "./Shared/Cart/cart";
+import Cart from './Shared/Cart/cart';
 import './Shared/Logo/logo.scss';
 import './Shared/Header/header.scss';
 
