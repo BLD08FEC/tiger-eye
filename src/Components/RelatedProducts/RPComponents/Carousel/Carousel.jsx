@@ -10,6 +10,7 @@ import './Carousel.scss';
 //   RPincrement, /* RPincrementReset, */ RPdecrement, /* RPdecrementReset, */
 // } from '../../../../data/actions/relatedProductsAction';
 import ProductCard from '../ProductCard/ProductCard';
+// import helperAPI from '../../../../Shared/api';
 
 class Carousel extends Component {
   constructor(props) {
