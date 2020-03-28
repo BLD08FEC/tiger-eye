@@ -88,9 +88,6 @@ class QuestionList extends React.Component {
   render() {
     return this.state.displayedQuestions.length > 0 ? (
       <>
-        <hr />
-        <em>List of Answered Questions</em>
-
         <div className="question-list">
           {this.state.displayedQuestions.map((question, key) => {
             // console.log(key);

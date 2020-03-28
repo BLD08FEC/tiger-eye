@@ -3,7 +3,7 @@ import './Answer.scss';
 
 const Answer = ({ displayedAnswer, key }) => {
   if (displayedAnswer !== undefined) {
-    const formatDate = function (orig) {
+    const formatDate = (orig) => {
       let result = '';
       const dateArr = orig.split('-');
       const day = dateArr[2].slice(0, 2);

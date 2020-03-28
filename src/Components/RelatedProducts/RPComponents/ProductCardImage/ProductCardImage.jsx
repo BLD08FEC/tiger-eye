@@ -15,7 +15,7 @@ const ProductCardImage = (props) => {
   if (imageUrl == null) {
     return (
       <div className="card-image">
-        <button type="button" className="button-overlay">+</button>
+        <button type="button" className="button-overlay"> +</button>
         <img src="https://www.warnersstellian.com/Content/images/product_image_not_available.png" alt="ALT_IMAGE_TEXT_HERE" />
       </div>
     );
