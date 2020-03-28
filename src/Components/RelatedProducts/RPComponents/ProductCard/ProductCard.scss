@@ -7,29 +7,19 @@
     align-items: center;
 }
 
-.button-overlay{
-    position: absolute;
-    justify-self: flex-end;
-    // right: 0%;
-    // left: 130px;
-    z-index: 1;
-    // right: 0px;
-}
-
 .product-card-info-bottom {
-    padding-left: 2%;
+    padding: 2%;
     text-align: left;
 }
 
 .product-card-category {
-    padding-top: 2%;
     font-size: 11px;
     text-transform: uppercase;
     // append to top
 }
 
 .product-card-title {
-    height: 3em;
+    height: 48px;
     padding-top: 0;
     padding-bottom: 0;
     font-size: 17px;
@@ -43,7 +33,6 @@
     // append to bottom
 }
 
-.product-card-star {
-    padding-bottom: 2%;
-    // append to bottom
-}
+// .product-card-star {
+//     // append to bottom
+// }
