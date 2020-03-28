@@ -75,7 +75,7 @@ class MyOutfitCarousel extends Component {
                     handleClick={() => this.addToOutfit()}
                   />
                 </div>
-                {showHand.map((i, id) => <ProductCard key={id} currentProduct={this.props.currentProduct} cardIndex={this.state.myOutfitCarouselIndex} />)}
+                {showHand.map((i, id) => <ProductCard key={id} cardProductId={i} currentProduct={this.props.currentProduct} cardIndex={this.state.myOutfitCarouselIndex} carouselType="myOutfit" />)}
                 {/* {for (let i = myOutfitCarouselIndex; i < (myOutfitCarouselIndex + 3); i++) {
                     (<ProductCard currentProduct={this.props.currentProduct} cardIndex={this.state.myOutfitCarouselIndex} />)
                 }} */}
