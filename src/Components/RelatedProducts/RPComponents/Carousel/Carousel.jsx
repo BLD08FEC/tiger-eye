@@ -15,7 +15,7 @@ class Carousel extends Component {
     super(props);
     this.state = {
       carouselIndex: 0,
-      arrLength: 0,
+      relatedArr: [],
     };
     this.next = this.next.bind(this);
   }
@@ -23,14 +23,14 @@ class Carousel extends Component {
   componentDidMount() {
     fetch(`http://52.26.193.201:3000/products/${this.props.currentProduct}/related`)
       .then((res) => res.json())
-      .then((data) => this.setState({ arrLength: data.length }))
+      .then((data) => this.setState({ relatedArr: data }))
       .catch((err) => err);
   }
 
   next(direction) {
     // direction.preventDefault();
     let changeToCard = this.state.carouselIndex;
-    const max = this.state.arrLength;
+    const max = this.state.relatedArr.length;
 
     if (direction === 'left') {
       changeToCard -= 1;
@@ -58,26 +58,38 @@ class Carousel extends Component {
             <div className="row">
               <div className="col-xs-3">
                 <ProductCard
+                  key={"id"}
+                  cardProductId={this.state.relatedArr[1]}
                   currentProduct={this.props.currentProduct}
                   cardIndex={this.state.carouselIndex}
+                  carouselType="suggestions"
                 />
               </div>
               <div className="col-xs-3">
                 <ProductCard
+                  key={"id"}
+                  cardProductId={this.state.relatedArr[2]}
                   currentProduct={this.props.currentProduct}
                   cardIndex={this.state.carouselIndex + 1}
+                  carouselType="suggestions"
                 />
               </div>
               <div className="col-xs-3">
                 <ProductCard
+                  key={"id"}
+                  cardProductId={this.state.relatedArr[3]}
                   currentProduct={this.props.currentProduct}
                   cardIndex={this.state.carouselIndex + 2}
+                  carouselType="suggestions"
                 />
               </div>
               <div className="col-xs-3">
                 <ProductCard
+                  key={"id"}
+                  cardProductId={this.state.relatedArr[4]}
                   currentProduct={this.props.currentProduct}
                   cardIndex={this.state.carouselIndex + 3}
+                  carouselType="suggestions"
                 />
               </div>
             </div>
