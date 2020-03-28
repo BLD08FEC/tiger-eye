@@ -10,18 +10,10 @@ const ProductCard = (props) => {
 
   useEffect(() => {
     // eslint-disable-next-line no-undef
-    fetch(`http://52.26.193.201:3000/products/${props.currentProduct}/related`)
+    fetch(`http://52.26.193.201:3000/products/${props.cardProductId}`)
       .then((res) => res.json())
-      .then((relatedData) => {
-        // eslint-disable-next-line no-undef
-        fetch(`http://52.26.193.201:3000/products/${props.cardProductId}`)
-          .then((res) => res.json())
-          .then((cardData) => setCard(cardData))
-          // eslint-disable-next-line no-console
-          .catch((err) => console.log(err));
-      })
-      // eslint-disable-next-line no-console
-      .catch((err) => console.log(err));
+      .then((cardData) => setCard(cardData))
+      .catch((err) => err);
   });
 
   if (card.id === undefined) {
@@ -32,7 +24,6 @@ const ProductCard = (props) => {
       <div className="product-card-main">
         <div className="container">
           <div className="row product-card-img-top">
-            <button type="button" className="button-overlay">+</button>
             <ProductCardImage cardProduct={card.id} />
           </div>
           <div className="row product-card-info-bottom">
