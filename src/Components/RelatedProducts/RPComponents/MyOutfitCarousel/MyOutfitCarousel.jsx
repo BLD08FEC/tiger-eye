@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
@@ -11,15 +9,14 @@ class MyOutfitCarousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      myOutfit: [],
+      myOutfit: [9, 8, 7, 6, 5, 4, 3, 2],
       myOutfitCarouselIndex: 0,
     };
     this.next = this.next.bind(this);
-    this.addToOutfit = this.addToOutfit(this);
+    this.addToOutfit = this.addToOutfit.bind(this);
   }
 
   next(direction) {
-    // direction.preventDefault();
     let changeToCard = this.state.myOutfitCarouselIndex;
     const max = this.state.myOutfit.length;
 
@@ -29,21 +26,21 @@ class MyOutfitCarousel extends Component {
     if (direction === 'right') {
       changeToCard += 1;
     }
-    if (changeToCard > max - 3) { // alter this to be dynamic based on number of related products
+    if (changeToCard > max - 3) {
       changeToCard = 0;
     }
-    if (changeToCard < 0) { // alter this to be dynamic based on number of related products
+    if (changeToCard < 0) {
       changeToCard = max - 3;
     }
 
     this.setState({ myOutfitCarouselIndex: changeToCard });
   }
 
-  addToOutfit(id) {
+  addToOutfit() {
     const newOutfit = this.state.myOutfit.slice();
 
-    newOutfit.unshift(id);
-    console.log(newOutfit);
+    newOutfit.unshift(this.props.currentProduct);
+
     this.setState({ myOutfit: newOutfit });
   }
 
@@ -72,7 +69,7 @@ class MyOutfitCarousel extends Component {
                   <OutfitCard
                     currentProduct={this.props.currentProduct}
                     cardIndex={this.state.myOutfitCarouselIndex}
-                    onClick={() => this.addToOutfit(this.props.currentProduct)}
+                    handleClick={() => this.addToOutfit()}
                   />
                 </div>
                 {showHand.map((i, id) => (
