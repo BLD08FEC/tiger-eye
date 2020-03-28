@@ -48,58 +48,27 @@ class Carousel extends Component {
     this.setState({ carouselIndex: changeToCard });
   }
 
-  render = () => (
-    <div className="container-fluid carousel-main">
-      <div className="row">
-        <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('left')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9664;</div></div>
-        <div className="col-xs-10">
+  render = () => {
+    const fullDeck = this.state.relatedArr
 
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-xs-3">
-                <ProductCard
-                  key={"id"}
-                  cardProductId={this.state.relatedArr[1]}
-                  currentProduct={this.props.currentProduct}
-                  cardIndex={this.state.carouselIndex}
-                  carouselType="suggestions"
-                />
-              </div>
-              <div className="col-xs-3">
-                <ProductCard
-                  key={"id"}
-                  cardProductId={this.state.relatedArr[2]}
-                  currentProduct={this.props.currentProduct}
-                  cardIndex={this.state.carouselIndex + 1}
-                  carouselType="suggestions"
-                />
-              </div>
-              <div className="col-xs-3">
-                <ProductCard
-                  key={"id"}
-                  cardProductId={this.state.relatedArr[3]}
-                  currentProduct={this.props.currentProduct}
-                  cardIndex={this.state.carouselIndex + 2}
-                  carouselType="suggestions"
-                />
-              </div>
-              <div className="col-xs-3">
-                <ProductCard
-                  key={"id"}
-                  cardProductId={this.state.relatedArr[4]}
-                  currentProduct={this.props.currentProduct}
-                  cardIndex={this.state.carouselIndex + 3}
-                  carouselType="suggestions"
-                />
+    return (
+      <div className="container-fluid carousel-main">
+        <div className="row">
+          <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('left')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9664;</div></div>
+          <div className="col-xs-10">
+
+            <div className="container-fluid">
+              <div className="row">
+                {this.state.relatedArr.map((i, id) => <div className="col-xs-3"><ProductCard key={i} carouselType="suggestions" currentProduct={this.props.currentProduct} cardProductId={this.state.relatedArr[id]} /></div>)}
               </div>
             </div>
-          </div>
 
+          </div>
+          <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('right')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9654;</div></div>
         </div>
-        <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('right')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9654;</div></div>
       </div>
-    </div>
-  )
+    );
+  }
 }
 
 export default Carousel;
