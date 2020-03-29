@@ -7,15 +7,15 @@ import './MyOutfitModalPopUp.scss';
 const MyOutfitModalPopUp = ({
   handleConfirmVisibility, handleCancelVisibility, show, children,
 }) => {
-  const showHideClassName = show ? 'modal show' : 'modal hide';
+  const showHideClassName = show ? 'rp-modal rp-show' : 'rp-modal rp-hide';
 
   return (
     <div className={showHideClassName}>
-      <div className="my-outfit-modal-pop-up-main">
+      <div className="rp-modal-my-outfit-pop-up-main">
         {children}
-        <div className="row cancel-confirm">
-          <div className="my-outfit-modal-pop-up-button" onClick={handleConfirmVisibility}>Confirm</div>
-          <div className="my-outfit-modal-pop-up-button" onClick={handleCancelVisibility}>Cancel</div>
+        <div className="row rp-modal-my-outfit-cancel-confirm">
+          <div className="rp-modal-my-outfit-pop-up-button" onClick={handleConfirmVisibility}>Confirm</div>
+          <div className="rp-modal-my-outfit-pop-up-button" onClick={handleCancelVisibility}>Cancel</div>
         </div>
       </div>
     </div>
