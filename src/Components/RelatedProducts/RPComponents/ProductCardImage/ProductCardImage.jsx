@@ -19,14 +19,14 @@ const ProductCardImage = ({
   if (imageUrl == null) {
     return (
       <div
-        className="card-image"
+        className="rp-card-image"
         onClick={() => {}}
         onKeyPress={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }}
         role="button"
         tabIndex={0}
       >
         <div
-          className="button-overlay"
+          className="rp-button-overlay"
           onClick={() => { /* if {props.carouselType} === suggested, then open modal; if {props.carouselType} === myOutfit, then remove from myOutfit */ }}
           onKeyPress={() => {}}
           role="button"
@@ -47,14 +47,14 @@ const ProductCardImage = ({
   }
   return (
     <div
-      className="card-image"
+      className="rp-card-image"
       onClick={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }}
       onKeyPress={() => {}}
       role="button"
       tabIndex={0}
     >
       <div
-        className="button-overlay"
+        className="rp-button-overlay"
         onClick={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }}
         onKeyPress={() => {}}
         role="button"

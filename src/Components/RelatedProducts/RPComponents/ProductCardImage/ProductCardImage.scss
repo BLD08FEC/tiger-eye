@@ -1,13 +1,12 @@
-.card-image img{
+.rp-card-image img{
     padding: -2px;
     object-fit: cover;
     width: 158px;
     height: 158px;
-    // vertical-align: top;
     position: relative;
 }
 
-.button-overlay{
+.rp-button-overlay{
     position: absolute;
     z-index: 1;
     transform: translateX(132px);
