@@ -23,9 +23,9 @@ const ProductCard = ({
   }
 
   return (
-    <div className="product-card-main">
+    <div className="rp-product-card-main">
       <div className="container">
-        <div className="row product-card-img-top">
+        <div className="row rp-product-card-img-top">
           <ProductCardImage
             mainProductId={mainProductId}
             cardProductId={card.id}
@@ -35,20 +35,20 @@ const ProductCard = ({
             handleDelete={handleDelete}
           />
         </div>
-        <div className="row product-card-info-bottom">
-          <div className="container-fluid product-card-body">
-            <div className="row product-card-category">
+        <div className="row rp-product-card-info-bottom">
+          <div className="container-fluid rp-product-card-body">
+            <div className="row rp-product-card-category">
               {card.category}
             </div>
-            <div className="row product-card-title">
+            <div className="row rp-product-card-title">
               {card.name}
             </div>
-            <div className="row product-card-price">
+            <div className="row rp-product-card-price">
               $
               {card.default_price}
               .00
             </div>
-            <div className="row product-card-star">
+            <div className="row rp-product-card-star">
               <Stars />
             </div>
           </div>

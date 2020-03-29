@@ -1,4 +1,4 @@
-.product-card-main {
+.rp-product-card-main {
     margin-left: 28px;
     padding: 0;
     width: 160px;
@@ -7,18 +7,18 @@
     align-items: center;
 }
 
-.product-card-info-bottom {
+.rp-product-card-info-bottom {
     padding: 2%;
     text-align: left;
 }
 
-.product-card-category {
+.rp-product-card-category {
     font-size: 11px;
     text-transform: uppercase;
     // append to top
 }
 
-.product-card-title {
+.rp-product-card-title {
     height: 48px;
     padding-top: 0;
     padding-bottom: 0;
@@ -28,11 +28,11 @@
     // append to top
 }
 
-.product-card-price {
+.rp-product-card-price {
     font-size: 9px;
     // append to bottom
 }
 
-// .product-card-star {
+// .rp-product-card-star {
 //     // append to bottom
 // }
