@@ -10,7 +10,7 @@ const QuestionsAndAnswers = (props) => {
     <div className="container questions-and-answers">
       <p></p>
       <div className="questions">
-        <em>Common Questions Realated To This Product</em>
+        <em>Questions and Answers</em>
         <p></p>
       <Search />
       <QuestionList className="question-list" />

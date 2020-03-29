@@ -54,39 +54,39 @@ class AnswerList extends React.Component {
     addInitialAnswers();
   }
 
-  // addTwoAnswers() {
-  //   // console.log("add two test ======", this.state.allAnswers, this.state.currentQuestion, this.state.displayedAnswers)
-  //   if (
-  //     this.state.allAnswers.length - this.state.displayedAnswers.length >= 2) {
-  //     this.setState({
-  //       displayedAnswers: [
-  //         ...this.state.displayedAnswers,
-  //         this.state.allAnswers[this.state.currentAnswer],
-  //         this.state.allAnswers[this.state.currentAnswer + 1]
-  //       ]
-  //     });
-  //     this.incrementCurrentAnswer();
-  //     this.incrementCurrentAnswer();
-  //     // console.log('All Answers test1 ====== ', this.state.allAnswers, this.state.displayedAnswers);
-  //   } else if (this.state.allAnswers.length - this.state.displayedAnswers.length === 1) {
-  //     console.log("inside ======", ...this.state.displayedAnswers);
-  //     this.setState({
-  //       displayedAnswers: [
-  //         ...this.state.displayedAnswers,
-  //         this.state.allAnswers[this.state.currentAnswer]
-  //       ]
-  //     });
-  //     this.incrementCurrentAnswer();
-  //   } else if ( this.state.allAnswers.length - this.state.displayedAnswers.length === 0) {
-  //     let display = this.state.displayedAnswers;
-  //     display.push({
-  //       body: "Have a Answer of your own?",
-  //       answerer_name: "Add it below...",
-  //       helpfulness: 10
-  //     });
-  //     this.setState({ displayedAnswers: display });
-  //   }
-  // }
+  addTwoAnswers() {
+    // console.log("add two test ======", this.state.allAnswers, this.state.currentQuestion, this.state.displayedAnswers)
+    if (
+      this.state.allAnswers.length - this.state.displayedAnswers.length >= 2) {
+      this.setState({
+        displayedAnswers: [
+          ...this.state.displayedAnswers,
+          this.state.allAnswers[this.state.currentAnswer],
+          this.state.allAnswers[this.state.currentAnswer + 1]
+        ]
+      });
+      this.incrementCurrentAnswer();
+      this.incrementCurrentAnswer();
+      // console.log('All Answers test1 ====== ', this.state.allAnswers, this.state.displayedAnswers);
+    } else if (this.state.allAnswers.length - this.state.displayedAnswers.length === 1) {
+      console.log("inside ======", ...this.state.displayedAnswers);
+      this.setState({
+        displayedAnswers: [
+          ...this.state.displayedAnswers,
+          this.state.allAnswers[this.state.currentAnswer]
+        ]
+      });
+      this.incrementCurrentAnswer();
+    } else if ( this.state.allAnswers.length - this.state.displayedAnswers.length === 0) {
+      let display = this.state.displayedAnswers;
+      display.push({
+        body: "Have a Answer of your own?",
+        answerer_name: "Add it below...",
+        helpfulness: 10
+      });
+      this.setState({ displayedAnswers: display });
+    }
+  }
 
   incrementCurrentAnswer() {
     const currentNum = this.state.currentAnswer;
