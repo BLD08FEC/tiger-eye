@@ -75,6 +75,7 @@ class Carousel extends Component {
                     <ProductCard
                       key={i}
                       carouselType="suggestions"
+                      buttonType="+"
                       currentProduct={this.props.currentProduct}
                       cardProductId={showHand[id]}
                     />

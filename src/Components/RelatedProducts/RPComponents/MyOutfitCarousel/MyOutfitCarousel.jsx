@@ -76,6 +76,7 @@ class MyOutfitCarousel extends Component {
                   <ProductCard
                     key={i}
                     carouselType="myOutfit"
+                    buttonType="x"
                     currentProduct={this.props.currentProduct}
                     cardProductId={showHand[id]}
                     // handleRemove={() => {}}
