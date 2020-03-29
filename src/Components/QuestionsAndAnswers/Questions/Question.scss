@@ -6,12 +6,15 @@
 .question-name {
   // font-size: 15;
   color: black;
+  text-align: left;
 }
 
 .question-body {
   // font-size: 25;
   font-weight: bold;
   color: black;
+  text-align: left;
+  margin-bottom: -37px;
 }
 
 .question-btn {
@@ -51,5 +54,8 @@
 
 .question-helpfulness {
   font-size: 12;
+  margin-top: -3px;
   font-weight: lighter;
+  // transform: translateY(-37px);
+  text-align: right;
 }
