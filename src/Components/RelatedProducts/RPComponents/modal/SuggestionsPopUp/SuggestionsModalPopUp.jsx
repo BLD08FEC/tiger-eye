@@ -9,7 +9,7 @@ const CompareModalPopUp = ({ handleChangeVisibility, show, children }) => {
 
   return (
     <div className={showHideClassName}>
-      <div className="modal-pop-up-main">
+      <div className="suggestions-modal-pop-up-main">
         {children}
         <div className="modal-pop-up-button" onClick={handleChangeVisibility}>CLOSE</div>
       </div>
