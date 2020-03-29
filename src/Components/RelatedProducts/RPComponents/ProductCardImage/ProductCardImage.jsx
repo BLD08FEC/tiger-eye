@@ -1,16 +1,16 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import './ProductCardImage.scss';
 import ModalDashboard from '../modal/ModalDashboard/ModalDashboard';
 // import helperApi from '../../../../Shared/api';
 
-const ProductCardImage = (props) => {
+const ProductCardImage = ({
+  mainProductId, cardProductId, carouselType, carouselIndex, buttonType, handleDelete,
+}) => {
   const [imageUrl, setImageUrl] = useState({ });
 
   useEffect(() => {
-    fetch(`http://52.26.193.201:3000/products/${props.cardProduct}/styles`)
+    fetch(`http://52.26.193.201:3000/products/${cardProductId}/styles`)
       .then((res) => res.json())
       .then((data) => setImageUrl(data.results[0].photos[0].thumbnail_url))
       .catch((err) => err);
@@ -33,9 +33,12 @@ const ProductCardImage = (props) => {
           tabIndex={0}
         >
           <ModalDashboard
-            buttonType={props.buttonType}
-            carouselType={props.carouselType}
-            handleDelete={props.handleDelete}
+            mainProductId={mainProductId}
+            cardProductId={cardProductId}
+            carouselType={carouselType}
+            carouselIndex={carouselIndex}
+            buttonType={buttonType}
+            handleDelete={handleDelete}
           />
         </div>
         <img src="https://www.warnersstellian.com/Content/images/product_image_not_available.png" alt="not available" />
@@ -43,7 +46,13 @@ const ProductCardImage = (props) => {
     );
   }
   return (
-    <div className="card-image" onClick={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }} onKeyPress={() => {}} role="button" tabIndex={0}>
+    <div
+      className="card-image"
+      onClick={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }}
+      onKeyPress={() => {}}
+      role="button"
+      tabIndex={0}
+    >
       <div
         className="button-overlay"
         onClick={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }}
@@ -52,9 +61,12 @@ const ProductCardImage = (props) => {
         tabIndex={0}
       >
         <ModalDashboard
-          buttonType={props.buttonType}
-          carouselType={props.carouselType}
-          handleDelete={props.handleDelete}
+          mainProductId={mainProductId}
+          cardProductId={cardProductId}
+          carouselType={carouselType}
+          carouselIndex={carouselIndex}
+          buttonType={buttonType}
+          handleDelete={handleDelete}
         />
       </div>
       <img src={imageUrl} alt="product" />
