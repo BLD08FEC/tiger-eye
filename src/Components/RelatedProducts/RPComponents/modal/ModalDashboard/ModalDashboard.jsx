@@ -5,7 +5,7 @@
 import React from 'react';
 import './ModalDashboard.scss';
 import CompareModalPopUp from '../ModalPopUp/CompareModalPopUp';
-import MyOutfitModalPopUp from '../ModalPopUp/MyOutfitModalPopUp'
+import MyOutfitModalPopUp from '../ModalPopUp/MyOutfitModalPopUp';
 
 class ModalDashboard extends React.Component {
   constructor(props) {
@@ -14,10 +14,11 @@ class ModalDashboard extends React.Component {
       showSuggestedModal: false,
       showMyOutfitModal: false,
     };
-    this.changeSuggestedModalVisibility = this.changeSuggestedModalVisibility.bind(this);
+    this.changeModalVisibility = this.changeModalVisibility.bind(this);
+    this.confirmedDeletionFromMyOutfit = this.confirmedDeletionFromMyOutfit.bind(this);
   }
 
-  changeSuggestedModalVisibility = () => {
+  changeModalVisibility = () => {
     let newVisibility;
 
     if (this.props.carouselType === 'suggestions') {
@@ -31,17 +32,22 @@ class ModalDashboard extends React.Component {
     }
   }
 
+  confirmedDeletionFromMyOutfit = () => {
+    this.changeModalVisibility();
+    this.props.handleDelete();
+  }
+
   render() {
     return (
       <div className="modal-dashboard">
-        <CompareModalPopUp show={this.state.showSuggestedModal} handleChangeVisibility={this.changeSuggestedModalVisibility}>
+        <CompareModalPopUp show={this.state.showSuggestedModal} handleChangeVisibility={this.changeModalVisibility}>
           <p>MODAL</p>
           <p>DATA AND STUFF</p>
         </CompareModalPopUp>
-        <MyOutfitModalPopUp show={this.state.showMyOutfitModal} handleChangeVisibility={this.changeSuggestedModalVisibility}>
+        <MyOutfitModalPopUp show={this.state.showMyOutfitModal} handleConfirmVisibility={this.confirmedDeletionFromMyOutfit} handleCancelVisibility={this.changeModalVisibility}>
           <p>Are you sure that you want to remove this item from Your Outfit?</p>
         </MyOutfitModalPopUp>
-        <div className="modal-show-button" onClick={this.changeSuggestedModalVisibility}>{this.props.buttonType}</div>
+        <div className="modal-show-button" onClick={this.changeModalVisibility}>{this.props.buttonType}</div>
       </div>
     );
   }
