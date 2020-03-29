@@ -4,14 +4,14 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import './ModalDashboard.scss';
-import CompareModalPopUp from '../ModalPopUp/CompareModalPopUp';
-import MyOutfitModalPopUp from '../ModalPopUp/MyOutfitModalPopUp';
+import CompareModalPopUp from '../SuggestionsPopUp/SuggestionsModalPopUp';
+import MyOutfitModalPopUp from '../MyOutfitModalPupUp/MyOutfitModalPopUp';
 
 class ModalDashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSuggestedModal: false,
+      showSuggestionsModal: false,
       showMyOutfitModal: false,
     };
     this.changeModalVisibility = this.changeModalVisibility.bind(this);
@@ -22,8 +22,8 @@ class ModalDashboard extends React.Component {
     let newVisibility;
 
     if (this.props.carouselType === 'suggestions') {
-      newVisibility = !this.state.showSuggestedModal;
-      this.setState({ showSuggestedModal: newVisibility });
+      newVisibility = !this.state.showSuggestionsModal;
+      this.setState({ showSuggestionsModal: newVisibility });
     }
 
     if (this.props.carouselType === 'myOutfit') {
@@ -40,7 +40,7 @@ class ModalDashboard extends React.Component {
   render() {
     return (
       <div className="modal-dashboard">
-        <CompareModalPopUp show={this.state.showSuggestedModal} handleChangeVisibility={this.changeModalVisibility}>
+        <CompareModalPopUp show={this.state.showSuggestionsModal} handleChangeVisibility={this.changeModalVisibility}>
           <p>MODAL</p>
           <p>DATA AND STUFF</p>
         </CompareModalPopUp>

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 
-import './CompareModalPopUp.scss';
+import './MyOutfitModalPopUp.scss';
 
 const MyOutfitModalPopUp = ({
   handleConfirmVisibility, handleCancelVisibility, show, children,

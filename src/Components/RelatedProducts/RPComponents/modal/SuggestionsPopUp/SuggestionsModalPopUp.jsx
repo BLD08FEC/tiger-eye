@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 
-import './CompareModalPopUp.scss';
+import './SuggestionsModalPopUp.scss';
 
 const CompareModalPopUp = ({ handleChangeVisibility, show, children }) => {
   const showHideClassName = show ? 'modal show' : 'modal hide';
