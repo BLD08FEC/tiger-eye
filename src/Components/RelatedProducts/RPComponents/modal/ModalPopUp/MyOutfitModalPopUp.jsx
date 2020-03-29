@@ -4,15 +4,17 @@ import React from 'react';
 
 import './CompareModalPopUp.scss';
 
-const MyOutfitModalPopUp = ({ handleChangeVisibility, show, children }) => {
+const MyOutfitModalPopUp = ({
+  handleConfirmVisibility, handleCancelVisibility, show, children,
+}) => {
   const showHideClassName = show ? 'modal show' : 'modal hide';
 
   return (
     <div className={showHideClassName}>
       <div className="modal-pop-up-main">
         {children}
-        <div className="modal-pop-up-button" onClick={handleChangeVisibility}>Confirm</div>
-        <div className="modal-pop-up-button" onClick={handleChangeVisibility}>Cancel</div>
+        <div className="modal-pop-up-button" onClick={handleConfirmVisibility}>Confirm</div>
+        <div className="modal-pop-up-button" onClick={handleCancelVisibility}>Cancel</div>
       </div>
     </div>
   );
