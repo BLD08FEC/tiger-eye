@@ -14,6 +14,7 @@ class MyOutfitCarousel extends Component {
     };
     this.next = this.next.bind(this);
     this.addToOutfit = this.addToOutfit.bind(this);
+    // this.removeFromOutfit = this.removeFromOutfit.bind(this);
   }
 
   next(direction) {
@@ -87,7 +88,7 @@ class MyOutfitCarousel extends Component {
                     buttonType="x"
                     currentProduct={this.props.currentProduct}
                     cardProductId={showHand[id]}
-                    // handleRemove={() => {}}
+                    handleDelete={this.removeFromOutfit}
                   />
                 ))}
               </div>
