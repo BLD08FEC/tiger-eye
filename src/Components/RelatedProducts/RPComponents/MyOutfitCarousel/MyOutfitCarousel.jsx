@@ -78,6 +78,7 @@ class MyOutfitCarousel extends Component {
                     carouselType="myOutfit"
                     currentProduct={this.props.currentProduct}
                     cardProductId={showHand[id]}
+                    // handleRemove={() => {}}
                   />
                 ))}
               </div>
