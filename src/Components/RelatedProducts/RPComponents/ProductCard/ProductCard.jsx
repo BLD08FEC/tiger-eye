@@ -27,7 +27,7 @@ const ProductCard = (props) => {
     <div className="product-card-main">
       <div className="container">
         <div className="row product-card-img-top">
-          <ProductCardImage cardProduct={card.id} buttonType={props.buttonType} />
+          <ProductCardImage cardProduct={card.id} buttonType={props.buttonType} carouselType={props.carouselType} />
         </div>
         <div className="row product-card-info-bottom">
           <div className="container-fluid product-card-body">
