@@ -11,10 +11,12 @@ const MyOutfitModalPopUp = ({
 
   return (
     <div className={showHideClassName}>
-      <div className="modal-pop-up-main">
+      <div className="my-outfit-modal-pop-up-main">
         {children}
-        <div className="modal-pop-up-button" onClick={handleConfirmVisibility}>Confirm</div>
-        <div className="modal-pop-up-button" onClick={handleCancelVisibility}>Cancel</div>
+        <div className="row cancel-confirm">
+          <div className="my-outfit-modal-pop-up-button" onClick={handleConfirmVisibility}>Confirm</div>
+          <div className="my-outfit-modal-pop-up-button" onClick={handleCancelVisibility}>Cancel</div>
+        </div>
       </div>
     </div>
   );

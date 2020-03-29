@@ -1,12 +1,19 @@
-.modal-pop-up-main {
+.my-outfit-modal-pop-up-main {
     width: 160px;
     height: 116px;
-    margin: -147px;
-    transform: translateY(291px);
+    margin: -148px;
+    transform: translateY(292px);
     border: solid 5px black;
-    background-color: orange;
+    background-color: #212529;
 }
 
-.modal-pop-up-button {
+.cancel-confirm {
+    transform: translateX(25px);
+}
 
+.my-outfit-modal-pop-up-button {
+    width: 65px;
+    background-color: whitesmoke;
+    border: solid 1px black;
+    border-radius: 5px;
 }
