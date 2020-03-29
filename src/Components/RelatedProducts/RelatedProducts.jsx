@@ -1,10 +1,10 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import { Connect } from 'react-redux';
+// import { Connect } from 'react-redux';
 import './RelatedProducts.scss';
 import Carousel from './RPComponents/Carousel/Carousel';
 import MyOutfitCarousel from './RPComponents/MyOutfitCarousel/MyOutfitCarousel';
-import ModalDashboard from './RPComponents/modal/ModalDashboard/ModalDashboard';
+
 
 class RelatedProducts extends Component {
   constructor(props) {
