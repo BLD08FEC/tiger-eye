@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import './ProductCardImage.scss';
@@ -15,16 +16,16 @@ const ProductCardImage = (props) => {
 
   if (imageUrl == null) {
     return (
-      <div className="card-image" onClick={() => {}} onKeyPress={() => {}} role="button" tabIndex={0}>
-        <button type="button" className="button-overlay">+</button>
-        <img src="https://www.warnersstellian.com/Content/images/product_image_not_available.png" alt="ALT_IMAGE_TEXT_HERE" />
+      <div className="card-image" onClick={() => {}} onKeyPress={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }} role="button" tabIndex={0}>
+        <div className="button-overlay" onClick={() => { /* if {props.carouselType} === suggested, then open modal; if {props.carouselType} === myOutfit, then remove from myOutfit */ }} onKeyPress={() => {}} role="button" tabIndex={0}>{props.buttonType}</div>
+        <img src="https://www.warnersstellian.com/Content/images/product_image_not_available.png" alt="not available" />
       </div>
     );
   }
   return (
-    <div className="card-image" onClick={() => {}} onKeyPress={() => {}} role="button" tabIndex={0}>
-      <button type="button" className="button-overlay">+</button>
-      <img src={imageUrl} alt="ALT_IMAGE_TEXT_HERE" />
+    <div className="card-image" onClick={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }} onKeyPress={() => {}} role="button" tabIndex={0}>
+      <div className="button-overlay" onClick={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }} onKeyPress={() => {}} role="button" tabIndex={0}>{props.buttonType}</div>
+      <img src={imageUrl} alt="product" />
     </div>
   );
 };
