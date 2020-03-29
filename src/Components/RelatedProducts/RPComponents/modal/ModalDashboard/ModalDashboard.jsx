@@ -4,31 +4,44 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import './ModalDashboard.scss';
-import ModalPopUp from '../ModalPopUp/ModalPopUp';
+import CompareModalPopUp from '../ModalPopUp/CompareModalPopUp';
+import MyOutfitModalPopUp from '../ModalPopUp/MyOutfitModalPopUp'
 
 class ModalDashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showRelatedProductsModal: false,
+      showSuggestedModal: false,
+      showMyOutfitModal: false,
     };
-    this.changeModalVisibility = this.changeModalVisibility.bind(this);
+    this.changeSuggestedModalVisibility = this.changeSuggestedModalVisibility.bind(this);
   }
 
-  changeModalVisibility = () => {
-    const newVisibility = !this.state.showRelatedProductsModal;
+  changeSuggestedModalVisibility = () => {
+    let newVisibility;
 
-    this.setState({ showRelatedProductsModal: newVisibility });
+    if (this.props.carouselType === 'suggestions') {
+      newVisibility = !this.state.showSuggestedModal;
+      this.setState({ showSuggestedModal: newVisibility });
+    }
+
+    if (this.props.carouselType === 'myOutfit') {
+      newVisibility = !this.state.showMyOutfitModal;
+      this.setState({ showMyOutfitModal: newVisibility });
+    }
   }
 
   render() {
     return (
       <div className="modal-dashboard">
-        <ModalPopUp show={this.state.showRelatedProductsModal} handleChangeVisibility={this.changeModalVisibility}>
+        <CompareModalPopUp show={this.state.showSuggestedModal} handleChangeVisibility={this.changeSuggestedModalVisibility}>
           <p>MODAL</p>
           <p>DATA AND STUFF</p>
-        </ModalPopUp>
-        <div className="modal-show-button" onClick={this.changeModalVisibility}>CLICK HERE TO OPEN COMPARE MODAL</div>
+        </CompareModalPopUp>
+        <MyOutfitModalPopUp show={this.state.showMyOutfitModal} handleChangeVisibility={this.changeSuggestedModalVisibility}>
+          <p>Are you sure that you want to remove this item from Your Outfit?</p>
+        </MyOutfitModalPopUp>
+        <div className="modal-show-button" onClick={this.changeSuggestedModalVisibility}>{this.props.buttonType}</div>
       </div>
     );
   }

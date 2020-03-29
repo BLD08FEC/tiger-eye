@@ -2,9 +2,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 
-import './ModalPopUp.scss';
+import './CompareModalPopUp.scss';
 
-const ModalPopUp = ({ handleChangeVisibility, show, children }) => {
+const CompareModalPopUp = ({ handleChangeVisibility, show, children }) => {
   const showHideClassName = show ? 'modal show' : 'modal hide';
 
   return (
@@ -17,4 +17,4 @@ const ModalPopUp = ({ handleChangeVisibility, show, children }) => {
   );
 };
 
-export default ModalPopUp;
+export default CompareModalPopUp;
