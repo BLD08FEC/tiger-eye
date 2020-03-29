@@ -44,8 +44,13 @@ class ModalDashboard extends React.Component {
           <p>MODAL</p>
           <p>DATA AND STUFF</p>
         </CompareModalPopUp>
-        <MyOutfitModalPopUp show={this.state.showMyOutfitModal} handleConfirmVisibility={this.confirmedDeletionFromMyOutfit} handleCancelVisibility={this.changeModalVisibility}>
-          <p>Are you sure that you want to remove this item from Your Outfit?</p>
+        <MyOutfitModalPopUp
+          className="are-you-sure-text"
+          show={this.state.showMyOutfitModal}
+          handleConfirmVisibility={this.confirmedDeletionFromMyOutfit}
+          handleCancelVisibility={this.changeModalVisibility}
+        >
+          Are you sure you want to remove this from Your Outfit?
         </MyOutfitModalPopUp>
         <div className="modal-show-button" onClick={this.changeModalVisibility}>{this.props.buttonType}</div>
       </div>
