@@ -84,10 +84,11 @@ class MyOutfitCarousel extends Component {
                 {showHand.map((i, id) => (
                   <ProductCard
                     key={i}
-                    carouselType="myOutfit"
-                    buttonType="x"
-                    currentProduct={this.props.currentProduct}
+                    mainProductId={this.props.currentProduct}
                     cardProductId={showHand[id]}
+                    carouselType="myOutfit"
+                    carouselIndex={i}
+                    buttonType="x"
                     handleDelete={this.removeFromOutfit}
                   />
                 ))}
