@@ -26,9 +26,6 @@ class RelatedProducts extends Component {
           <div className="row my-outfit-carousel-parent">
             <MyOutfitCarousel currentProduct={this.state.currentProduct} />
           </div>
-          <div className="row modal-dashboard-parent">
-            <ModalDashboard />
-          </div>
         </div>
       </div>
     );
