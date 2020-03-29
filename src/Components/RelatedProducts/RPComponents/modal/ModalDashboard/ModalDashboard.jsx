@@ -51,7 +51,9 @@ class ModalDashboard extends React.Component {
           handleConfirmVisibility={this.confirmedDeletionFromMyOutfit}
           handleCancelVisibility={this.changeModalVisibility}
         >
-          Are you sure you want to remove this from Your Outfit?
+          <div className="rp-modal-my-outfit-are-you-sure-delete-text">
+            Are you sure you want to remove this from Your Outfit?
+          </div>
         </MyOutfitModalPopUp>
         {/* </div> */}
         <div className="rp-modal-show-button" onClick={this.changeModalVisibility}>{this.props.buttonType}</div>
