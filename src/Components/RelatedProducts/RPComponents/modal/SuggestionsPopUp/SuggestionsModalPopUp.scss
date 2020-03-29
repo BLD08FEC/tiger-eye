@@ -1,4 +1,4 @@
-.modal {
+.rp-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -7,7 +7,7 @@
     background: lime;
 }
 
-.suggestions-modal-pop-up-main {
+.rp-suggestions-modal-pop-up-main {
     position: fixed;
     background: salmon;
     width: 80%;
@@ -17,10 +17,10 @@
     transform: translate(-50%, -50%);
 }
 
-.show {
+.rp-show {
     display: block;
 }
 
-.hide {
+.rp-hide {
     display: none;
 }

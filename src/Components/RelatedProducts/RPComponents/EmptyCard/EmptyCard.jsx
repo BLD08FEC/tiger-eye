@@ -2,7 +2,7 @@ import React from 'react';
 import './EmptyCard.scss';
 
 const EmptyCard = () => (
-  <div className="empty-card">
+  <div className="rp-empty-card">
     _
   </div>
 );

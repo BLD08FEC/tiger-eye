@@ -5,13 +5,13 @@ import React from 'react';
 import './SuggestionsModalPopUp.scss';
 
 const CompareModalPopUp = ({ handleChangeVisibility, show, children }) => {
-  const showHideClassName = show ? 'modal show' : 'modal hide';
+  const showHideClassName = show ? 'rp-modal rp-show' : 'rp-modal rp-hide';
 
   return (
     <div className={showHideClassName}>
-      <div className="suggestions-modal-pop-up-main">
+      <div className="rp-suggestions-modal-pop-up-main">
         {children}
-        <div className="modal-pop-up-button" onClick={handleChangeVisibility}>CLOSE</div>
+        <div className="rp-modal-pop-up-button" onClick={handleChangeVisibility}>CLOSE</div>
       </div>
     </div>
   );

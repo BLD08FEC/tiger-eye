@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
@@ -63,9 +62,17 @@ class Carousel extends Component {
     }
 
     return (
-      <div className="container-fluid carousel-main">
+      <div className="container-fluid rp-carousel-main">
         <div className="row">
-          <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('left')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9664;</div></div>
+          <div
+            className="col-xs-1 col-sm-1 rp-carousel-arrow"
+            onClick={() => this.next('left')}
+            onKeyPress={() => {}}
+            role="button"
+            tabIndex={0}
+          >
+            <div>&#9664;</div>
+          </div>
           <div className="col-xs-10">
 
             <div className="container-fluid">
@@ -85,7 +92,15 @@ class Carousel extends Component {
             </div>
 
           </div>
-          <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('right')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9654;</div></div>
+          <div
+            className="col-xs-1 col-sm-1 rp-carousel-arrow"
+            onClick={() => this.next('right')}
+            onKeyPress={() => {}}
+            role="button"
+            tabIndex={0}
+          >
+            <div>&#9654;</div>
+          </div>
         </div>
       </div>
     );
