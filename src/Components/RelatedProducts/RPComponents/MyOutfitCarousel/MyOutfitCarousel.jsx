@@ -44,6 +44,14 @@ class MyOutfitCarousel extends Component {
     this.setState({ myOutfit: newOutfit });
   }
 
+  removeFromOutfit() {
+    const newOutfit = this.state.myOutfit.slice();
+
+    newOutfit.splice(0, 1);
+
+    this.setState({ myOutfit: newOutfit });
+  }
+
   render = () => {
     const cardDeck = this.state.myOutfit.slice();
     let showHand = cardDeck;
