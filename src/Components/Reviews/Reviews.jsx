@@ -27,7 +27,7 @@ class Reviews extends React.Component {
       <div className="">
         <div className="">
           <div className="row">
-          <div className="col-12 col-sm-12 col-lg-4 col-xl-4">
+            <div className="col-12 col-sm-12 col-lg-4 col-xl-4">
               <Ratings />
             </div>
             <div className="col-12 col-sm-12 col-lg-8 col-xl-8">
