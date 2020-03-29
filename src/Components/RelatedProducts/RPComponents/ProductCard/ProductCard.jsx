@@ -12,6 +12,7 @@ const ProductCard = ({
   const [card, setCard] = useState({ });
 
   useEffect(() => {
+    // eslint-disable-next-line no-undef
     fetch(`http://52.26.193.201:3000/products/${cardProductId}`)
       .then((res) => res.json())
       .then((cardData) => setCard(cardData))
