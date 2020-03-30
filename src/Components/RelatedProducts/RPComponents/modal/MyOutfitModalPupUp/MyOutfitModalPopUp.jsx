@@ -7,7 +7,7 @@ import './MyOutfitModalPopUp.scss';
 const MyOutfitModalPopUp = ({
   handleConfirmVisibility, handleCancelVisibility, show, children,
 }) => {
-  const showHideClassName = show ? 'rp-modal rp-show' : 'rp-modal rp-hide';
+  const showHideClassName = show ? 'rp-modal-my-outfit rp-modal-my-outfit-show' : 'rp-modal-my-outfit rp-modal-my-outfit-hide';
 
   return (
     <div className={showHideClassName}>
