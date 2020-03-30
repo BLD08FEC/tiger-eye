@@ -4,6 +4,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import './ModalDashboard.scss';
+import ModalComparisonCard from '../ModalComparisonCard/ModalComparisonCard';
 import CompareModalPopUp from '../SuggestionsPopUp/SuggestionsModalPopUp';
 import MyOutfitModalPopUp from '../MyOutfitModalPupUp/MyOutfitModalPopUp';
 
@@ -40,9 +41,34 @@ class ModalDashboard extends React.Component {
   render() {
     return (
       <div className="modal-dashboard">
-        <CompareModalPopUp show={this.state.showSuggestionsModal} handleChangeVisibility={this.changeModalVisibility}>
-          <p>MODAL</p>
-          <p>DATA AND STUFF</p>
+        <CompareModalPopUp
+          show={this.state.showSuggestionsModal}
+          handleChangeVisibility={this.changeModalVisibility}
+        >
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-xs-6">
+                <ModalComparisonCard
+                  // key={i}
+                  mainProductId={this.props.mainProductId}
+                  cardProductId={this.props.mainProductId}
+                  carouselType={this.props.carouselType}
+                  carouselIndex={this.props.carouselIndex}
+                  buttonType={this.props.buttonType}
+                />
+              </div>
+              <div className="col-xs-6">
+                <ModalComparisonCard
+                  // key={i}
+                  mainProductId={this.props.mainProductId}
+                  cardProductId={this.props.cardProductId}
+                  carouselType={this.props.carouselType}
+                  carouselIndex={this.props.carouselIndex}
+                  buttonType={this.props.buttonType}
+                />
+              </div>
+            </div>
+          </div>
         </CompareModalPopUp>
         {/* <div className="container-fluid"> */}
         <MyOutfitModalPopUp
