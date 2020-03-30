@@ -10,7 +10,7 @@ class RelatedProducts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProduct: 7,
+      mainProductId: 7,
     };
   }
 
@@ -20,11 +20,11 @@ class RelatedProducts extends Component {
         <div className="container-fluid">
           <div className="row carousel-title"><em>You might also like...</em></div>
           <div className="row related-products-carousel-parent">
-            <Carousel currentProduct={this.state.currentProduct} />
+            <Carousel mainProductId={this.state.mainProductId} />
           </div>
           <div className="row carousel-title"><em>Build your own outfit.</em></div>
           <div className="row my-outfit-carousel-parent">
-            <MyOutfitCarousel currentProduct={this.state.currentProduct} />
+            <MyOutfitCarousel mainProductId={this.state.mainProductId} />
           </div>
         </div>
       </div>

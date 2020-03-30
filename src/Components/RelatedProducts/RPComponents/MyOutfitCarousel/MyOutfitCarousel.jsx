@@ -40,7 +40,7 @@ class MyOutfitCarousel extends Component {
   addToOutfit() {
     const newOutfit = this.state.myOutfit.slice();
 
-    newOutfit.unshift(this.props.currentProduct);
+    newOutfit.unshift(this.props.mainProductId);
 
     this.setState({ myOutfit: newOutfit });
   }
@@ -84,7 +84,7 @@ class MyOutfitCarousel extends Component {
               <div className="row">
                 <div className="col-xs-3">
                   <OutfitCard
-                    currentProduct={this.props.currentProduct}
+                    mainProductId={this.props.mainProductId}
                     cardIndex={this.state.myOutfitCarouselIndex}
                     handleClick={() => this.addToOutfit()}
                   />
@@ -92,7 +92,7 @@ class MyOutfitCarousel extends Component {
                 {showHand.map((i, id) => (
                   <ProductCard
                     key={i}
-                    mainProductId={this.props.currentProduct}
+                    mainProductId={this.props.mainProductId}
                     cardProductId={showHand[id]}
                     carouselType="myOutfit"
                     carouselIndex={i}
