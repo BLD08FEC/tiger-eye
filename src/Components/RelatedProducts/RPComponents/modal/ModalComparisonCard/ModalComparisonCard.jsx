@@ -48,6 +48,9 @@ const ModalComparisonCard = ({
               {card.default_price}
               .00
             </div>
+            {card.slogan}
+            {card.description}
+            {/* {card.features} */}
             <div className="row rp-modal-comparison-card-star">
               <Stars />
             </div>
