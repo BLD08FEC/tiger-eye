@@ -7,7 +7,9 @@ const SuggestionsModalPopUp = ({ handleChangeVisibility, show, children }) => {
   return (
     <div className={showHideClassName}>
       <div className="rp-modal-suggestions-pop-up-main">
-        {children}
+        <div className="row">
+          {children}
+        </div>
         <div
           className="rp-modal-suggestions-pop-up-button"
           onClick={handleChangeVisibility}
