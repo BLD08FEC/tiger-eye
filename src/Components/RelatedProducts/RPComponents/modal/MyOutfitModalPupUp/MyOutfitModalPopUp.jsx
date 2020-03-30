@@ -14,8 +14,18 @@ const MyOutfitModalPopUp = ({
       <div className="rp-modal-my-outfit-pop-up-main">
         {children}
         <div className="row rp-modal-my-outfit-cancel-confirm">
-          <div className="rp-modal-my-outfit-pop-up-button" onClick={handleConfirmVisibility}>Confirm</div>
-          <div className="rp-modal-my-outfit-pop-up-button" onClick={handleCancelVisibility}>Cancel</div>
+          <div
+            className="rp-modal-my-outfit-pop-up-button"
+            onClick={handleConfirmVisibility}
+          >
+            Confirm
+          </div>
+          <div
+            className="rp-modal-my-outfit-pop-up-button"
+            onClick={handleCancelVisibility}
+          >
+            Cancel
+          </div>
         </div>
       </div>
     </div>
