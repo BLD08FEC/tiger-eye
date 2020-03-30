@@ -21,14 +21,16 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
+    const { mainProductId } = this.props;
     // eslint-disable-next-line no-undef
-    fetch(`http://52.26.193.201:3000/products/${this.props.mainProductId}/related`)
+    fetch(`http://52.26.193.201:3000/products/${mainProductId}/related`)
       .then((res) => res.json())
       .then((data) => this.setState({ relatedArr: data }))
       .catch((err) => err);
   }
 
   next(direction) {
+    // const { relatedArr, carouselIndex } = this.state;
     let changeToCard = this.state.carouselIndex;
     const max = this.state.relatedArr.length;
 
