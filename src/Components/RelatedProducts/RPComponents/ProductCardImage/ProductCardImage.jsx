@@ -28,7 +28,7 @@ const ProductCardImage = ({
       >
         <div
           className="rp-button-overlay"
-          //==========TO BE DELETED============
+          //= =========TO BE DELETED============
           // onClick={() => { /* if {props.carouselType} === suggested, then open modal; if {props.carouselType} === myOutfit, then remove from myOutfit */ }}
           // onKeyPress={() => {}}
           // role="button"
@@ -57,7 +57,7 @@ const ProductCardImage = ({
     >
       <div
         className="rp-button-overlay"
-        //==========TO BE DELETED============
+        //= =========TO BE DELETED============
         // onClick={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }}
         // onKeyPress={() => {}}
         // role="button"
