@@ -9,15 +9,18 @@
 
 .rp-modal-my-outfit-pop-up-main {
     width: 160px;
-    height: 116px;
+    height: 114px;
+    // transform: translate(x, y);
+    transform: translate(15px, 306px);
     margin: -148px;
-    transform: translateY(292px);
+    padding-top: 20px;
     border: solid 5px black;
     background-color: #212529;
 }
 
 .rp-modal-my-outfit-cancel-confirm {
-    transform: translateX(25px);
+    // transform: translate(x, y);
+    transform: translate(25px, 15px);
 }
 
 .rp-modal-my-outfit-pop-up-button {

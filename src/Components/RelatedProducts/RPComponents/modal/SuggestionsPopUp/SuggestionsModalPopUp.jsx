@@ -11,7 +11,7 @@ const CompareModalPopUp = ({ handleChangeVisibility, show, children }) => {
     <div className={showHideClassName}>
       <div className="rp-suggestions-modal-pop-up-main">
         {children}
-        <div className="rp-modal-pop-up-button" onClick={handleChangeVisibility}>CLOSE</div>
+        <div className="rp-modal-suggestions-pop-up-button" onClick={handleChangeVisibility}>CLOSE</div>
       </div>
     </div>
   );
