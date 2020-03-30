@@ -5,7 +5,7 @@
 import React from 'react';
 import './ModalDashboard.scss';
 import ModalComparisonCard from '../ModalComparisonCard/ModalComparisonCard';
-import CompareModalPopUp from '../SuggestionsPopUp/SuggestionsModalPopUp';
+import SuggestionsModalPopUp from '../SuggestionsPopUp/SuggestionsModalPopUp';
 import MyOutfitModalPopUp from '../MyOutfitModalPupUp/MyOutfitModalPopUp';
 
 class ModalDashboard extends React.Component {
@@ -41,7 +41,7 @@ class ModalDashboard extends React.Component {
   render() {
     return (
       <div className="modal-dashboard">
-        <CompareModalPopUp
+        <SuggestionsModalPopUp
           show={this.state.showSuggestionsModal}
           handleChangeVisibility={this.changeModalVisibility}
         >
@@ -69,7 +69,7 @@ class ModalDashboard extends React.Component {
               </div>
             </div>
           </div>
-        </CompareModalPopUp>
+        </SuggestionsModalPopUp>
         {/* <div className="container-fluid"> */}
         <MyOutfitModalPopUp
           className="rp-modal-my-outfit-are-you-sure-delete-text"

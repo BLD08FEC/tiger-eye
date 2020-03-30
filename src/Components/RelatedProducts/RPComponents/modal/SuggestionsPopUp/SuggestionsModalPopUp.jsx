@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-
 import './SuggestionsModalPopUp.scss';
+import ModalComparisonCard from '../ModalComparisonCard/ModalComparisonCard';
 
-const CompareModalPopUp = ({ handleChangeVisibility, show, children }) => {
+const SuggestionsModalPopUp = ({ handleChangeVisibility, show, children }) => {
   const showHideClassName = show ? 'rp-modal-suggestions rp-modal-suggestions-show' : 'rp-modal-suggestions rp-modal-suggestions-hide';
 
   return (
@@ -17,4 +17,4 @@ const CompareModalPopUp = ({ handleChangeVisibility, show, children }) => {
   );
 };
 
-export default CompareModalPopUp;
+export default SuggestionsModalPopUp;
