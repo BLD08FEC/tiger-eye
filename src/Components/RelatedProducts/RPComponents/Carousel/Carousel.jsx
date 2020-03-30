@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
@@ -22,7 +21,8 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://52.26.193.201:3000/products/${this.props.currentProduct}/related`)
+    // eslint-disable-next-line no-undef
+    fetch(`http://52.26.193.201:3000/products/${this.props.mainProductId}/related`)
       .then((res) => res.json())
       .then((data) => this.setState({ relatedArr: data }))
       .catch((err) => err);
@@ -80,11 +80,13 @@ class Carousel extends Component {
                 {showHand.map((i, id) => (
                   <div className="col-xs-3">
                     <ProductCard
-                      key={i}
-                      carouselType="suggestions"
-                      buttonType="+"
-                      currentProduct={this.props.currentProduct}
+                      // eslint-disable-next-line no-sequences
+                      key={i, id}
+                      mainProductId={this.props.mainProductId}
                       cardProductId={showHand[id]}
+                      carouselType="suggestions"
+                      carouselIndex={i}
+                      buttonType="+"
                     />
                   </div>
                 ))}
