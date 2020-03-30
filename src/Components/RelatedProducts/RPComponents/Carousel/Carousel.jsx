@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
@@ -23,13 +21,16 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://52.26.193.201:3000/products/${this.props.currentProduct}/related`)
+    const { mainProductId } = this.props;
+    // eslint-disable-next-line no-undef
+    fetch(`http://52.26.193.201:3000/products/${mainProductId}/related`)
       .then((res) => res.json())
       .then((data) => this.setState({ relatedArr: data }))
       .catch((err) => err);
   }
 
   next(direction) {
+    // const { relatedArr, carouselIndex } = this.state;
     let changeToCard = this.state.carouselIndex;
     const max = this.state.relatedArr.length;
 
@@ -63,9 +64,17 @@ class Carousel extends Component {
     }
 
     return (
-      <div className="container-fluid carousel-main">
+      <div className="container-fluid rp-carousel-main">
         <div className="row">
-          <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('left')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9664;</div></div>
+          <div
+            className="col-xs-1 col-sm-1 rp-carousel-arrow"
+            onClick={() => this.next('left')}
+            onKeyPress={() => {}}
+            role="button"
+            tabIndex={0}
+          >
+            <div>&#9664;</div>
+          </div>
           <div className="col-xs-10">
 
             <div className="container-fluid">
@@ -73,10 +82,13 @@ class Carousel extends Component {
                 {showHand.map((i, id) => (
                   <div className="col-xs-3">
                     <ProductCard
-                      key={i}
-                      carouselType="suggestions"
-                      currentProduct={this.props.currentProduct}
+                      // eslint-disable-next-line no-sequences
+                      key={i, id}
+                      mainProductId={this.props.mainProductId}
                       cardProductId={showHand[id]}
+                      carouselType="suggestions"
+                      carouselIndex={i}
+                      buttonType="+"
                     />
                   </div>
                 ))}
@@ -84,7 +96,15 @@ class Carousel extends Component {
             </div>
 
           </div>
-          <div className="col-xs-1 col-sm-1 carousel-arrow" onClick={() => this.next('right')} onKeyPress={() => {}} role="button" tabIndex={0}><div>&#9654;</div></div>
+          <div
+            className="col-xs-1 col-sm-1 rp-carousel-arrow"
+            onClick={() => this.next('right')}
+            onKeyPress={() => {}}
+            role="button"
+            tabIndex={0}
+          >
+            <div>&#9654;</div>
+          </div>
         </div>
       </div>
     );

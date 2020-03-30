@@ -1,0 +1,46 @@
+.rp-modal-my-outfit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background: lime;
+}
+
+.rp-modal-my-outfit-show {
+    display: block;
+}
+
+.rp-modal-my-outfit-hide {
+    display: none;
+}
+
+.rp-modal-my-outfit-pop-up-main {
+    width: 160px;
+    height: 114px;
+    // transform: translate(x, y);
+    transform: translate(15px, 306px);
+    margin: -148px;
+    padding-top: 20px;
+    border: solid 5px black;
+    background-color: #212529;
+}
+
+.rp-modal-my-outfit-cancel-confirm {
+    // transform: translate(x, y);
+    transform: translate(25px, 15px);
+}
+
+.rp-modal-my-outfit-pop-up-button {
+    width: 65px;
+    background-color: whitesmoke;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+
+.rp-modal-my-outfit-pop-up-button:hover {
+    width: 65px;
+    background-color: whitesmoke;
+    border: solid 1px #cb7119;;
+    border-radius: 5px;
+}

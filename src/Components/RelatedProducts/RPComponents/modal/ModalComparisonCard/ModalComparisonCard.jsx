@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import './ProductCard.scss';
+import './ModalComparisonCard.scss';
 // import { connect } from 'react-redux';
-import EmptyCard from '../EmptyCard/EmptyCard';
-import ProductCardImage from '../ProductCardImage/ProductCardImage';
-import Stars from '../../../../Shared/Stars';
+import EmptyCard from '../../EmptyCard/EmptyCard';
+// import ProductCardImage from '../../ProductCardImage/ProductCardImage';
+import Stars from '../../../../../Shared/Stars';
 // import helperApi from '../../../../Shared/api';
 
-const ProductCard = ({
-  mainProductId, cardProductId, carouselType, carouselIndex, buttonType, handleDelete,
+const ModalComparisonCard = ({
+  mainProductId, cardProductId, carouselType, carouselIndex, buttonType,
 }) => {
   const [card, setCard] = useState({ });
 
@@ -24,32 +24,34 @@ const ProductCard = ({
   }
 
   return (
-    <div className="rp-product-card-main">
+    <div className="rp-modal-comparison-card-main">
       <div className="container">
-        <div className="row rp-product-card-img-top">
-          <ProductCardImage
+        <div className="row rp-modal-comparison-card-img-top">
+          {/* <ProductCardImage
             mainProductId={mainProductId}
             cardProductId={card.id}
             carouselType={carouselType}
             carouselIndex={carouselIndex}
             buttonType={buttonType}
-            handleDelete={handleDelete}
-          />
+          /> */}
         </div>
-        <div className="row rp-product-card-info-bottom">
-          <div className="container-fluid rp-product-card-body">
-            <div className="row rp-product-card-category">
+        <div className="row rp-modal-comparison-card-info-bottom">
+          <div className="container-fluid">
+            <div className="row rp-modal-comparison-card-category">
               {card.category}
             </div>
-            <div className="row rp-product-card-title">
+            <div className="row rp-modal-comparison-card-title">
               {card.name}
             </div>
-            <div className="row rp-product-card-price">
+            <div className="row rp-modal-comparison-card-price">
               $
               {card.default_price}
               .00
             </div>
-            <div className="row rp-product-card-star">
+            {card.slogan}
+            {card.description}
+            {/* {card.features} */}
+            <div className="row rp-modal-comparison-card-star">
               <Stars />
             </div>
           </div>
@@ -59,4 +61,4 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
+export default ModalComparisonCard;

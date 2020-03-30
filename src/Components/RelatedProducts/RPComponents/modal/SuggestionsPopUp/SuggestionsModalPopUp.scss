@@ -1,0 +1,36 @@
+.rp-modal-suggestions {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background: lime;
+}
+
+.rp-modal-suggestions-show {
+    display: block;
+}
+
+.rp-modal-suggestions-hide {
+    display: none;
+}
+
+.rp-modal-suggestions-pop-up-main {
+    // position: fixed;
+    width: 360px;
+    height: 360px;
+    transform: translate3d(0, 0, 1);
+    // margin: -148px;
+    padding-top: 20px;
+    border: solid 5px black;
+    background-color: #212529;
+    background: salmon;
+}
+
+.rp-modal-suggestions-pop-up-button {
+    width: 65px;
+    background-color: whitesmoke;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+
