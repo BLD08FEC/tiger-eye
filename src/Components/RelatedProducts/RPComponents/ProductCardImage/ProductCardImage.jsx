@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './ProductCardImage.scss';
 import ModalDashboard from '../modal/ModalDashboard/ModalDashboard';
-// import helperApi from '../../../../Shared/api';
+// import helperAPI from '../../../../Shared/api';
 
 const ProductCardImage = ({
   mainProductId, cardProductId, carouselType, carouselIndex, buttonType, handleDelete,
@@ -10,6 +10,7 @@ const ProductCardImage = ({
   const [imageUrl, setImageUrl] = useState({ });
 
   useEffect(() => {
+    // helperAPI.getProductStyle(cardProductId, (data) => setImageUrl(data.results));
     fetch(`http://52.26.193.201:3000/products/${cardProductId}/styles`)
       .then((res) => res.json())
       .then((data) => setImageUrl(data.results[0].photos[0].thumbnail_url))
@@ -27,10 +28,11 @@ const ProductCardImage = ({
       >
         <div
           className="rp-button-overlay"
-          onClick={() => { /* if {props.carouselType} === suggested, then open modal; if {props.carouselType} === myOutfit, then remove from myOutfit */ }}
-          onKeyPress={() => {}}
-          role="button"
-          tabIndex={0}
+          //==========TO BE DELETED============
+          // onClick={() => { /* if {props.carouselType} === suggested, then open modal; if {props.carouselType} === myOutfit, then remove from myOutfit */ }}
+          // onKeyPress={() => {}}
+          // role="button"
+          // tabIndex={0}
         >
           <ModalDashboard
             mainProductId={mainProductId}
@@ -55,10 +57,11 @@ const ProductCardImage = ({
     >
       <div
         className="rp-button-overlay"
-        onClick={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }}
-        onKeyPress={() => {}}
-        role="button"
-        tabIndex={0}
+        //==========TO BE DELETED============
+        // onClick={() => { /* if {props.carouselType} === suggested, then redirect entire page to this card's product id */ }}
+        // onKeyPress={() => {}}
+        // role="button"
+        // tabIndex={0}
       >
         <ModalDashboard
           mainProductId={mainProductId}
