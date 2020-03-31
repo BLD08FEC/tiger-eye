@@ -22,6 +22,7 @@ class Carousel extends Component {
 
   componentDidMount() {
     const { mainProductId } = this.props;
+
     // eslint-disable-next-line no-undef
     fetch(`http://52.26.193.201:3000/products/${mainProductId}/related`)
       .then((res) => res.json())
@@ -30,10 +31,18 @@ class Carousel extends Component {
   }
 
   next(direction) {
-    const { suggestionsArr, suggestionsIndex } = this.state;
+    const { carouselType } = this.props;
+    const {
+      myOutfitArr, myOutfitIndex, suggestionsArr, suggestionsIndex,
+    } = this.state;
 
     let changeToCard = suggestionsIndex;
-    const max = suggestionsArr.length;
+    let max = suggestionsArr.length;
+
+    if (carouselType === 'myOutfit') {
+      changeToCard = myOutfitIndex;
+      max = myOutfitArr.length;
+    }
 
     if (direction === 'left') {
       changeToCard -= 1;
@@ -48,31 +57,40 @@ class Carousel extends Component {
       changeToCard = max - 4;
     }
 
+    if (carouselType === 'myOutfit') {
+      this.setState({ myOutfitIndex: changeToCard });
+    }
     this.setState({ suggestionsIndex: changeToCard });
   }
 
   addToOutfit() {
-    const { mainProductId } = this.props;
+    const { mainProductId, carouselType } = this.props;
     const { myOutfitArr } = this.state;
 
-    const newOutfit = myOutfitArr.slice();
+    if (carouselType === '') {
+      const newOutfit = myOutfitArr.slice();
 
-    newOutfit.unshift(mainProductId);
+      newOutfit.unshift(mainProductId);
 
-    this.setState({ myOutfitArr: newOutfit });
+      this.setState({ myOutfitArr: newOutfit });
+    }
   }
 
   removeFromOutfit() {
+    const { carouselType } = this.props;
     const { myOutfitArr } = this.state;
+
     const newOutfit = myOutfitArr.slice();
 
-    newOutfit.splice(0, 1);
+    if (carouselType === '') {
+      newOutfit.splice(0, 1);
 
-    this.setState({ myOutfitArr: newOutfit });
+      this.setState({ myOutfitArr: newOutfit });
+    }
   }
 
   render = () => {
-    const { mainProductId } = this.props;
+    const { mainProductId, carouselType } = this.props;
     const { suggestionsArr, suggestionsIndex } = this.state;
 
     const cardDeck = suggestionsArr.slice();
@@ -110,7 +128,7 @@ class Carousel extends Component {
                       key={i, id}
                       mainProductId={mainProductId}
                       cardProductId={showHand[id]}
-                      carouselType="suggestions"
+                      carouselType={carouselType}
                       suggestionsIndex={i}
                       buttonType="+"
                     />
