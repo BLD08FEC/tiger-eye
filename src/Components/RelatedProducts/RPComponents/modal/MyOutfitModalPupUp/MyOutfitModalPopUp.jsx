@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 
 import './MyOutfitModalPopUp.scss';
@@ -17,12 +15,18 @@ const MyOutfitModalPopUp = ({
           <div
             className="rp-modal-my-outfit-pop-up-button"
             onClick={handleConfirmVisibility}
+            onKeyPress={() => {}}
+            role="button"
+            tabIndex={0}
           >
             Confirm
           </div>
           <div
             className="rp-modal-my-outfit-pop-up-button"
             onClick={handleCancelVisibility}
+            onKeyPress={() => {}}
+            role="button"
+            tabIndex={0}
           >
             Cancel
           </div>
