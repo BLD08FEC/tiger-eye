@@ -7,8 +7,8 @@ class MyOutfitCarousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      myOutfit: [9, 8, 7, 6, 5, 4, 3, 2],
-      myOutfitCarouselIndex: 0,
+      myOutfitArr: [9, 8, 7, 6, 5, 4, 3, 2],
+      myOutfitIndex: 0,
     };
     this.next = this.next.bind(this);
     this.addToOutfit = this.addToOutfit.bind(this);
@@ -16,10 +16,10 @@ class MyOutfitCarousel extends Component {
   }
 
   next(direction) {
-    const { myOutfitCarouselIndex, myOutfit } = this.state;
+    const { myOutfitIndex, myOutfitArr } = this.state;
 
-    let changeToCard = myOutfitCarouselIndex;
-    const max = myOutfit.length;
+    let changeToCard = myOutfitIndex;
+    const max = myOutfitArr.length;
 
     if (direction === 'left') {
       changeToCard -= 1;
@@ -34,34 +34,34 @@ class MyOutfitCarousel extends Component {
       changeToCard = max - 3;
     }
 
-    this.setState({ myOutfitCarouselIndex: changeToCard });
+    this.setState({ myOutfitIndex: changeToCard });
   }
 
   addToOutfit() {
     const { mainProductId } = this.props;
-    const { myOutfit } = this.state;
+    const { myOutfitArr } = this.state;
 
-    const newOutfit = myOutfit.slice();
+    const newOutfit = myOutfitArr.slice();
 
     newOutfit.unshift(mainProductId);
 
-    this.setState({ myOutfit: newOutfit });
+    this.setState({ myOutfitArr: newOutfit });
   }
 
   removeFromOutfit() {
-    const { myOutfit } = this.state;
-    const newOutfit = myOutfit.slice();
+    const { myOutfitArr } = this.state;
+    const newOutfit = myOutfitArr.slice();
 
     newOutfit.splice(0, 1);
 
-    this.setState({ myOutfit: newOutfit });
+    this.setState({ myOutfitArr: newOutfit });
   }
 
   render = () => {
-    const { mainProductId } = this.props;
-    const { myOutfit, myOutfitCarouselIndex } = this.state;
+    const { mainProductId, carouselType } = this.props;
+    const { myOutfitArr, myOutfitIndex } = this.state;
 
-    const cardDeck = myOutfit.slice();
+    const cardDeck = myOutfitArr.slice();
     let showHand = cardDeck;
 
     if (cardDeck.length < 3) {
@@ -70,7 +70,7 @@ class MyOutfitCarousel extends Component {
       }
     }
     if (cardDeck.length > 3) {
-      showHand = cardDeck.slice(myOutfitCarouselIndex, myOutfitCarouselIndex + 3);
+      showHand = cardDeck.slice(myOutfitIndex, myOutfitIndex + 3);
     }
 
     return (
@@ -92,7 +92,7 @@ class MyOutfitCarousel extends Component {
                 <div className="col-xs-3">
                   <OutfitCard
                     mainProductId={mainProductId}
-                    cardIndex={myOutfitCarouselIndex}
+                    cardIndex={myOutfitIndex}
                     handleClick={() => this.addToOutfit()}
                   />
                 </div>
@@ -101,7 +101,7 @@ class MyOutfitCarousel extends Component {
                     key={i}
                     mainProductId={mainProductId}
                     cardProductId={showHand[id]}
-                    carouselType="myOutfit"
+                    carouselType={carouselType}
                     carouselIndex={i}
                     buttonType="x"
                     handleDelete={this.removeFromOutfit}
