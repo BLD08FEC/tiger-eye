@@ -122,6 +122,8 @@ class Carousel extends Component {
         carouselIndex={suggestionsIndex}
         nextClick={this.next}
         handleClick={() => {}}
+        handleDelete={() => {}}
+        handleAdd={() => {}}
       />
     );
   }
