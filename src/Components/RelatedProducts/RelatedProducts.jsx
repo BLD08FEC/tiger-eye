@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 // import { Connect } from 'react-redux';
 import './RelatedProducts.scss';
@@ -15,16 +14,17 @@ class RelatedProducts extends Component {
   }
 
   render() {
+    const { mainProductId } = this.state;
     return (
       <div className="related-products-main">
         <div className="container-fluid">
           <div className="row carousel-title"><em>You might also like...</em></div>
           <div className="row related-products-carousel-parent">
-            <Carousel mainProductId={this.state.mainProductId} />
+            <Carousel mainProductId={mainProductId} />
           </div>
           <div className="row carousel-title"><em>Build your own outfit.</em></div>
           <div className="row my-outfit-carousel-parent">
-            <MyOutfitCarousel mainProductId={this.state.mainProductId} />
+            <MyOutfitCarousel mainProductId={mainProductId} />
           </div>
         </div>
       </div>

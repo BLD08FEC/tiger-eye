@@ -1,11 +1,10 @@
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import './OutfitCard.scss';
 
-const OutfitCard = (props) => (
+const OutfitCard = ({ handleClick }) => (
   <div
     className="rp-add-item-button"
-    onClick={props.handleClick}
+    onClick={handleClick}
     onKeyPress={() => {}}
     role="button"
     tabIndex={0}

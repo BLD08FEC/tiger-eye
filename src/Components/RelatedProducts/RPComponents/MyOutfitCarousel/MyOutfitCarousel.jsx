@@ -1,5 +1,3 @@
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import './MyOutfitCarousel.scss';
 import OutfitCard from '../OutfitCard/OutfitCard';
@@ -18,8 +16,10 @@ class MyOutfitCarousel extends Component {
   }
 
   next(direction) {
-    let changeToCard = this.state.myOutfitCarouselIndex;
-    const max = this.state.myOutfit.length;
+    const { myOutfitCarouselIndex, myOutfit } = this.state;
+
+    let changeToCard = myOutfitCarouselIndex;
+    const max = myOutfit.length;
 
     if (direction === 'left') {
       changeToCard -= 1;
@@ -38,15 +38,19 @@ class MyOutfitCarousel extends Component {
   }
 
   addToOutfit() {
-    const newOutfit = this.state.myOutfit.slice();
+    const { mainProductId } = this.props;
+    const { myOutfit } = this.state;
 
-    newOutfit.unshift(this.props.mainProductId);
+    const newOutfit = myOutfit.slice();
+
+    newOutfit.unshift(mainProductId);
 
     this.setState({ myOutfit: newOutfit });
   }
 
   removeFromOutfit() {
-    const newOutfit = this.state.myOutfit.slice();
+    const { myOutfit } = this.state;
+    const newOutfit = myOutfit.slice();
 
     newOutfit.splice(0, 1);
 
@@ -54,7 +58,10 @@ class MyOutfitCarousel extends Component {
   }
 
   render = () => {
-    const cardDeck = this.state.myOutfit.slice();
+    const { mainProductId } = this.props;
+    const { myOutfit, myOutfitCarouselIndex } = this.state;
+
+    const cardDeck = myOutfit.slice();
     let showHand = cardDeck;
 
     if (cardDeck.length < 3) {
@@ -63,7 +70,7 @@ class MyOutfitCarousel extends Component {
       }
     }
     if (cardDeck.length > 3) {
-      showHand = cardDeck.slice(this.state.myOutfitCarouselIndex, this.state.myOutfitCarouselIndex + 3);
+      showHand = cardDeck.slice(myOutfitCarouselIndex, myOutfitCarouselIndex + 3);
     }
 
     return (
@@ -84,15 +91,15 @@ class MyOutfitCarousel extends Component {
               <div className="row">
                 <div className="col-xs-3">
                   <OutfitCard
-                    mainProductId={this.props.mainProductId}
-                    cardIndex={this.state.myOutfitCarouselIndex}
+                    mainProductId={mainProductId}
+                    cardIndex={myOutfitCarouselIndex}
                     handleClick={() => this.addToOutfit()}
                   />
                 </div>
                 {showHand.map((i, id) => (
                   <ProductCard
                     key={i}
-                    mainProductId={this.props.mainProductId}
+                    mainProductId={mainProductId}
                     cardProductId={showHand[id]}
                     carouselType="myOutfit"
                     carouselIndex={i}

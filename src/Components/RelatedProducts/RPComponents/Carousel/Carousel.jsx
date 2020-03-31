@@ -1,5 +1,3 @@
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import './Carousel.scss';
 // import { connect } from 'react-redux';
@@ -30,9 +28,10 @@ class Carousel extends Component {
   }
 
   next(direction) {
-    // const { relatedArr, carouselIndex } = this.state;
-    let changeToCard = this.state.carouselIndex;
-    const max = this.state.relatedArr.length;
+    const { relatedArr, carouselIndex } = this.state;
+
+    let changeToCard = carouselIndex;
+    const max = relatedArr.length;
 
     if (direction === 'left') {
       changeToCard -= 1;
@@ -51,7 +50,10 @@ class Carousel extends Component {
   }
 
   render = () => {
-    const cardDeck = this.state.relatedArr.slice();
+    const { mainProductId } = this.props;
+    const { relatedArr, carouselIndex } = this.state;
+
+    const cardDeck = relatedArr.slice();
     let showHand = cardDeck;
 
     if (cardDeck.length < 4) {
@@ -60,7 +62,7 @@ class Carousel extends Component {
       }
     }
     if (cardDeck.length > 4) {
-      showHand = cardDeck.slice(this.state.carouselIndex, this.state.carouselIndex + 4);
+      showHand = cardDeck.slice(carouselIndex, carouselIndex + 4);
     }
 
     return (
@@ -84,7 +86,7 @@ class Carousel extends Component {
                     <ProductCard
                       // eslint-disable-next-line no-sequences
                       key={i, id}
-                      mainProductId={this.props.mainProductId}
+                      mainProductId={mainProductId}
                       cardProductId={showHand[id]}
                       carouselType="suggestions"
                       carouselIndex={i}
