@@ -17,14 +17,15 @@
 
 .rp-modal-suggestions-pop-up-main {
     // position: fixed;
-    width: 360px;
-    height: 360px;
-    transform: translate3d(0, 0, 1);
+    width: 385px;
+    height: 500px;
+    transform: translate3d(200px, 0, 1);
     // margin: -148px;
     padding-top: 20px;
-    border: solid 5px black;
+    // border: solid 5px black;
+    color: whitesmoke;
     background-color: #212529;
-    background: salmon;
+    // background-color: salmon;
 }
 
 .rp-modal-suggestions-pop-up-button {
