@@ -24,7 +24,7 @@ class RelatedProducts extends Component {
           </div>
           <div className="row carousel-title"><em>Build your own outfit.</em></div>
           <div className="row my-outfit-carousel-parent">
-            <MyOutfitCarousel mainProductId={mainProductId} carouselType="myOutfit" />
+            <Carousel mainProductId={mainProductId} carouselType="myOutfit" />
           </div>
         </div>
       </div>

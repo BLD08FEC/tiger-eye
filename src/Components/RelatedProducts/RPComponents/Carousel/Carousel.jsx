@@ -5,7 +5,9 @@ import './Carousel.scss';
 // import {
 //   RPincrement, /* RPincrementReset, */ RPdecrement, /* RPdecrementReset, */
 // } from '../../../../data/actions/relatedProductsAction';
+import SuggestionsCarousel from '../SuggestionsCarousel/SuggestionsCarousel';
 import ProductCard from '../ProductCard/ProductCard';
+import MyOutfitCarousel from '../MyOutfitCarousel/MyOutfitCarousel';
 // import helperAPI from '../../../../Shared/api';
 
 class Carousel extends Component {
@@ -38,10 +40,12 @@ class Carousel extends Component {
 
     let changeToCard = suggestionsIndex;
     let max = suggestionsArr.length;
+    let numberOfCards = 4;
 
     if (carouselType === 'myOutfit') {
       changeToCard = myOutfitIndex;
       max = myOutfitArr.length;
+      numberOfCards = 3;
     }
 
     if (direction === 'left') {
@@ -50,11 +54,11 @@ class Carousel extends Component {
     if (direction === 'right') {
       changeToCard += 1;
     }
-    if (changeToCard > max - 4) { // alter this to be dynamic based on number of related products
+    if (changeToCard > max - numberOfCards) { // alter this to be dynamic based on number of related products
       changeToCard = 0;
     }
     if (changeToCard < 0) { // alter this to be dynamic based on number of related products
-      changeToCard = max - 4;
+      changeToCard = max - numberOfCards;
     }
 
     if (carouselType === 'myOutfit') {
@@ -67,7 +71,7 @@ class Carousel extends Component {
     const { mainProductId, carouselType } = this.props;
     const { myOutfitArr } = this.state;
 
-    if (carouselType === '') {
+    if (carouselType === 'myOutfit') {
       const newOutfit = myOutfitArr.slice();
 
       newOutfit.unshift(mainProductId);
@@ -82,7 +86,7 @@ class Carousel extends Component {
 
     const newOutfit = myOutfitArr.slice();
 
-    if (carouselType === '') {
+    if (carouselType === 'myOutfit') {
       newOutfit.splice(0, 1);
 
       this.setState({ myOutfitArr: newOutfit });
@@ -91,64 +95,35 @@ class Carousel extends Component {
 
   render = () => {
     const { mainProductId, carouselType } = this.props;
-    const { suggestionsArr, suggestionsIndex } = this.state;
+    const {
+      myOutfitArr, myOutfitIndex, suggestionsArr, suggestionsIndex,
+    } = this.state;
 
-    const cardDeck = suggestionsArr.slice();
-    let showHand = cardDeck;
-
-    if (cardDeck.length < 4) {
-      for (let i = cardDeck.length; i <= 4; i += 1) {
-        showHand.push(0);
-      }
+    if (carouselType === 'myOutfit') {
+      return (
+        <MyOutfitCarousel
+          mainProductId={mainProductId}
+          carouselType={carouselType}
+          carouselArr={myOutfitArr}
+          carouselIndex={myOutfitIndex}
+          nextClick={this.next}
+          handleClick={() => {}}
+          handleDeleteFromOutfit={this.removeFromOutfit}
+          handleAddToOutfit={this.addToOutfit}
+        />
+      );
     }
-    if (cardDeck.length > 4) {
-      showHand = cardDeck.slice(suggestionsIndex, suggestionsIndex + 4);
-    }
-
     return (
-      <div className="container-fluid rp-carousel-main">
-        <div className="row">
-          <div
-            className="col-xs-1 col-sm-1 rp-carousel-arrow"
-            onClick={() => this.next('left')}
-            onKeyPress={() => {}}
-            role="button"
-            tabIndex={0}
-          >
-            <div>&#9664;</div>
-          </div>
-          <div className="col-xs-10">
-
-            <div className="container-fluid">
-              <div className="row">
-                {showHand.map((i, id) => (
-                  <div className="col-xs-3">
-                    <ProductCard
-                      // eslint-disable-next-line no-sequences
-                      key={i, id}
-                      mainProductId={mainProductId}
-                      cardProductId={showHand[id]}
-                      carouselType={carouselType}
-                      suggestionsIndex={i}
-                      buttonType="+"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-          <div
-            className="col-xs-1 col-sm-1 rp-carousel-arrow"
-            onClick={() => this.next('right')}
-            onKeyPress={() => {}}
-            role="button"
-            tabIndex={0}
-          >
-            <div>&#9654;</div>
-          </div>
-        </div>
-      </div>
+      <SuggestionsCarousel
+        mainProductId={mainProductId}
+        carouselType={carouselType}
+        carouselArr={suggestionsArr}
+        carouselIndex={suggestionsIndex}
+        nextClick={this.next}
+        handleClick={() => {}}
+        handleDeleteFromOutfit={() => {}}
+        handleAddToOutfit={() => {}}
+      />
     );
   }
 }
