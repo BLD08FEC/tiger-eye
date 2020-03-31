@@ -6,7 +6,6 @@ import './Carousel.scss';
 //   RPincrement, /* RPincrementReset, */ RPdecrement, /* RPdecrementReset, */
 // } from '../../../../data/actions/relatedProductsAction';
 import SuggestionsCarousel from '../SuggestionsCarousel/SuggestionsCarousel';
-import ProductCard from '../ProductCard/ProductCard';
 import MyOutfitCarousel from '../MyOutfitCarousel/MyOutfitCarousel';
 // import helperAPI from '../../../../Shared/api';
 
