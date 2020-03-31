@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import './ModalDashboard.scss';
 import ModalComparisonCard from '../ModalComparisonCard/ModalComparisonCard';
@@ -20,29 +16,37 @@ class ModalDashboard extends React.Component {
   }
 
   changeModalVisibility = () => {
+    const { carouselType } = this.props;
+    const { showSuggestionsModal, showMyOutfitModal } = this.state;
     let newVisibility;
 
-    if (this.props.carouselType === 'suggestions') {
-      newVisibility = !this.state.showSuggestionsModal;
+    if (carouselType === 'suggestions') {
+      newVisibility = !showSuggestionsModal;
       this.setState({ showSuggestionsModal: newVisibility });
     }
 
-    if (this.props.carouselType === 'myOutfit') {
-      newVisibility = !this.state.showMyOutfitModal;
+    if (carouselType === 'myOutfit') {
+      newVisibility = !showMyOutfitModal;
       this.setState({ showMyOutfitModal: newVisibility });
     }
   }
 
   confirmedDeletionFromMyOutfit = () => {
+    const { handleDelete } = this.props;
     this.changeModalVisibility();
-    this.props.handleDelete();
+    handleDelete();
   }
 
   render() {
+    const {
+      mainProductId, cardProductId, carouselType, carouselIndex, buttonType,
+    } = this.props;
+    const { showSuggestionsModal, showMyOutfitModal } = this.state;
+
     return (
       <div className="modal-dashboard">
         <SuggestionsModalPopUp
-          show={this.state.showSuggestionsModal}
+          show={showSuggestionsModal}
           handleChangeVisibility={this.changeModalVisibility}
         >
           <div className="container-fluid">
@@ -50,21 +54,21 @@ class ModalDashboard extends React.Component {
               <div className="col-xs-6">
                 <ModalComparisonCard
                   // key={i}
-                  mainProductId={this.props.mainProductId}
-                  cardProductId={this.props.mainProductId}
-                  carouselType={this.props.carouselType}
-                  carouselIndex={this.props.carouselIndex}
-                  buttonType={this.props.buttonType}
+                  mainProductId={mainProductId}
+                  cardProductId={mainProductId}
+                  carouselType={carouselType}
+                  carouselIndex={carouselIndex}
+                  buttonType={buttonType}
                 />
               </div>
               <div className="col-xs-6">
                 <ModalComparisonCard
                   // key={i}
-                  mainProductId={this.props.mainProductId}
-                  cardProductId={this.props.cardProductId}
-                  carouselType={this.props.carouselType}
-                  carouselIndex={this.props.carouselIndex}
-                  buttonType={this.props.buttonType}
+                  mainProductId={mainProductId}
+                  cardProductId={cardProductId}
+                  carouselType={carouselType}
+                  carouselIndex={carouselIndex}
+                  buttonType={buttonType}
                 />
               </div>
             </div>
@@ -73,7 +77,7 @@ class ModalDashboard extends React.Component {
         {/* <div className="container-fluid"> */}
         <MyOutfitModalPopUp
           className="rp-modal-my-outfit-are-you-sure-delete-text"
-          show={this.state.showMyOutfitModal}
+          show={showMyOutfitModal}
           handleConfirmVisibility={this.confirmedDeletionFromMyOutfit}
           handleCancelVisibility={this.changeModalVisibility}
         >
@@ -82,7 +86,15 @@ class ModalDashboard extends React.Component {
           </div>
         </MyOutfitModalPopUp>
         {/* </div> */}
-        <div className="rp-modal-show-button" onClick={this.changeModalVisibility}>{this.props.buttonType}</div>
+        <div
+          className="rp-modal-show-button"
+          onClick={this.changeModalVisibility}
+          onKeyPress={() => {}}
+          role="button"
+          tabIndex={0}
+        >
+          {buttonType}
+        </div>
       </div>
     );
   }

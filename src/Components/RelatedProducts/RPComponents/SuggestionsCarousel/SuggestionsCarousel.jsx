@@ -1,21 +1,20 @@
 import React from 'react';
-import './MyOutfitCarousel.scss';
-import OutfitCard from '../OutfitCard/OutfitCard';
+import './SuggestionsCarousel.scss';
 import ProductCard from '../ProductCard/ProductCard';
 
-const MyOutfitCarousel = ({
-  carouselArr, carouselIndex, mainProductId, carouselType, nextClick, handleDelete, handleAdd,
+const SuggestionsCarousel = ({
+  carouselArr, carouselIndex, mainProductId, carouselType, nextClick,
 }) => {
   const cardDeck = carouselArr.slice();
   let showHand = cardDeck;
 
-  if (cardDeck.length < 3) {
-    for (let i = cardDeck.length; i <= 3; i += 1) {
+  if (cardDeck.length < 4) {
+    for (let i = cardDeck.length; i <= 4; i += 1) {
       showHand.push(0);
     }
   }
-  if (cardDeck.length > 3) {
-    showHand = cardDeck.slice(carouselIndex, carouselIndex + 3);
+  if (cardDeck.length > 4) {
+    showHand = cardDeck.slice(carouselIndex, carouselIndex + 4);
   }
 
   return (
@@ -34,23 +33,18 @@ const MyOutfitCarousel = ({
 
           <div className="container-fluid">
             <div className="row">
-              <div className="col-xs-3">
-                <OutfitCard
-                  mainProductId={mainProductId}
-                  cardIndex={carouselIndex}
-                  handleClick={() => handleAdd()}
-                />
-              </div>
               {showHand.map((i, id) => (
-                <ProductCard
-                  key={i}
-                  mainProductId={mainProductId}
-                  cardProductId={showHand[id]}
-                  carouselType={carouselType}
-                  carouselIndex={id}
-                  buttonType="x"
-                  handleDelete={() => handleDelete(id)}
-                />
+                <div className="col-xs-3">
+                  <ProductCard
+                      // eslint-disable-next-line no-sequences
+                    key={i, id}
+                    mainProductId={mainProductId}
+                    cardProductId={showHand[id]}
+                    carouselType={carouselType}
+                    suggestionsIndex={i}
+                    buttonType="+"
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -70,5 +64,4 @@ const MyOutfitCarousel = ({
   );
 };
 
-
-export default MyOutfitCarousel;
+export default SuggestionsCarousel;
