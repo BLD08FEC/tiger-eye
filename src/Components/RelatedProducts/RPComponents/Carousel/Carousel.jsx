@@ -12,8 +12,10 @@ class Carousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      carouselIndex: 0,
-      relatedArr: [],
+      myOutfitArr: [9, 8, 7, 6, 5, 4, 3, 2],
+      myOutfitIndex: 0,
+      suggestionsIndex: 0,
+      suggestionsArr: [],
     };
     this.next = this.next.bind(this);
   }
@@ -23,15 +25,15 @@ class Carousel extends Component {
     // eslint-disable-next-line no-undef
     fetch(`http://52.26.193.201:3000/products/${mainProductId}/related`)
       .then((res) => res.json())
-      .then((data) => this.setState({ relatedArr: data }))
+      .then((data) => this.setState({ suggestionsArr: data }))
       .catch((err) => err);
   }
 
   next(direction) {
-    const { relatedArr, carouselIndex } = this.state;
+    const { suggestionsArr, suggestionsIndex } = this.state;
 
-    let changeToCard = carouselIndex;
-    const max = relatedArr.length;
+    let changeToCard = suggestionsIndex;
+    const max = suggestionsArr.length;
 
     if (direction === 'left') {
       changeToCard -= 1;
@@ -46,14 +48,34 @@ class Carousel extends Component {
       changeToCard = max - 4;
     }
 
-    this.setState({ carouselIndex: changeToCard });
+    this.setState({ suggestionsIndex: changeToCard });
+  }
+
+  addToOutfit() {
+    const { mainProductId } = this.props;
+    const { myOutfitArr } = this.state;
+
+    const newOutfit = myOutfitArr.slice();
+
+    newOutfit.unshift(mainProductId);
+
+    this.setState({ myOutfitArr: newOutfit });
+  }
+
+  removeFromOutfit() {
+    const { myOutfitArr } = this.state;
+    const newOutfit = myOutfitArr.slice();
+
+    newOutfit.splice(0, 1);
+
+    this.setState({ myOutfitArr: newOutfit });
   }
 
   render = () => {
     const { mainProductId } = this.props;
-    const { relatedArr, carouselIndex } = this.state;
+    const { suggestionsArr, suggestionsIndex } = this.state;
 
-    const cardDeck = relatedArr.slice();
+    const cardDeck = suggestionsArr.slice();
     let showHand = cardDeck;
 
     if (cardDeck.length < 4) {
@@ -62,7 +84,7 @@ class Carousel extends Component {
       }
     }
     if (cardDeck.length > 4) {
-      showHand = cardDeck.slice(carouselIndex, carouselIndex + 4);
+      showHand = cardDeck.slice(suggestionsIndex, suggestionsIndex + 4);
     }
 
     return (
@@ -89,7 +111,7 @@ class Carousel extends Component {
                       mainProductId={mainProductId}
                       cardProductId={showHand[id]}
                       carouselType="suggestions"
-                      carouselIndex={i}
+                      suggestionsIndex={i}
                       buttonType="+"
                     />
                   </div>
