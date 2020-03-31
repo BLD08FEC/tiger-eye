@@ -39,7 +39,7 @@ class ModalDashboard extends React.Component {
 
   render() {
     const {
-      mainProductId, cardProductId, carouselType, carouselIndex, buttonType, handleDelete,
+      mainProductId, cardProductId, carouselType, carouselIndex, buttonType,
     } = this.props;
     const { showSuggestionsModal, showMyOutfitModal } = this.state;
 
