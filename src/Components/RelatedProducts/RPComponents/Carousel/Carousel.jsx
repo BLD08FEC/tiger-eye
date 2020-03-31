@@ -81,14 +81,14 @@ class Carousel extends Component {
     }
   }
 
-  removeFromOutfit() {
+  removeFromOutfit(id) {
     const { carouselType } = this.props;
-    const { myOutfitArr } = this.state;
+    const { myOutfitArr, myOutfitIndex } = this.state;
 
     const newOutfit = myOutfitArr.slice();
 
     if (carouselType === 'myOutfit') {
-      newOutfit.splice(0, 1);
+      newOutfit.splice(id + myOutfitIndex, 1);
 
       this.setState({ myOutfitArr: newOutfit });
     }

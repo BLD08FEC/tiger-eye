@@ -47,9 +47,9 @@ const MyOutfitCarousel = ({
                   mainProductId={mainProductId}
                   cardProductId={showHand[id]}
                   carouselType={carouselType}
-                  carouselIndex={i}
+                  carouselIndex={id}
                   buttonType="x"
-                  handleDelete={() => handleDelete()}
+                  handleDelete={() => handleDelete(id)}
                 />
               ))}
             </div>
