@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './MyOutfitCarousel.scss';
 import OutfitCard from '../OutfitCard/OutfitCard';
 import ProductCard from '../ProductCard/ProductCard';
 
 const MyOutfitCarousel = ({
-  carouselArr, carouselIndex, mainProductId, carouselType, nextClick, handleDeleteFromOutfit, handleAddToOutfit,
+  carouselArr, carouselIndex, mainProductId, carouselType, nextClick, handleDelete, handleAdd,
 }) => {
   const cardDeck = carouselArr.slice();
   let showHand = cardDeck;
@@ -38,7 +38,7 @@ const MyOutfitCarousel = ({
                 <OutfitCard
                   mainProductId={mainProductId}
                   cardIndex={carouselIndex}
-                  handleClick={() => handleAddToOutfit()}
+                  handleClick={() => handleAdd()}
                 />
               </div>
               {showHand.map((i, id) => (
@@ -49,7 +49,7 @@ const MyOutfitCarousel = ({
                   carouselType={carouselType}
                   carouselIndex={i}
                   buttonType="x"
-                  handleDelete={() => handleDeleteFromOutfit()}
+                  handleDelete={() => handleDelete()}
                 />
               ))}
             </div>
