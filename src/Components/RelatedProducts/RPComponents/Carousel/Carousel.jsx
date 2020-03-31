@@ -19,6 +19,8 @@ class Carousel extends Component {
       suggestionsArr: [],
     };
     this.next = this.next.bind(this);
+    this.addToOutfit = this.addToOutfit.bind(this);
+    this.removeFromOutfit = this.removeFromOutfit.bind(this);
   }
 
   componentDidMount() {
@@ -107,8 +109,8 @@ class Carousel extends Component {
           carouselIndex={myOutfitIndex}
           nextClick={this.next}
           handleClick={() => {}}
-          handleDeleteFromOutfit={this.removeFromOutfit}
-          handleAddToOutfit={this.addToOutfit}
+          handleDelete={this.removeFromOutfit}
+          handleAdd={this.addToOutfit}
         />
       );
     }
@@ -120,8 +122,6 @@ class Carousel extends Component {
         carouselIndex={suggestionsIndex}
         nextClick={this.next}
         handleClick={() => {}}
-        handleDeleteFromOutfit={() => {}}
-        handleAddToOutfit={() => {}}
       />
     );
   }
