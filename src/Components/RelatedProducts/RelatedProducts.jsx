@@ -20,11 +20,11 @@ class RelatedProducts extends Component {
         <div className="container-fluid">
           <div className="row carousel-title"><em>You might also like...</em></div>
           <div className="row related-products-carousel-parent">
-            <Carousel mainProductId={mainProductId} />
+            <Carousel mainProductId={mainProductId} carouselType="suggestions" />
           </div>
           <div className="row carousel-title"><em>Build your own outfit.</em></div>
           <div className="row my-outfit-carousel-parent">
-            <MyOutfitCarousel mainProductId={mainProductId} />
+            <MyOutfitCarousel mainProductId={mainProductId} carouselType="myOutfit" />
           </div>
         </div>
       </div>
