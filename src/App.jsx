@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import ProductOverview from './Components/ProductOverview/ProductOverview';
-import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAnswers';
+// import ProductOverview from './Components/ProductOverview/ProductOverview';
+// import QuestionsAndAnswers from './Components/QuestionsAndAnswers/QuestionsAndAnswers';
 import RelatedProducts from './Components/RelatedProducts/RelatedProducts';
-import Reviews from './Components/Reviews/Reviews';
+// import Reviews from './Components/Reviews/Reviews';
+import RatingsAndReviews from './Components/RatingsAndReviews/RatingsAndReviews';
 import logo from './Shared/Logo/tigerEye.png';
 import Search from './Shared/Search/search';
 import Cart from './Shared/Cart/cart';
@@ -39,10 +40,11 @@ class App extends Component {
             <Search />
             <Cart />
           </div>
-          <div className="row"><ProductOverview /></div>
+          {/* <div className="row"><ProductOverview /></div> */}
           <div className="row"><RelatedProducts /></div>
-          <div className="row"><QuestionsAndAnswers /></div>
-          <div className="row"><Reviews /></div>
+          <div className="row"><RatingsAndReviews /></div>
+          {/* <div className="row"><QuestionsAndAnswers /></div> */}
+          {/* <div className="row"><Reviews /></div> */}
         </div>
       </div>
     );

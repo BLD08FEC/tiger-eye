@@ -37,7 +37,7 @@ const SuggestionsCarousel = ({
                 <div className="col-xs-3">
                   <ProductCard
                       // eslint-disable-next-line no-sequences
-                    key={i, id}
+                    key={i}
                     mainProductId={mainProductId}
                     cardProductId={showHand[id]}
                     carouselType={carouselType}

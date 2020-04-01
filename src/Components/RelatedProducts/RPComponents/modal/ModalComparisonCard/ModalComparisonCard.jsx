@@ -5,6 +5,7 @@ import EmptyCard from '../../EmptyCard/EmptyCard';
 // import ProductCardImage from '../../ProductCardImage/ProductCardImage';
 import Stars from '../../../../../Shared/Stars';
 // import helperApi from '../../../../Shared/api';
+import Products from '../../../dummyDataProducts';
 
 const ModalComparisonCard = ({
   mainProductId, cardProductId, carouselType, carouselIndex, buttonType,
@@ -12,11 +13,13 @@ const ModalComparisonCard = ({
   const [card, setCard] = useState({ });
 
   useEffect(() => {
+    setCard(Products[cardProductId]);
+
     // eslint-disable-next-line no-undef
-    fetch(`http://52.26.193.201:3000/products/${cardProductId}`)
-      .then((res) => res.json())
-      .then((cardData) => setCard(cardData))
-      .catch((err) => err);
+    // fetch(`http://52.26.193.201:3000/products/${cardProductId}`)
+    //   .then((res) => res.json())
+    //   .then((cardData) => setCard(cardData))
+    //   .catch((err) => err);
   });
 
   if (card.id === undefined) {
