@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './RatingArea.scss';
 import RatingsAreaAverage from '../RatingAreaAverage/RatingAreaAverage';
 import RatingsAreaRecommendations from '../RatingAreaRecommendations/RatingAreaRecommendations';
 import RatingsAreaBreakdown from '../RatingAreaBreakdown/RatingAreaBreakdown';
 
-const RatingArea = () => (
+const RatingArea = ({
+  ratings, recommended, characteristics,
+}) => (
   <div className="container-fluid">
     <div className="row">
-      <RatingsAreaAverage />
+      <RatingsAreaAverage data={ratings} />
     </div>
     <div className="row">
-      <RatingsAreaRecommendations />
+      <RatingsAreaRecommendations data={recommended} />
     </div>
     <div className="row">
-      <RatingsAreaBreakdown />
+      <RatingsAreaBreakdown data={characteristics} />
     </div>
   </div>
 );
+
 
 export default RatingArea;

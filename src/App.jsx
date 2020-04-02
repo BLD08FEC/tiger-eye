@@ -11,6 +11,7 @@ import RatingsAndReviews from './Components/RatingsAndReviews/RatingsAndReviews'
 import logo from './Shared/Logo/tigerEye.png';
 import Search from './Shared/Search/search';
 import Cart from './Shared/Cart/cart';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './Shared/Logo/logo.scss';
 import './Shared/Header/header.scss';
 
